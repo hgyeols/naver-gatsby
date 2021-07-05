@@ -31,6 +31,7 @@ const LNBoutside = styled('div')`
 const Main = styled('div')`
   display: flex;
   justify-content: flex-start;
+  position: relative;
 `;
 
 const Content = styled('main')`

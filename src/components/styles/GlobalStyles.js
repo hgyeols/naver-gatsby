@@ -151,7 +151,7 @@ export const baseStyles = css`
 
   /* 
     
-    Markdown section 
+    Page section 
   
   */
 
@@ -160,6 +160,17 @@ export const baseStyles = css`
     // align-items: center;
   }
 
+  .tabMainWrapper {
+
+  }
+
+  /* .tabMainPhoto {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fafafa;
+  } */
+
   .titleDescription {
     padding-bottom: 66px;
     font-weight: 400;
@@ -167,6 +178,15 @@ export const baseStyles = css`
     letter-spacing: -0.017em;
     line-height: 1.6;
     color: #424242;
+  }
+
+  .titleDescriptionTabMain {
+    padding-bottom: 44px;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: -0.017em;
+    line-height: 1.6;
+    color: #131313;
   }
 
   .addPaddTopBottom {
@@ -855,6 +875,7 @@ export const baseStyles = css`
 
       a {
         text-decoration: solid underline #d1d1d1 !important;
+        text-underline-position: under;
       }
     }
 
@@ -932,10 +953,12 @@ export const baseStyles = css`
 
       a {
         text-decoration: solid underline #d1d1d1;
+        text-underline-position: under;
       }
 
       a:hover {
         text-decoration: solid underline #424242;
+        text-underline-position: under;
       }
 
       span {

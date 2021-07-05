@@ -6,7 +6,7 @@ import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import { Layout, Link } from '$components';
 import NextPrevious from './NextPrevious';
 import config from '../../config';
-import { StyledHeading, StyledMainWrapper, Divider } from './styles/guide';
+import { StyledHeading, StyledHeadingTabMain, StyledMainWrapper, Divider } from './styles/guide';
 
 const forcedNavOrder = [];
 
@@ -91,18 +91,33 @@ export default class MDXRuntimeTest extends Component {
           ) : null}
           <link rel="canonical" href={canonicalUrl} />
         </Helmet>
-        {/* { mdx.frontmatter.template === 'whatsnew' ? */}
-        <div className={'titleWrapper'}>
-          <StyledHeading>{mdx.fields.title}</StyledHeading> 
-          {titleDescription && <div className={'titleDescription'}>{mdx.frontmatter.titleDescription}</div>}
-          <Divider />
-        </div>
-        <StyledMainWrapper>
-          <MDXRenderer>{mdx.body}</MDXRenderer>
-        </StyledMainWrapper>
-        <div className={'addPaddTopBottom'}>
-          <NextPrevious mdx={mdx} nav={nav} />
-        </div>
+        { mdx.frontmatter.template === 'tabMain' ?
+          <div className={'tabMainWrapper'}>
+            <div className={'tabMainPhoto'}>
+              
+            </div>
+            <div className={'titleWrapperTabMain'}>
+              <StyledHeadingTabMain>{mdx.fields.title}</StyledHeadingTabMain> 
+              {titleDescription && <div className={'titleDescriptionTabMain'}>{mdx.frontmatter.titleDescription}</div>}
+              <Divider />
+            </div>
+          </div>
+          :
+          <div className={'defaultWrapper'}>
+            <div className={'titleWrapper'}>
+              <StyledHeading>{mdx.fields.title}</StyledHeading> 
+              {titleDescription && <div className={'titleDescription'}>{mdx.frontmatter.titleDescription}</div>}
+              <Divider />
+            </div>
+            <StyledMainWrapper>
+              <MDXRenderer>{mdx.body}</MDXRenderer>
+            </StyledMainWrapper>
+            <div className={'addPaddTopBottom'}>
+              <NextPrevious mdx={mdx} nav={nav} />
+            </div>
+          </div>
+        }
+
         
       </Layout>
     );

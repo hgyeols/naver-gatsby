@@ -1,5 +1,5 @@
 ---
-title: "TEST TITLEdd" # TITLE 영역에 표시 
+title: "TEST Title + down" # TITLE 영역에 표시 
 part: "UX Writing" # LNB part
 template: "docs" 
 order: "2" # readme.md 참조

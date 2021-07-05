@@ -21,27 +21,6 @@ const plugins = [
         component: require.resolve(`./src/components/templates.js`)
     }
   },
-  // {
-  //   resolve: "gatsby-source-filesystem", 
-  //   options: {
-  //     name: "about", // 단순 구분용 이름
-  //     path: `${__dirname}/content/about/`
-  //   }
-  // },
-  // {
-  //   resolve: "gatsby-source-filesystem", 
-  //   options: {
-  //     name: "design", // 단순 구분용 이름
-  //     path: `${__dirname}/content/design/`
-  //   }
-  // },
-  // {
-  //   resolve: "gatsby-source-filesystem", 
-  //   options: {
-  //     name: "components", // 단순 구분용 이름
-  //     path: `${__dirname}/content/components/`
-  //   }
-  // },
     {
     resolve: "gatsby-source-filesystem", 
     options: {
