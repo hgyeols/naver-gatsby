@@ -52,7 +52,6 @@ export const baseStyles = css`
   div {
     margin: 0;
     padding: 0;
-    font-size: 0px; 
   }
 
   .visibleMobileOnly {
