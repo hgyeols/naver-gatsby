@@ -1,6 +1,7 @@
 ---
 title: "Character"
 part: ""
+order: "2"
 template: "docs"
 metaTitle: "Syntax Highlighting is the meta title tag for this page"
 metaDescription: "This is the meta description for this page"

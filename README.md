@@ -1,8 +1,8 @@
 # NAVER DESIGN
 
-**21.06.31**
-- 가이드 라이브 버전: https://starry99.github.io/naver-test/ux-writing/aboutux/test/td 
-- 가이드 markdown raw 파일: https://raw.githubusercontent.com/starry99/naver-test/dev/content/ux-writing/aboutux/test/td.md
+**21.07.04**
+- 가이드 라이브 버전: https://starry99.github.io/naver-gastby/ux-writing/aboutux/test/td 
+- 가이드 markdown raw 파일: https://raw.githubusercontent.com/starry99/naver-gatsby/dev/content/ux-writing/aboutux/test/td.md
 
 아래에 Develop 파트를 따라하신 후, VSCode를 이용한 local 설정을 하신 다음에, VSCode로 /content/ux-writing/aboutux/test/td.md 열고 이를 참고하시며 작업하시면 됩니다.
 
@@ -16,7 +16,7 @@
 이때 해당 폴더 내부에 소속된 markdown 파일 LNB에 나타나며, 모든 markdown 파일의
 - frontmatter 중 title 항목에 따라, LNB에 나타나는 텍스트가 바뀝니다. (파일명과는 상관없음)
 - frontmatter 중 part 항목을 지정해야, LNB에서 해당 대분류 아래에 나타납니다. (part가 없다면 공란)
-- frontmatter 중 order 항목에 따라, LNB에서의 순서가 변합니다.
+- frontmatter 중 order 항목에 따라, LNB에서의 순서가 변합니다. 각 depth 별로 별개로 order가 작동하며, 숫자는 작은 순서가 위로 배치됩니다. 숫자의 크기는 상관없습니다.
 - frontmatter 중 template 항목에 따라, markdown 파일의 template이 변합니다.
 
 #### 1-Depth

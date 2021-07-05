@@ -8,6 +8,7 @@ const Link = ({ to, ...props }) =>
       {props.children}
     </a>
   ) : (
+    
     <GatsbyLink to={to} {...props} />
   );
 

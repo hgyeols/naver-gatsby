@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from 'gatsby';
 
 // import Link from './link';
 import config from '../../config';
-import { Sidebar, ListItem } from './styles/Sidebar';
+import { Sidebar, ListItem } from './styles/RightSidebarStyles';
 
 const SidebarLayout = ({ location }) => (
   <StaticQuery

@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-// import Tree from './tree';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import config from '../../../config';
 import TreeNode from './treeNode';
 
 const calculateTreeData = ( edges ) => {
-  // console.log('test1: edges ', edges)
+
   const withoutServicePage = config.lnb.ignoreIndex 
     ? edges.filter(
         ({
@@ -17,7 +16,6 @@ const calculateTreeData = ( edges ) => {
       }) => !slug.includes('index')
       )
     : edges;
-  // console.log('test2: withoutServicePage ', withoutServicePage)
 
   // withoutServicePage 배열의 current value를 돌고, 결과를 accu에 return함
   const tree = withoutServicePage.reduce(
@@ -26,22 +24,18 @@ const calculateTreeData = ( edges ) => {
       { 
         node: { // current value
           fields: { slug, title }, 
+          frontmatter : { order },
         },
       }
     ) => {
-      const parts = slug.split('/'); // depth별로 저장 /about/1/2.md면 about,1,2
-      // console.log('test3: parts ', parts)
-      // console.log('test3.5: accu ', accu) 
-      let { items: prevItems } = accu; // let prevItems = accu.items
-      // console.log('test4: prevItems ', prevItems)
-      // 지금 폴더 구조가 /content(0)/%%GNB MENU NAME%%(1)/~~(2).md 이므로 2번부터 slice
-      const slicedParts = parts.slice(2, -1); // md가 1 depth에 위치하면 값이 없음
-      // console.log('test5: slicedParts ', slicedParts) 
+      const parts = slug.split('/'); // depth별로 나눔 /about/1/2.md면 about,1,2
 
-      for (const part of slicedParts) { // depth 2 이상에 위치한 md일때
-        // console.log('test6: part ', part)
+      let { items: prevItems } = accu; // let prevItems = accu.items
+
+      const slicedParts = parts.slice(2, -1); // md가 1 depth(ex. /content/ux-writing/~~.md)에 위치하면 값이 없음
+
+      for (const part of slicedParts) { // depth 2 이상에(ex. /content/ux-writing/aboutux/~~.md) 위치한 md일때
         let tmp = prevItems && prevItems.find(({ label }) => label == part); // 폴더와 같은 이름의 md파일을 찾음
-        // console.log('test7: tmp ', tmp)
         if (tmp) { // 같은 이름의 md가 있다면
           if (!tmp.items) {
             tmp.items = [];
@@ -50,38 +44,35 @@ const calculateTreeData = ( edges ) => {
           tmp = { label: part, items: [] };
           prevItems.push(tmp);
         }
-        // console.log('test8: tmp.items ', tmp.items)
         prevItems = tmp.items;
       }
       const depthLength = parts.length - 2; // 1 depth면 1
-      // console.log('test8: depthLength ', depthLength)
       const existingItem = prevItems.find(({ label }) => label === parts[depthLength+1]); // 이미 중복 존재하는 md인지 확인
-      // console.log('test8: existingItem ', existingItem) 
+
       if (existingItem) {
         existingItem.url = slug;
         existingItem.title = title;
+        existingItem.order = order;
       } else {
         prevItems.push({
           label: parts[depthLength+1],
           url: slug,
           items: [],
           title,
+          order,
         });
       }
       return accu;
     },
     { items: [] } // initial value
   );
-  // console.log('test! tree : ', tree)
 
-  const {
-    lnb: { forcedNavOrder = [] },
-  } = config;
-
-  const tmp = [...forcedNavOrder];
+  const tmp = [];
 
   tmp.reverse();
+  
   return tmp.reduce((accu, slug) => {
+
     const parts = slug.split('/');
 
     let { items: prevItems } = accu;
@@ -171,11 +162,36 @@ const Divider = styled(props => (
 
 const FilteredLNB = ( props ) => {
   let LNBobject = props.finalLNB
-
   let calculatedLNBobject = {} // tree구조가 됨
   Object.keys(LNBobject).forEach((key) => {
     if (key !== "") {
+      // console.log('calculate됨!',' + ', key, ' + ', LNBobject[key])
       calculatedLNBobject[key] = calculateTreeData(LNBobject[key])
+    }
+  })
+
+
+  Object.keys(calculatedLNBobject).forEach((key) => {
+    if (key !== "") {
+      // depth-1 sort
+      if (calculatedLNBobject[key].items.length > 1) {
+        calculatedLNBobject[key].items.sort((a,b) => {
+          return a.order - b.order;
+        })
+      }
+    }
+  })
+
+  Object.keys(calculatedLNBobject).forEach((key) => {
+    if (key !== "") {
+      // depth-2 sort
+      if (calculatedLNBobject[key].items.length > 0) {
+        calculatedLNBobject[key].items.forEach(el => {
+          el.items.sort((a,b) => {
+            return a.order - b.order;
+          })
+        })
+      }
     }
   })
 
@@ -248,6 +264,7 @@ const LNBLayout = ({ location }) => (
               }
               frontmatter {
                 part
+                order
               }
             }
           }

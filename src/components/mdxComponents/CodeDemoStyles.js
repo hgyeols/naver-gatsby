@@ -423,13 +423,6 @@ export const CodeDemoStyles = styled.div`
   //   opacity: 1;
   // }
 
-  // .mdc-checkbox-checkmark-path {
-  //   transition: stroke-dashoffset 180ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
-  //   stroke: currentColor;
-  //   stroke-width: 3.12px;
-  //   stroke-dashoffset: 29.7833385;
-  //   stroke-dasharray: 29.7833385;
-  // }
 
   // .mdc-checkbox-mixedmark {
   //   width: 100%;

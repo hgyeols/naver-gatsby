@@ -2,6 +2,7 @@
 title: "TEST TITLE" # TITLE 영역에 표시 
 part: "UX Writing" # LNB part
 template: "docs" 
+order: "1" # readme.md 참조
 metaTitle: "브라우저 탭에 표시" # metadata
 metaDescription: "metaDescription" # metadata
 titleDescription: "NDS는 모바일 해상도, PC Web 등 사용자가 서비스를 사용하는 모든 서비스를 제공하는 것을 목적으로 합니다" # title 밑에 나오는 문장
@@ -117,15 +118,13 @@ ordered 리스트는 `1.`로 호출합니다.
 
 <br1/>
 
-<imgIcon>
+<imgIcon 
+  src1='https://www.naverlabs.com/naverlabs_/story/201904/1556184924229_NAVER-LABS_CES_2019_098.jpg' 
+  src2='https://www.naverlabs.com/naverlabs_/story/201904/1556184803729_NAVER-LABS_CES_2019_113.jpg' 
+/>
 
-![alt](https://www.naverlabs.com/naverlabs_/story/201904/1556184924229_NAVER-LABS_CES_2019_098.jpg)
-
-![alt](https://www.naverlabs.com/naverlabs_/story/201904/1556184803729_NAVER-LABS_CES_2019_113.jpg)
-
-</imgIcon>
-
-이미지에 icon이 들어가는 경우. (*만드는 중.)
+이미지에 icon이 들어가는 경우입니다. 위에 16px, 아래에 2px margin이 생성됩니다.  
+`src1`과 `src2`에 각각 이미지 주소를 넣으면 됩니다.
 
 <br1/>
 
@@ -246,12 +245,12 @@ outlink를 적지 않으면 아래처럼 나오지 않습니다.
 
 ### 코드 only + Tab
 
-n개로 하기엔 호출 코드가 너무 복잡해져서 우선 2개로 만들었습니다.  
+Tab의 경우는 n개로 하기엔 호출 코드가 너무 복잡하여, 우선 2개로 만들었습니다.
 아래처럼 언어 옆에 `tab` 혹은 `tab=true`를 넣고, `tabName=[aa,bb]`를 넣어줍니다.  
 이때 tabName에 띄어쓰기가 들어가면 안됩니다.
 
 두번째 탭에 보여질 코드는 `---`로 구분됩니다.  
-이러한 tab 양식이 한 페이지에 여러개 사용될 경우에 대비하여 **id가 필요**합니다. 서로 다른값이기만 하면 됩니다. 
+이러한 tab 양식은 한 페이지에 여러개 사용될 경우에 대비하여 **id가 필요**합니다. 서로 다른값이기만 하면 됩니다. 
 tab 양식의 경우 height가 자동으로 인식이 안되므로 따로 설정이 필요합니다. `height` 뒤에 숫자로 적용가능하게 하였습니다.
 
 
@@ -275,19 +274,19 @@ tab 양식의 경우 height가 자동으로 인식이 안되므로 따로 설정
 
 인자들의 순서는 상관이 없습니다. 탭 + outlink 예시입니다.
 
-```html tab=true tabName=[Test1,Test2] outLinkName=[Outlink1,Outlink2] outLinkSrc=[http://naver.com,http://figma.com] id=a height=200
+```html tab=true tabName=[Test1,Test2] outLinkName=[Outlink1,Outlink2] outLinkSrc=[http://naver.com,http://figma.com] id=a height=160
 <!-- 위에 tab=true로 -->
 <ul>
-  <li className="Title 1">Content Section</li>
-  <li className="Title 1">Content Section</li>
-  <li className="Title 1">Content Section</li>
+  <li className="Title 3">Content Section</li>
+  <li className="Title 3">Content Section</li>
+  <li className="Title 3">Content Section</li>
 </ul>
 ---
 <!-- 구조상 2개만  -->
 <ul>
-  <li className="Title 2">Content Section2</li>
-  <li className="Title 2">Content Section2</li>
-  <li className="Title 2">Content Section2</li>
+  <li className="Title 4">Content Section2</li>
+  <li className="Title 4">Content Section2</li>
+  <li className="Title 4">Content Section2</li>
 </ul>
 ```
 
@@ -296,8 +295,9 @@ tab 양식의 경우 height가 자동으로 인식이 안되므로 따로 설정
 ### 시뮬레이터 
 
 아래는 시뮬레이터 호출 방법입니다. 
+(n개 tab에서 각 n개 옵션을 호출하는 최적의 방법을 아직 고안중입니다.. 간단하게 표현하기가 복잡하네요)
 
-<Sim 
+<sim 
   firstTabName="Light" 
   firstTabOptions={
     [{
@@ -312,13 +312,12 @@ tab 양식의 경우 height가 자동으로 인식이 안되므로 따로 설정
   secondTabName="Dark" 
 />
 
-<!-- **Case1** 옵션이 없을 때   
-아래 예제처럼 ` ```jsx codeDemo `로 시작하고 ` ``` `로 끝나야 합니다.  
-사이에 들어간 코드가 렌더링되어서 마크다운에서 표시됩니다.
+
+
 
 <br2/>
 
-```jsx codeDemo
+<!-- ```jsx codeDemo
 import React from 'react';
 
 function showExamples() {
@@ -331,24 +330,102 @@ function showExamples() {
 
 // 꼭 default로 export 되어야 함.
 export default showExamples;
-``` -->
+```
 
 ### 시뮬레이터 (잘못만든것)
 
-```javascript react-live=false
+```js react-live 
 <button className={'btn-test'}>텍스트를 바꿔보세요</button>
-```
-
-만약 유저가 코드를 직접 수정하면서 변화를 볼 수 있는 것을 원하면 위의 것을 이용!
-
-<br1/>
+``` -->
 
 
 <br1/><br1/>
 
-# etc
+# Sound - Download
 
-링크를 걸때는 `[텍스트](주소)`를 사용합니다. [Naver](https://www.naver.com)
+<br2/>
+
+사운드는 아래의 명령어로 호출합니다. 참고로 이렇게 마크다운에서 dynamic한 요소(버튼 클릭 시 변하는 등)를 구현하였을 때는
+개발 하면서 실시간 업데이트 시 바로 새로고침으로는 반영이 안되어서 다른 페이지를 갔다가 다시 와야 합니다. (개발 시에만 문제)
+
+<sound link='https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3' />
+
+<br2/>
+
+다운로드 양식은 아래와 같습니다. `type`에는 현재 `a`와 `b`양식이 구현되어 있습니다.  
+`logo`에는 sketch, figma, zeplin, font, PSD, illust, PDF, lottie가 들어갈 수 있습니다.
+
+<down type='a' logo='figma' text1='Figma Design Kit' text2="피그마" link='https://github.com/git-for-windows/git/releases/download/v2.32.0.windows.1/Git-2.32.0-64-bit.exe' />
+
+<br2/>
+
+두번째 양식입니다.
+
+<down type='b' logo='zeplin' text1='Zeplin Design Kit' text2="Download" link='https://github.com/git-for-windows/git/releases/download/v2.32.0.windows.1/Git-2.32.0-64-bit.exe' />
+
+<br1/>
+
+# Link
+
+일반 링크를 걸때는 `[텍스트](주소)`를 사용합니다. [Naver](https://www.naver.com)
+
+### INLINK
+
+<br2/>
+
+커스텀 링크 1번은 다음과 같습니다. 아래 3개의 인자를 필요로 합니다.
+
+<link1 link='http://www.naver.com' text1='Naver Design' text2='Related link' />
+
+<br2/>
+
+커스텀 링크 2번은 다음과 같습니다. 아래 6개의 인자를 필요로 합니다. 총 width 828px에 중간 margin 24px로 각 402px입니다.
+
+<link2 
+  link1='http://www.naver.com' text11='Naver Design' text12='Related link' 
+  link2='http://www.figma.com' text21='Naver Test' text22='Related link'
+/>
+
+<br1/>
+
+### OUTINK
+
+<br2/>
+
+커스텀 아웃링크는 다음과 같습니다.
+
+<outlink text='Test1' link='http://naver.com' />
+
+<br2/>
+
+n개가 들어갈 때에는, text에 comma가 들어갈 수도 있으니 `;`로 구분자를 넣었습니다.  
+text와 link의 수가 같아야하며, 인자에 띄어쓰기가 들어가면 안됩니다.
+
+<outlink text='Test1;Test2' link='http://naver.com;http://figma.com' />
+
+<br2/>
+
+<outlink text='Test1;Test2;Test3;Test4' link='http://naver.com;http://figma.com;http://naver.com;http://figma.com' />
+
+<br1/>
+
+### MAILINK
+
+<br2/>
+
+Mail Link는 다음과 같이 호출합니다. 
+
+<mailLink name='Name_Eng' mail='mail@navercorp.com' />
+
+<br2/>
+
+만약 인자 `photo`에 사진 링크를 넣으면 사진이 표시됩니다.
+
+<mailLink name='Name_Eng' mail='mail@navercorp.com' photo='https://i.imgur.com/CNhZzYY.jpeg' />
+
+<br1/>
+
+# etc
 
 첫번째 _italic 글씨 표현_ 방법.
 

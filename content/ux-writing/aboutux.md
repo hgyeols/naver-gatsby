@@ -1,6 +1,8 @@
 ---
 title: "About UX Writing"
 part: "UX Writing"
+order: "1"
+show: "dontshow"
 ---
 
 <!-- 

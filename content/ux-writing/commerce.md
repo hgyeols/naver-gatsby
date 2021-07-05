@@ -1,6 +1,8 @@
 ---
 title: "Commerce"
 part: "Service Guidelines"
+order: "1"
+show: "dontshow"
 ---
 
 <!-- 

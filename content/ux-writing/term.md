@@ -1,6 +1,8 @@
 ---
 title: "Term"
 part: "UX Writing"
+order: "3"
+show: "dontshow"
 ---
 
 <!-- 

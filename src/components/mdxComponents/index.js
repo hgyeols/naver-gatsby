@@ -4,9 +4,15 @@ import styled from '@emotion/styled';
 import CodeBlock from './codeBlock';
 import AnchorTag from './anchor';
 import VideoEmbed from './VideoEmbed';
-import CodeDemo from './CodeDemo'
-
-import CodeSimulator from './sim'
+import CodeDemo from './CodeDemo';
+import SoundEmbed from './SoundEmbed';
+import DownloadEmbed from './DownloadEmbed';
+import CodeSimulator from './sim';
+import ImageIcon from './ImageIcon';
+import LinkFirst from './LinkFirst';
+import LinkSecond from './LinkSecond';
+import Outlink from './Outlink';
+import MailLink from './MailLink';
 
 const StyledPre = styled('div')`
   background-color: #131313;
@@ -37,15 +43,6 @@ const StyledImg3 = styled('div')`
   justify-content: space-between;
   p {
     width: 260px !important;
-    height: auto;
-  }
-`;
-
-const StyledImg4 = styled('div')`
-  display: flex;
-  justify-content: space-between;
-  p {
-    width: 402px !important;
     height: auto;
   }
 `;
@@ -112,15 +109,19 @@ export default {
   img3: props => (
     <StyledImg3 {...props} />
   ),
-  imgIcon: props => (
-    <StyledImg4 {...props} />
-  ),
+  imgIcon: ImageIcon,
   imgText: props => (
     <StyledImg5 {...props} />
   ),
   video: VideoEmbed, 
   pre: props => <StyledPre {...props} />,
   code: CodeBlock,
-  CodeDemo: props => <CodeDemo {...props} />,
-  Sim: CodeSimulator,
+  codeDemo: props => <CodeDemo {...props} />,
+  sim: CodeSimulator,
+  sound: SoundEmbed,
+  down: DownloadEmbed, 
+  link1: LinkFirst,
+  link2: LinkSecond,
+  outlink: Outlink,
+  mailLink: MailLink,
 };

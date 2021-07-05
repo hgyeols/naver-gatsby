@@ -3,10 +3,7 @@ import { CodeDemoStyles } from './CodeDemoStyles'
 
 const CodeSimulator = ( props ) => {
 
-  console.log(props)
-
   const closeControls = () => {
-    console.log('close')
     const demoClass = document.getElementById("demo");
     if (demoClass.className === "demoContainer demoContainer--open") {
       demoClass.className="demoContainer"
@@ -16,7 +13,6 @@ const CodeSimulator = ( props ) => {
   }
 
   const openControls = () => {
-    console.log('open')
     const demoClass = document.getElementById("demo");
     if (demoClass.className === "demoContainer") {
       demoClass.className="demoContainer demoContainer--open"
@@ -43,13 +39,13 @@ const CodeSimulator = ( props ) => {
                     <div className="mdc-tab-scroller mdc-tab-scroller-scroll-area mdc-tab-scroller-scroll-area--scroll"> 
                       <div className="mdc-tab-scroller-scroll-content"> 
 
-                        <button role="tab" className="mdc-tab component-demo-tab mdc-tab--active" tabindex="0">
+                        <button role="tab" className="mdc-tab component-demo-tab mdc-tab--active" tabIndex="0">
                           <span className="mdc-tab-content">
                             <span className="mdc-tab-text-label">{props.firstTabName}</span>
                           </span>
                         </button>
 
-                        <button role="tab" className="mdc-tab component-demo-tab mdc-tab--active" tabindex="0">
+                        <button role="tab" className="mdc-tab component-demo-tab mdc-tab--active" tabIndex="0">
                           <span className="mdc-tab-content">
                             <span className="mdc-tab-text-label">{props.secondTabName}</span>
                           </span>
@@ -126,12 +122,12 @@ const CodeSimulator = ( props ) => {
 
                   <label>Option 1</label>
                 </div>
-                <div class="mdc-form-field">
-                  <div class="mdc-radio">
-                    <input class="mdc-radio-native-control" type="radio" name="fab_size" />
-                    <div class="mdc-radio-background">
-                      <div class="mdc-radio-outer-circle"></div>
-                      <div class="mdc-radio-inner-circle"></div>
+                <div className="mdc-form-field">
+                  <div className="mdc-radio">
+                    <input className="mdc-radio-native-control" type="radio" name="fab_size" />
+                    <div className="mdc-radio-background">
+                      <div className="mdc-radio-outer-circle"></div>
+                      <div className="mdc-radio-inner-circle"></div>
                     </div>
                   </div>
                   <label>Option 2</label>

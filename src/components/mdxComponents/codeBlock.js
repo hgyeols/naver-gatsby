@@ -37,11 +37,27 @@ const CodeBlock = ({ children: exampleCode, ...props }) => {
   let tabName = (props.tabName || '').slice(1,-1).split(',');
   
   if (props.height) {
-
-    const backClass = document.getElementById(props.id + "back");
-    backClass.style.height = `${props.height}px`;
+    if (document.getElementById(props.id + "back")) {
+      const backClass = document.getElementById(props.id + "back");
+      backClass.style.height = `${props.height}px`;
+    }
   }
 
+  const copyCode = ( code ) => {
+    let el = document.createElement('textarea');
+    // Set value (string to be copied)
+    el.value = code;
+    // Set non-editable to avoid focus and move outside of view
+    el.setAttribute('readonly', '');
+    el.style = {position: 'absolute', left: '-9999px'};
+    document.body.appendChild(el);
+    // Select text inside element
+    el.select();
+    // Copy text to clipboard
+    document.execCommand('copy');
+    // Remove temporary element
+    document.body.removeChild(el);
+  }
 
   React.useEffect(() => {
     var windowPrism = window.Prism;
@@ -63,7 +79,7 @@ const CodeBlock = ({ children: exampleCode, ...props }) => {
         <ul>
           <li id="tab1" className="codeTabBtn">
             <input type="radio" checked="checked" name={props.id + "tabMebu"} id={props.id + "codeTabMenu1"} />
-            <label for={props.id + "codeTabMenu1"}>{tabName[0]}</label>
+            <label htmlFor={props.id + "codeTabMenu1"}>{tabName[0]}</label>
             <div className="codeTabContent">
               <Highlight {...defaultProps} Prism={Prism} code={exampleCode.split('---')[0]} language={(props.className)?props.className.split("-")[1] :"html"} theme={theme}>
                 {({ className, style, tokens, getLineProps, getTokenProps }) => (
@@ -84,11 +100,19 @@ const CodeBlock = ({ children: exampleCode, ...props }) => {
                   </pre>
                 )}      
               </Highlight>
+              <div className="codeCopyButton">
+                <button className="copyBtn" onClick={copyCode(exampleCode.split('---')[0])}>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="4.5" y="4.5" width="10" height="10" stroke="white"/>
+                    <path d="M11 1.5H1.5V11" stroke="white"/>
+                  </svg>
+                </button>
+              </div>
             </div>
           </li>
           <li id="tab2" className="codeTabBtn">
             <input type="radio" name={props.id + "tabMebu"} id={props.id + "codeTabMenu2"} />
-            <label for={props.id + "codeTabMenu2"}>{tabName[1]}</label>
+            <label htmlFor={props.id + "codeTabMenu2"}>{tabName[1]}</label>
             <div className="codeTabContent">
               <Highlight {...defaultProps} Prism={Prism} code={exampleCode.split('---')[1]} language={(props.className)?props.className.split("-")[1] :"html"} theme={theme}>
                 {({ className, style, tokens, getLineProps, getTokenProps }) => (
@@ -109,6 +133,14 @@ const CodeBlock = ({ children: exampleCode, ...props }) => {
                   </pre>
                 )}      
               </Highlight>
+              <div className="codeCopyButton">
+                <button className="copyBtn" onClick={copyCode(exampleCode.split('---')[1])}>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="4.5" y="4.5" width="10" height="10" stroke="white"/>
+                    <path d="M11 1.5H1.5V11" stroke="white"/>
+                  </svg>
+                </button>
+              </div>
             </div>
           </li>
         </ul>
@@ -119,8 +151,8 @@ const CodeBlock = ({ children: exampleCode, ...props }) => {
           <pre className="codeOutlink">
             {outLinkName.map((item, index) => {
               return (
-                <div className="codeOutlinkDiv">
-                  <span key={index}>
+                <div className="codeOutlinkDiv" key={index}>
+                  <span>
                     {item}
                   </span>
                   <Link to={outLinkSrc[index]}>
@@ -141,72 +173,17 @@ const CodeBlock = ({ children: exampleCode, ...props }) => {
   } 
   else {
     return (
-      <div>
+      <div className="defaultCodeWrapper"> 
       <Highlight {...defaultProps} Prism={Prism} code={exampleCode} language={(props.className)?props.className.split("-")[1] :"javascript"} theme={theme}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre className={className + ' pre'} style={style} p={3}>
             {cleanTokens(tokens).map((line, i) => {
               let lineClass = {};
-
-              let isDiff = false;
-
-              if (line[0] && line[0].content.length && line[0].content[0] === '+') {
-                lineClass = { backgroundColor: 'rgba(76, 175, 80, 0.2)' };
-                isDiff = true;
-              } else if (line[0] && line[0].content.length && line[0].content[0] === '-') {
-                lineClass = { backgroundColor: 'rgba(244, 67, 54, 0.2)' };
-                isDiff = true;
-              } else if (line[0] && line[0].content === '' && line[1] && line[1].content === '+') {
-                lineClass = { backgroundColor: 'rgba(76, 175, 80, 0.2)' };
-                isDiff = true;
-              } else if (line[0] && line[0].content === '' && line[1] && line[1].content === '-') {
-                lineClass = { backgroundColor: 'rgba(244, 67, 54, 0.2)' };
-                isDiff = true;
-              }
               const lineProps = getLineProps({ line, key: i });
-
               lineProps.style = lineClass;
-              const diffStyle = {
-                userSelect: 'none',
-                MozUserSelect: '-moz-none',
-                WebkitUserSelect: 'none',
-              };
-
-              let splitToken;
-
-
               return (
                 <div {...lineProps} key={line + i}>
                   {line.map((token, key) => {
-                    if (isDiff) {
-                      if (
-                        (key === 0 || key === 1) &
-                        (token.content.charAt(0) === '+' || token.content.charAt(0) === '-')
-                      ) {
-                        if (token.content.length > 1) {
-                          splitToken = {
-                            types: ['template-string', 'string'],
-                            content: token.content.slice(1),
-                          };
-                          const firstChar = {
-                            types: ['operator'],
-                            content: token.content.charAt(0),
-                          };
-
-                          return (
-                            <React.Fragment key={token + key}>
-                              <span
-                                {...getTokenProps({ token: firstChar, key })}
-                                style={diffStyle}
-                              />
-                              <span {...getTokenProps({ token: splitToken, key })} />
-                            </React.Fragment>
-                          );
-                        } else {
-                          return <span {...getTokenProps({ token, key })} style={diffStyle} />;
-                        }
-                      }
-                    }
                     return <span {...getTokenProps({ token, key })} />;
                   })}
                 </div>
@@ -215,6 +192,14 @@ const CodeBlock = ({ children: exampleCode, ...props }) => {
           </pre>
         )}      
       </Highlight>
+      <div className="codeCopyButton">
+        <button className="copyBtn" onClick={copyCode(exampleCode)}>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4.5" y="4.5" width="10" height="10" stroke="white"/>
+            <path d="M11 1.5H1.5V11" stroke="white"/>
+          </svg>
+        </button>
+      </div>
       {outLinkName.length > 1 ? 
         <pre className="codeOutlink">
           {outLinkName.map((item, index) => {

@@ -155,7 +155,7 @@ export const GNBStylesWrapper = styled.div`
     background-color: #e2e2e2;
   }
 
-  .mobileMenuButton .iconBar:first-child {
+  .mobileMenuButton .iconBar:first-of-type {
     margin-top: 0px;
   }
   

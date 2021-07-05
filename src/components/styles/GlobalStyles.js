@@ -234,6 +234,30 @@ export const baseStyles = css`
     flex-grow: 1;
     width: 100%;
     height: 100%;
+
+    .codeCopyButton {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      .copyBtn {
+        all: unset; 
+      }
+
+    }
+
+    .codeCopyButton:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+    }
+
+
   }
 
   .codeTabWrapper input[type="radio"] {
@@ -274,6 +298,65 @@ export const baseStyles = css`
 
     svg {
       margin-right: 22.5px;
+    }
+  }
+
+  .defaultCodeWrapper {
+    position: relative;
+
+    .codeCopyButton {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      .copyBtn {
+        all: unset; 
+      }
+
+    }
+
+    .codeCopyButton:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+    }
+  }
+
+  .imageIconWrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+    margin-bottom: 2px;
+
+    .imageIconFirst {
+      position: relative;
+    }
+
+    .imageIconSecond {
+      position: relative;
+    }
+
+    img {
+      width: 402px !important;
+      height: auto;
+      
+    }
+
+    .imageIconYes {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+    }
+
+    .imageIconNo {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
     }
   }
 
@@ -364,8 +447,8 @@ export const baseStyles = css`
     padding: 25px 24px;
   }
 
-  table tr th :first-child,
-  table tr td :first-child {
+  table tr th :first-of-type,
+  table tr td :first-of-type{
     margin-top: 0;
   }
 
@@ -378,7 +461,11 @@ export const baseStyles = css`
     max-width: 100%;
   }
 
-  /* 수정해야됨 마크다운 */ 
+  /* 
+  
+    Markdown Section 
+  
+  */ 
 
   .heading1 {
     font-size: 32px;
@@ -488,6 +575,433 @@ export const baseStyles = css`
     opacity: 0.8;
   }
 
+  /*
+
+    Sound player section
+
+  */
+
+  .hidden {
+    visibility: hidden;
+  }
+
+  .audio-player {
+    height: 58px;
+    width: 372px;
+    background: #fafafa;
+    margin-bottom: 2px;
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+  
+    font-family: 'SF Pro Text';
+    color: #424242;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow: hidden;
+    display: flex;
+   
+    .controls {
+      padding: 0 14px;
+      display: grid;
+      grid-template-columns: 32px 102px 168px 42px;
+  
+      > * {
+        align-items: center;
+        display: flex;
+      }
+
+      .play-container {
+        justify-content: center;
+      }
+
+      .timeline {
+        background: #e2e2e2;
+        border-radius: 4px;
+        width: 168px;
+        height: 4px;
+        display: flex;
+        justify-content: flex-start !important;
+        position: relative;
+        cursor: pointer;
+        align-self: center;
+        .progress {
+          background: #424242;
+          border-radius: 4px;
+          width: 0%;
+          height: 100%;
+          transition: 0.25s;
+        }
+      }
+
+      .toggle-play {
+        cursor: pointer;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .play-button {
+          display: block;
+          padding: 2px 0 0 1px;
+        }
+
+        .pause-button {
+          display: none;
+          padding: 2px 0 0 0;
+        }
+      }
+
+      .toggle-play:hover {
+        background-color: #f1f1f1;
+        border-radius: 50%;
+      }
+
+      .time {
+        display: flex;
+  
+        > * {
+          padding: 2px;
+        }
+      }
+      .volume-container {
+        cursor: pointer;
+        margin-left: 10px;
+
+        .volume-button {
+          height: 32px;
+          width: 32px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .volume-button: hover {
+          background-color: #f1f1f1;
+          border-radius: 50%;
+        }
+
+        .volume-button-mute {
+          padding-top: 1px;
+          display: none;
+        }
+      
+        .volume-button-on {
+          padding-top: 1px;
+          display: block;
+        }
+        
+        position: relative;
+        z-index: 2;
+
+        .volume-slider {
+          position: absolute;
+          left: -3px; 
+          top: 18px;
+          z-index: -1;
+          width: 0;
+          height: 16px;
+          background: #e2e2e2;
+          transition: .25s;
+          border: 6px solid #414141;
+          border-radius: 10px;
+
+          .volume-percentage {
+            background: #414141;
+            height: 100%;
+            width: 75%;
+          }
+        }
+        &:hover {
+          .volume-slider {
+            left: -90px;
+            width: 80px;
+          }
+        }
+      }
+    }
+  }
+
+  /*
+
+    Download
+
+  */
+
+  .downloadWrapperTypeA {
+    width: 372px;
+    height: 80px;
+    background-color: #fff;
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: 80px 244px 48px;
+    align-items: center;
+
+    .downloadLogoTypeA {
+      padding-left: 16px;
+    }
+
+    .downloadTextTypeA {
+      display: block;
+
+      .downloadTextTypeAInput {
+        span {
+          font-family: 'SF Pro Text';
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 1.6;
+          letter-spacing: -0.017em;
+          color: #131313;
+        }
+      }
+
+      .downloadTextTypeAInput2 {
+        span {
+          font-family: 'Apple SD Gothic Neo', 'SF Pro Text';
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 1.4;
+          color: #424242;
+        }
+      }
+    }
+
+    .downloadLinkTypeA {
+      align-self: center;
+    }
+  }
+
+  .downloadWrapperTypeA:hover {
+    background-color: #fafafa;
+  }
+
+  .downloadWrapperTypeB {
+    width: 240px;
+    height: 120px;
+    background-color: #fff;
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+
+    a {
+      text-decoration: none !important;
+    }
+
+    .downloadLogoTypeB {
+      display: block;
+      margin-left: 182px;
+      transform: scale(0.67);
+    }
+
+    .downloadTextTypeB {
+      display: block;
+      margin-left: 24px;
+
+      .downloadTextTypeBInput {
+        span {
+          font-family: 'SF Pro Text';
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 1.6;
+          letter-spacing: -0.017em;
+          color: #131313;
+        }
+      }
+
+      .downloadTextTypeBInput2 {
+        span {
+          font-family: 'SF Pro Text';
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 21px;
+          letter-spacing: -0.017em;
+          color: #636363;
+        }
+      }
+    }
+
+  }
+
+  .downloadWrapperTypeB:hover {
+    background-color: #fafafa;
+  }
+
+  /*
+
+    Link section
+
+  */
+
+  .linkIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .linkText {
+    display: block;
+    align-self: center;
+
+    .linkTextFirst {
+      font-family: 'SF Pro Text';
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 130%;
+      letter-spacing: -0.017em;
+      color: #131313;
+
+      a {
+        text-decoration: solid underline #d1d1d1 !important;
+      }
+    }
+
+    .linkTextSecond {
+      font-family: 'SF Pro Text';
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+      letter-spacing: -0.017em;
+      color: #636363;
+      
+      a {
+        text-decoration: none !important;
+      }
+      span {
+        margin-right: 7px;
+      }
+
+    }
+
+    .linkTextSecondSVG {
+      display: inline-block;
+    }
+  }
+
+  .linkFirstWrapper {
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+  }
+
+  .linkFirstWrapper:hover {
+    background-color: #fafafa;
+  }
+
+  .linkSecondWrapper {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+
+    .linkSecondChild {
+      width: calc((100% - 24px)/2);
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      border: 1px solid #e2e2e2;
+      border-radius: 4px;
+    }
+
+    .linkSecondChild:hover {
+      background-color: #fafafa;
+    }
+  }
+
+  .OutlinkWrapper {
+    width: 100%;
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    background-color: #fafafa;
+    padding-top: 19px;
+    padding-bottom: 18px;
+
+    li {
+      font-family: 'SF Pro Text', 'Apple SD Gothic Neo';
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.3;
+      letter-spacing: -0.017em;
+      color: #424242;
+      margin: 0px 20px;
+
+      a {
+        text-decoration: solid underline #d1d1d1;
+      }
+
+      a:hover {
+        text-decoration: solid underline #424242;
+      }
+
+      span {
+        margin-right: 7px;
+      }
+    }
+  }
+
+  .MailLinkWrapper {
+    width: 372px;
+    height: 80px;
+    border: 1px solid #E2E2E2;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: 80px 1fr 48px;
+    margin-bottom: 2px;
+
+    .MailLinkIcon {
+      align-self: center;
+    }
+
+    .MailLinkPic {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .MailLinkPhoto {
+        width: 40px;
+        height: 40px;
+
+        img {
+          border-radius: 50%;
+        }
+      }
+    }
+
+
+    .MailLinkText {
+      align-self: center;
+    }
+
+    .MailLinkTextName {
+      font-family: 'SF Pro Text', 'Apple SD Gothic Neo';
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.3;
+      letter-spacing: -0.017em;
+      color: #131313;
+      margin-bottom: 2px;
+    }
+
+    .MailLinkTextMail {
+      font-family: 'SF Pro Text';
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+      letter-spacing: -0.017em;
+      color: #636363;
+    }
+  }
+
+  .MailLinkWrapper:hover {
+    background: #FAFAFA;
+  }
+
+
+
+
   /* 
     
     Search section 
@@ -563,7 +1077,7 @@ export const baseStyles = css`
     list-style-type: none;
   }
 
-  .hitWrapper ul li:first-child {
+  .hitWrapper ul li:first-of-type {
     border-top: 0px;
     margin-top: 0px;
     color: black !important;

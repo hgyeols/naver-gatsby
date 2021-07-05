@@ -43,13 +43,13 @@ export default function CodeDemo(props) {
                     <div className="mdc-tab-scroller mdc-tab-scroller-scroll-area mdc-tab-scroller-scroll-area--scroll"> 
                       <div className="mdc-tab-scroller-scroll-content"> 
 
-                        <button role="tab" className="mdc-tab component-demo-tab mdc-tab--active" tabindex="0">
+                        <button role="tab" className="mdc-tab component-demo-tab mdc-tab--active" tabIndex="0">
                           <span className="mdc-tab-content">
                             <span className="mdc-tab-text-label">Light</span>
                           </span>
                         </button>
 
-                        <button role="tab" className="mdc-tab component-demo-tab mdc-tab--active" tabindex="0">
+                        <button role="tab" className="mdc-tab component-demo-tab mdc-tab--active" tabIndex="0">
                           <span className="mdc-tab-content">
                             <span className="mdc-tab-text-label">Dark</span>
                           </span>

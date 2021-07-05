@@ -104,7 +104,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       name: 'title',
       node,
-      value: node.frontmatter.title || startCase(parent.name),
+      value: node.frontmatter.title.length === 'dontshow' ? '' : node.frontmatter.title || startCase(parent.name),
     });
   }
 };
+      

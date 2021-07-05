@@ -38,13 +38,13 @@ const VideoEmbed = ({ link }) => {
         height="465.75"
         src={link}
         frameBorder="0"
-        allow="accelerometer autoplay clipboard-write encrypted-media gyroscope picture-in-picture"
+        allow="accelerometer"
         allowFullScreen
       ></iframe>
-      <button id="play" class="play-btn" onClick={videoClick}>
+      <button id="play" className="play-btn" onClick={videoClick}>
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="32" cy="32" r="32" fill="#636363"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M24.5 22.0793V42.0793L41.821 32.0783L24.5 22.0793Z" fill="white"/>
+            <path fillRule="evenodd" clipRule="evenodd" d="M24.5 22.0793V42.0793L41.821 32.0783L24.5 22.0793Z" fill="white"/>
         </svg>
 
       </button>

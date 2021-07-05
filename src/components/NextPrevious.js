@@ -53,7 +53,7 @@ const NextPrevious = ({ mdx, nav }) => {
         <Link to={nav[currentIndex - 1].url} className={'previousBtn'}>
           <div className={'leftArrow'}>
             <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6.98817 13L1 7.01183L6.91619 1" stroke="#131313" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6.98817 13L1 7.01183L6.91619 1" stroke="#131313" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
           <div className={'preRightWrapper'}>
@@ -78,7 +78,7 @@ const NextPrevious = ({ mdx, nav }) => {
           </div>
           <div className={'rightArrow'}>
             <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1.01281 12.936L7.00098 6.94787L1.08479 0.936035" stroke="#212121" stroke-width="2"/>
+              <path d="M1.01281 12.936L7.00098 6.94787L1.08479 0.936035" stroke="#212121" strokeWidth="2"/>
             </svg>
           </div>
         </Link>
