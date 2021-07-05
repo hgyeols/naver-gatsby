@@ -52,6 +52,7 @@ export const baseStyles = css`
   div {
     margin: 0;
     padding: 0;
+    font-size: 0px; 
   }
 
   .visibleMobileOnly {
@@ -532,13 +533,15 @@ export const baseStyles = css`
   }
 
   .br1 {
-    // margin-bottom: 32px;
-    height: 32px;
+    height: 32px !important;
   }
 
   .br2 {
-    // margin-bottom: 16px;
-    height: 14px;
+    height: 14px !important;
+  }
+
+  .br6 {
+    height: 6px !important;
   }
 
   .videoEmbed {
@@ -677,7 +680,7 @@ export const baseStyles = css`
           justify-content: center;
         }
 
-        .volume-button: hover {
+        .volume-button:hover {
           background-color: #f1f1f1;
           border-radius: 50%;
         }

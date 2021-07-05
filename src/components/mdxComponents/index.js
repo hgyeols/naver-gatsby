@@ -23,6 +23,26 @@ const StyledHr = styled('div')`
   margin: 10px 0;
 `;
 
+const Caption = styled('div')`
+  color: #666;
+  font-family: 'SF Pro Display', 'Apple SD Gothic Neo';
+  font-weight: 400;
+  font-size: 14px !important;
+  line-height: 130%;
+  letter-spacing: -0.018em;
+  margin-bottom: 2px;
+  p {
+    height: 18px;
+    font-size: 14px !important;
+  }
+
+  li {
+    font-family: 'Apple SD Gothic Neo', 'SF Pro Text';
+    font-size: 14px !important;
+    height: 18px !important;
+  }
+`;
+
 const StyledImg = styled('div')`
   margin-top: 16px;
   width: 100%;
@@ -98,6 +118,8 @@ export default {
   a: AnchorTag,
   br1: props => <p className="br1" {...props} />,
   br2: props => <p className="br2" {...props} />,
+  br6: props => <p className="br6" {...props} />,
+  cap: props => <Caption {...props} />,
   img: props => (
     <StyledImg>
       <img {...props} />

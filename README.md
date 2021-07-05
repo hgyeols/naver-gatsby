@@ -73,7 +73,7 @@ GNB 메뉴에 해당되는 폴더 내부에 (ex. `/content/design/`)
 원하는 폴더에 진입 한 후, 아래 명령어를 실행합니다.
 
 ```
-$ git clone -b dev --single-branch https://github.com/starry99/naver-gatsby.git 
+$ git clone https://github.com/starry99/naver-gatsby.git 
 $ cd naver-gatsby
 $ npm install --legacy-peer-deps
 $ npm start
@@ -85,13 +85,18 @@ $ npm start
 
 [그림2](https://i.ibb.co/4RFdjKv/dasdsa.png) 
 
+배포할 때는
+
+```
+$ npm run deploy
+
+```
 
 주요 명령어
 - `gatsby develop` 혹은 `npm start`:  개발 모드 진입, 브라우저에 `http://localhost:8000/` 접속하여 실시간 변동사항 확인
-- `gatsby build` 바꾼 사이트를 build하여 public 폴더에 생성
-- `npm run deploy` build하면서 저장소에 push까지 한번에 처리, github pages 특징 상 실제 웹에 반영되려면 약간 시간 소요 
+- `gatsby build --prefix-paths` 바꾼 사이트를 build하여 public 폴더에 생성
+- `npm run deploy` build하면서 저장소에 push까지 한번에 처리, github pages 특징 상 실제 웹에 반영되려면 약간의 시간 소요 
 
-현재는 git 설정이 안되있으므로 (제 깃허브로 되어 있으므로) 로컬에서 markdown 테스트 하시면 됩니다. 
 
 ## Packages 
 
