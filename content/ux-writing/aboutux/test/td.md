@@ -360,7 +360,7 @@ tab 양식의 경우 height가 자동으로 인식이 안되므로 따로 설정
 아래는 시뮬레이터 호출 방법입니다. 
 (n개 tab에서 각 n개 옵션을 호출하는 최적의 방법을 아직 고안중입니다.. 간단하게 표현하기가 복잡하네요)
 
-<sim 
+<!-- <sim 
   firstTabName="Light" 
   firstTabOptions={
     [{
@@ -373,9 +373,7 @@ tab 양식의 경우 height가 자동으로 인식이 안되므로 따로 설정
     }]
   }
   secondTabName="Dark" 
-/>
-
-
+/> -->
 
 
 <br2/>

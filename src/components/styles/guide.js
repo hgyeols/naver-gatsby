@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const StyledHeading = styled('h1')`
   font-family: 'SF Pro Display', 'Apple SD Gothic Neo';
-  font-weight: 700;
+  font-weight: 700 !important;
   font-size: 60px;
   line-height: 1.5;
   font-weight: 500;

@@ -1,10 +1,15 @@
 # NAVER DESIGN
 
-**21.07.04**
+**작성중**
+
 - 가이드 라이브 버전: https://starry99.github.io/naver-gatsby/ux-writing/aboutux/test/td 
 - 가이드 markdown raw 파일: https://raw.githubusercontent.com/starry99/naver-gatsby/main/content/ux-writing/aboutux/test/td.md
-
 아래에 Develop 파트를 따라하신 후, VSCode를 이용한 local 설정을 하신 다음에, VSCode로 /content/ux-writing/aboutux/test/td.md 열고 이를 참고하시며 작업하시면 됩니다.
+
+**21.07.05**
+0.1.3 - 엔드페이지 마크다운 펑션 업데이트
+
+
 
 ## Configure - Markdown
 
@@ -85,12 +90,14 @@ $ npm start
 
 [그림2](https://i.ibb.co/4RFdjKv/dasdsa.png) 
 
-배포할 때는
+배포할 때는 일단은 아래의 명령어를 사용합니다.
 
 ```
 $ npm run deploy
-
 ```
+
+자동 배포, custom domain 등 추후에 더 자세히 작성할 예정입니다.
+
 
 주요 명령어
 - `gatsby develop` 혹은 `npm start`:  개발 모드 진입, 브라우저에 `http://localhost:8000/` 접속하여 실시간 변동사항 확인

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import Highlight, { defaultProps, Prism } from 'prism-react-renderer';
 import { applyLanguages, getTheme } from './codeBlockTheme';
 import Loadable from 'react-loadable';
@@ -55,8 +55,8 @@ const CodeBlock = ({ children: exampleCode, ...props }) => {
       document.body.removeChild(textArea);
     }
   }
-  
-  React.useEffect(() => {
+
+  useEffect(() => {
     var windowPrism = window.Prism;
     window.Prism = Prism;
     applyLanguages(Prism);
