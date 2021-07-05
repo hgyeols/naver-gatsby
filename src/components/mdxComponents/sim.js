@@ -3,25 +3,25 @@ import { CodeDemoStyles } from './CodeDemoStyles'
 
 const CodeSimulator = ( props ) => {
 
-  const closeControls = () => {
-    const demoClass = document.getElementById("demo");
-    if (demoClass.className === "demoContainer demoContainer--open") {
-      demoClass.className="demoContainer"
-    }
-    const openButton = document.getElementById("openButton");
-    openButton.classList.toggle('openButtonShow');
-  }
+  // const closeControls = () => {
+  //   const demoClass = document.getElementById("demo");
+  //   if (demoClass.className === "demoContainer demoContainer--open") {
+  //     demoClass.className="demoContainer"
+  //   }
+  //   const openButton = document.getElementById("openButton");
+  //   openButton.classList.toggle('openButtonShow');
+  // }
 
-  const openControls = () => {
-    const demoClass = document.getElementById("demo");
-    if (demoClass.className === "demoContainer") {
-      demoClass.className="demoContainer demoContainer--open"
-    }
+  // const openControls = () => {
+  //   const demoClass = document.getElementById("demo");
+  //   if (demoClass.className === "demoContainer") {
+  //     demoClass.className="demoContainer demoContainer--open"
+  //   }
 
-    const openButton = document.getElementById("openButton");
-    openButton.classList.toggle('openButtonShow');
+  //   const openButton = document.getElementById("openButton");
+  //   openButton.classList.toggle('openButtonShow');
 
-  }
+  // }
 
   return (
     <CodeDemoStyles>
@@ -58,7 +58,7 @@ const CodeSimulator = ( props ) => {
                 </div>
               </div>
 
-              <button id="openButton" className="mdc-icon-button component-demo-config-button mdc-button-open" onClick={openControls}>
+              <button id="openButton" className="mdc-icon-button component-demo-config-button mdc-button-open">
                 <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M22.5 13.5H26" stroke="#424242"/>
                   <path d="M10 13.5H18.5" stroke="#424242"/>
@@ -95,7 +95,7 @@ const CodeSimulator = ( props ) => {
             <div className="fab-options">
               <div className="fab-options-header">
                 <span className="fab-options-label">Controls</span>
-                <button className="mdc-icon-button component-demo-config-button component-demo-panel-header-close" onClick={closeControls}>
+                <button className="mdc-icon-button component-demo-config-button component-demo-panel-header-close">
                   <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M22.5 13.5H26" stroke="#424242"/>
                     <path d="M10 13.5H18.5" stroke="#424242"/>

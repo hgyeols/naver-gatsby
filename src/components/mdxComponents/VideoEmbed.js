@@ -3,29 +3,32 @@ import React from 'react';
 const VideoEmbed = ({ link }) => {
 
   const videoClick = () => {
-    let player = document.getElementById('player');
-    let hider = document.getElementById('hider');
-    let btn = document.getElementById('play');
+    if (typeof document !== "undefined") {
+      let player = document.getElementById('player');
+      let hider = document.getElementById('hider');
+      let btn = document.getElementById('play');
 
-    if (hider.style.display === "none") {
-      hider.style.display="block"
-    } else {
-      hider.style.display="none"
+      if (hider.style.display === "none") {
+        hider.style.display="block"
+      } else {
+        hider.style.display="none"
+      }
+  
+      if (btn.style.display === "none") {
+        btn.style.display="block"
+      } else {
+        btn.style.display="none"
+      }
+  
+      if (player.style.display === "block") {
+        player.style.display="none"
+      } else {
+        player.style.display="block"
+      }
+  
+      player.setAttribute('src', `${link}?autoplay=1`)
     }
 
-    if (btn.style.display === "none") {
-      btn.style.display="block"
-    } else {
-      btn.style.display="none"
-    }
-
-    if (player.style.display === "block") {
-      player.style.display="none"
-    } else {
-      player.style.display="block"
-    }
-
-    player.setAttribute('src', `${link}?autoplay=1`)
   }
 
   return (

@@ -304,6 +304,7 @@ const LNBLayout = ({ location }) => (
           return el.folderName === currGNB
         })
   
+        // 여기부분 path prefix 다시 봐보기
         let gnbMenuParts = tempGnbMenu[0].part
   
         // 현재 GNB에 맞게 필터된 markdown 중에서 카테고리 순으로 나누기

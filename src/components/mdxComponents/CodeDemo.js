@@ -5,27 +5,27 @@ export default function CodeDemo(props) {
 
   const { code, children } = props;
 
-  const closeControls = () => {
-    console.log('close')
-    const demoClass = document.getElementById("demo");
-    if (demoClass.className === "demoContainer demoContainer--open") {
-      demoClass.className="demoContainer"
-    }
-    const openButton = document.getElementById("openButton");
-    openButton.classList.toggle('openButtonShow');
-  }
+  // const closeControls = () => {
+  //   console.log('close')
+  //   const demoClass = document.getElementById("demo");
+  //   if (demoClass.className === "demoContainer demoContainer--open") {
+  //     demoClass.className="demoContainer"
+  //   }
+  //   const openButton = document.getElementById("openButton");
+  //   openButton.classList.toggle('openButtonShow');
+  // }
 
-  const openControls = () => {
-    console.log('open')
-    const demoClass = document.getElementById("demo");
-    if (demoClass.className === "demoContainer") {
-      demoClass.className="demoContainer demoContainer--open"
-    }
+  // const openControls = () => {
+  //   console.log('open')
+  //   const demoClass = document.getElementById("demo");
+  //   if (demoClass.className === "demoContainer") {
+  //     demoClass.className="demoContainer demoContainer--open"
+  //   }
 
-    const openButton = document.getElementById("openButton");
-    openButton.classList.toggle('openButtonShow');
+  //   const openButton = document.getElementById("openButton");
+  //   openButton.classList.toggle('openButtonShow');
 
-  }
+  // }
 
   return (
     <CodeDemoStyles>

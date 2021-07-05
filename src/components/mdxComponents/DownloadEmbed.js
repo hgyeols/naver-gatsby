@@ -104,8 +104,6 @@ const DownloadEmbed = (props) => {
     }
   } 
 
-  console.log(props)
-
   if (props.type && props.type === 'a') {
     return (
       <div className="downloadWrapperTypeA">

@@ -8,8 +8,6 @@ import config from '../../config.js';
 import LoadingProvider from './mdxComponents/loading';
 import { GNBStylesWrapper } from './styles/GNBStyles';
 
-// import LogoSVG from "./svgs/logo.svg";
-
 const isSearchEnabled = config.gnb.search && config.gnb.search.enabled ? true : false;
 
 let searchIndices = [];
@@ -27,14 +25,16 @@ const LoadableComponent = Loadable({
   loading: LoadingProvider,
 });
 
-
 function mobileMenuClick() {
-  var x = document.getElementById('navbar');
 
-  if (x.className === 'mobileLNB') {
-    x.className += ' responsive';
-  } else {
-    x.className = 'mobileLNB';
+  if (typeof document !== 'undefined') {
+    var x = document.getElementById('navbar');
+
+    if (x.className === 'mobileLNB') {
+      x.className += ' responsive';
+    } else {
+      x.className = 'mobileLNB';
+    }
   }
 }
 
@@ -122,12 +122,6 @@ const GNB = ({ location }) => (
                 <span className={'iconBar'}></span>
               </span>
             </div>
-            {/* {config.header.social ? ( 이거 응용해서 각 GNB 메뉴 만늘기
-              <ul
-                className="socialWrapper visibleMobileView"
-                dangerouslySetInnerHTML={{ __html: config.header.social }}
-              ></ul>
-            ) : null} */}
             {isSearchEnabled ? (
               <div className={'searchWrapper hiddenMobile GNBUL'}>
                 <LoadableComponent collapse={true} indices={searchIndices} />

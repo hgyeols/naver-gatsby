@@ -1,77 +1,81 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const SoundEmbed = ({ link }) => {
 
-  const audioPlayer = document.querySelector(".audio-player");
-  const audio = new Audio(link);
-
-  if (audioPlayer !== null) {
-
-    audio.addEventListener(
-      "loadeddata",
-      () => {
-        audioPlayer.querySelector(".time .length").textContent = getTimeCodeFromNum(
-          audio.duration
-        );
-        audio.volume = .75;
-      },
-      false
-    );
-
-    const timeline = audioPlayer.querySelector(".timeline");
-    timeline.addEventListener("click", e => {
-      const timelineWidth = window.getComputedStyle(timeline).width;
-      const timeToSeek = e.offsetX / parseInt(timelineWidth) * audio.duration;
-      audio.currentTime = timeToSeek;
-    }, false);
+  useEffect(()=> {
+    const audioPlayer = document.querySelector(".audio-player");
+    const audio = new Audio(link);
   
-    // const volumeSlider = audioPlayer.querySelector(".controls .volume-slider");
-    // volumeSlider.addEventListener('click', e => {
-    //   const sliderWidth = window.getComputedStyle(volumeSlider).width;
-    //   const newVolume = e.offsetX / parseInt(sliderWidth);
-    //   audio.volume = newVolume;
-    //   audioPlayer.querySelector(".controls .volume-percentage").style.width = newVolume * 100 + '%';
-    // }, false)
-
-    setInterval(() => {
-      const progressBar = audioPlayer.querySelector(".progress");
-      progressBar.style.width = audio.currentTime / audio.duration * 100 + "%";
-      audioPlayer.querySelector(".time .current").textContent = getTimeCodeFromNum(
-        audio.currentTime
+    if (audioPlayer !== null) {
+  
+      audio.addEventListener(
+        "loadeddata",
+        () => {
+          audioPlayer.querySelector(".time .length").textContent = getTimeCodeFromNum(
+            audio.duration
+          );
+          audio.volume = .75;
+        },
+        false
       );
-    }, 500);
   
-    const playBtn = audioPlayer.querySelector(".controls .toggle-play");
-    playBtn.addEventListener("click", () => {
-        const playButton = audioPlayer.querySelector(".toggle-play .play-button");
-        const pauseButton = audioPlayer.querySelector(".toggle-play .pause-button");
-        if (audio.paused) {
-          pauseButton.style.display = 'block';
-          playButton.style.display = 'none';
-          audio.play();
+      const timeline = audioPlayer.querySelector(".timeline");
+      timeline.addEventListener("click", e => {
+        const timelineWidth = window.getComputedStyle(timeline).width;
+        const timeToSeek = e.offsetX / parseInt(timelineWidth) * audio.duration;
+        audio.currentTime = timeToSeek;
+      }, false);
+    
+      // const volumeSlider = audioPlayer.querySelector(".controls .volume-slider");
+      // volumeSlider.addEventListener('click', e => {
+      //   const sliderWidth = window.getComputedStyle(volumeSlider).width;
+      //   const newVolume = e.offsetX / parseInt(sliderWidth);
+      //   audio.volume = newVolume;
+      //   audioPlayer.querySelector(".controls .volume-percentage").style.width = newVolume * 100 + '%';
+      // }, false)
+  
+      setInterval(() => {
+        const progressBar = audioPlayer.querySelector(".progress");
+        progressBar.style.width = audio.currentTime / audio.duration * 100 + "%";
+        audioPlayer.querySelector(".time .current").textContent = getTimeCodeFromNum(
+          audio.currentTime
+        );
+      }, 500);
+    
+      const playBtn = audioPlayer.querySelector(".controls .toggle-play");
+      playBtn.addEventListener("click", () => {
+          const playButton = audioPlayer.querySelector(".toggle-play .play-button");
+          const pauseButton = audioPlayer.querySelector(".toggle-play .pause-button");
+          if (audio.paused) {
+            pauseButton.style.display = 'block';
+            playButton.style.display = 'none';
+            audio.play();
+          } else {
+            pauseButton.style.display = 'none';
+            playButton.style.display = 'block';
+            audio.pause();
+          }
+        },
+        false
+      );
+    
+      audioPlayer.querySelector(".volume-button").addEventListener("click", () => {
+        const volumeOn = audioPlayer.querySelector(".volume-container .volume-button-on");
+        const volumeMute = audioPlayer.querySelector(".volume-container .volume-button-mute");
+        audio.muted = !audio.muted;
+        if (audio.muted) {
+          volumeOn.style.display = 'none';
+          volumeMute.style.display = 'block';
         } else {
-          pauseButton.style.display = 'none';
-          playButton.style.display = 'block';
-          audio.pause();
+          volumeOn.style.display = 'block';
+          volumeMute.style.display = 'none';
         }
-      },
-      false
-    );
+      });
   
-    audioPlayer.querySelector(".volume-button").addEventListener("click", () => {
-      const volumeOn = audioPlayer.querySelector(".volume-container .volume-button-on");
-      const volumeMute = audioPlayer.querySelector(".volume-container .volume-button-mute");
-      audio.muted = !audio.muted;
-      if (audio.muted) {
-        volumeOn.style.display = 'none';
-        volumeMute.style.display = 'block';
-      } else {
-        volumeOn.style.display = 'block';
-        volumeMute.style.display = 'none';
-      }
-    });
+    }
+  }, [])
 
-  }
+  
 
   function getTimeCodeFromNum(num) {
     let seconds = parseInt(num);

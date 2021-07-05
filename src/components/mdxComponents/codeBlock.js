@@ -7,7 +7,6 @@ import Link from '../link';
 
 const theme = getTheme();
 
-/** Removes the last token from a code example if it's empty. */
 function cleanTokens(tokens) {
   const tokensLength = tokens.length;
 
@@ -27,7 +26,6 @@ const LoadableComponent = Loadable({
   loading: LoadingProvider,
 });
 
-/* eslint-disable react/jsx-key */
 const CodeBlock = ({ children: exampleCode, ...props }) => {
   const [_, updateView] = React.useState(0);
 
@@ -37,28 +35,27 @@ const CodeBlock = ({ children: exampleCode, ...props }) => {
   let tabName = (props.tabName || '').slice(1,-1).split(',');
   
   if (props.height) {
-    if (document.getElementById(props.id + "back")) {
-      const backClass = document.getElementById(props.id + "back");
-      backClass.style.height = `${props.height}px`;
+    if (typeof document !== 'undefined') {
+      if (document.getElementById(props.id + "back")) {
+        const backClass = document.getElementById(props.id + "back");
+        backClass.style.height = `${props.height}px`;
+      }
     }
   }
 
   const copyCode = ( code ) => {
-    let el = document.createElement('textarea');
-    // Set value (string to be copied)
-    el.value = code;
-    // Set non-editable to avoid focus and move outside of view
-    el.setAttribute('readonly', '');
-    el.style = {position: 'absolute', left: '-9999px'};
-    document.body.appendChild(el);
-    // Select text inside element
-    el.select();
-    // Copy text to clipboard
-    document.execCommand('copy');
-    // Remove temporary element
-    document.body.removeChild(el);
+    if (typeof document !== 'undefined') {
+      let textArea = document.createElement("textarea");
+      textArea.value = code;
+      textArea.style.position="fixed";  
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+    }
   }
-
+  
   React.useEffect(() => {
     var windowPrism = window.Prism;
     window.Prism = Prism;
