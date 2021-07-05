@@ -1,7 +1,7 @@
 # NAVER DESIGN
 
 **21.07.04**
-- 가이드 라이브 버전: https://starry99.github.io/naver-gastby/ux-writing/aboutux/test/td 
+- 가이드 라이브 버전: https://starry99.github.io/naver-gatsby/ux-writing/aboutux/test/td 
 - 가이드 markdown raw 파일: https://raw.githubusercontent.com/starry99/naver-gatsby/main/content/ux-writing/aboutux/test/td.md
 
 아래에 Develop 파트를 따라하신 후, VSCode를 이용한 local 설정을 하신 다음에, VSCode로 /content/ux-writing/aboutux/test/td.md 열고 이를 참고하시며 작업하시면 됩니다.
