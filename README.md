@@ -9,7 +9,7 @@
 **21.07.05**  
 0.1.3 - 엔드페이지 마크다운 펑션 업데이트 (위의 가이드 참조)  
 **21.07.06**  
-0.1.4 - Tab Main 페이지 구현, Footer 업데이트, deploy 기능 개선, figma의 tab main 페이지를 따라 모바일과 태블릿 기준 재설정
+0.1.4 - Tab Main 페이지 구현(https://starry99.github.io/naver-gatsby/ux-writing/index 참조), Footer 업데이트, deploy 기능 개선, figma의 tab main 페이지를 따라 모바일과 태블릿 기준 재설정
 
 ## Configure - Markdown
 
