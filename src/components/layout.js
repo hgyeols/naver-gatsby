@@ -14,7 +14,7 @@ const Wrapper = styled('div')`
   justify-content: space-between;
   // background: ${({ theme }) => theme.colors.background};
 
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 599px) {
     display: block;
   }
 `;
@@ -45,21 +45,27 @@ const Content = styled('main')`
     background: ${({ theme }) => theme.colors.background};
   }
 
-  @media only screen and (max-width: 767px) {
-    padding-top: 54px;
+  @media (min-width: 600px) and (max-width: 1151px) {
+    /* max-width: 828px; */
+    width: 100%;
+    margin: 0px 36px;
   }
 
-  // @media only screen and (max-width: 1023px) {
-  //   padding-left: 0;
-  //   margin: 0 36px;
-  // }
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    margin: 0px 20px;
+  }
 `;
 
 const MaxWidth = styled('div')`
   width: 828px;
-  @media only screen and (max-width: 767px) {
+
+  @media (min-width: 600px) and (max-width: 1151px) {
     width: 100%;
-    position: relative;
+  }
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
   }
 `;
 

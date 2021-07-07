@@ -13,6 +13,8 @@ import LinkFirst from './LinkFirst';
 import LinkSecond from './LinkSecond';
 import Outlink from './Outlink';
 import MailLink from './MailLink';
+import TabMainImg from './TabMainImg'
+import TabMainResource from './TabMainResource'
 
 const StyledPre = styled('div')`
   background-color: #131313;
@@ -146,4 +148,6 @@ export default {
   link2: LinkSecond,
   outlink: Outlink,
   mailLink: MailLink,
+  tabMainImg: TabMainImg,
+  tabMainResource: TabMainResource,
 };

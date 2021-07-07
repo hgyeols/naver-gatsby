@@ -94,6 +94,7 @@ module.exports = {
     gnbMenu: config.gnb.menu,
     titleLink: config.gnb.titleLink ? config.gnb.titleLink : '/',
     siteUrl: config.gatsby.siteUrl,
+    naverOSS: config.gatsby.naverOSS,
   },
   plugins: plugins,
   flags: {

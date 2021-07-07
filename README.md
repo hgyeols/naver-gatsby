@@ -6,16 +6,16 @@
 - 가이드 markdown raw 파일: https://raw.githubusercontent.com/starry99/naver-gatsby/main/content/ux-writing/aboutux/test/td.md
 아래에 Develop 파트를 따라하신 후, VSCode를 이용한 local 설정을 하신 다음에, VSCode로 /content/ux-writing/aboutux/test/td.md 열고 이를 참고하시며 작업하시면 됩니다.
 
-**21.07.05**
-0.1.3 - 엔드페이지 마크다운 펑션 업데이트 (위의 가이드 참조)
-
-
+**21.07.05**  
+0.1.3 - 엔드페이지 마크다운 펑션 업데이트 (위의 가이드 참조)  
+**21.07.06**  
+0.1.4 - Tab Main 페이지 구현, Footer 업데이트, deploy 기능 개선, figma의 tab main 페이지를 따라 모바일과 태블릿 기준 재설정
 
 ## Configure - Markdown
 
 모든 markdown 파일은 `content` 폴더 아래에 있어야합니다.
 
-- `/content/index.md` : 사이트 접속 시 나오는 메인페이지
+`/content/index.md` : 사이트 접속 시 나오는 메인페이지 
 
 `/content/`에 폴더를 만들고 gnb.menu.folderName에 같은 이름을 적으면, 해당 폴더가 GNB 메뉴로 작동합니다.
 이때 해당 폴더 내부에 소속된 markdown 파일 LNB에 나타나며, 모든 markdown 파일의
@@ -24,13 +24,14 @@
 - frontmatter 중 order 항목에 따라, LNB에서의 순서가 변합니다. 각 depth 별로 별개로 order가 작동하며, 숫자는 작은 순서가 위로 배치됩니다. 숫자의 크기는 상관없습니다.
 - frontmatter 중 template 항목에 따라, markdown 파일의 template이 변합니다.
 
-#### 1-Depth
+#### Tab Main Page & 1-Depth
 
 GNB 메뉴에 해당되는 폴더 내부에 (ex. `/content/about/`) 
-- `index.md` 파일을 만들면 Service Page로 동작하며 LNB에 나타나지 않습니다.
-- 다른 이름의 markdown 파일을 넣으면 1-depth로 동작합니다. (ex. `/content/about/aboutnds.md`)
+- `index.md` 파일을 만들면 Tab Main Page로 동작하며 LNB에 나타나지 않습니다.
+- - **이때 frontmatter의 template을 tabMain으로 설정합니다**
+- 이 폴더에 다른 이름의 markdown 파일을 넣으면 1-depth로 동작합니다. (ex. `/content/about/aboutnds.md`)
 
-#### 2-Depth and More
+#### 2-Depth & More
 
 GNB 메뉴에 해당되는 폴더 내부에 (ex. `/content/design/`)
 - 2-Depth로 사용하고싶은 이름의 폴더를 만들고 (ex. `/content/design/color/`), 같은 이름의 파일을 만들어야합니다. (ex. `/content/design/color.md`)

@@ -131,9 +131,9 @@ export const GNBStylesWrapper = styled.div`
     width: 100%;
   }
 
-  .mobileLNB {
+  /* .mobileLNB {
     -webkit-transition: top 0.5s, bottom 0.5s;
-  }
+  } */
 
   .mobileMenuButton {
     width: 48px;
@@ -159,7 +159,7 @@ export const GNBStylesWrapper = styled.div`
     margin-top: 0px;
   }
   
-  @media (max-width: 767px) {
+  @media (max-width: 599px) {
 
     .headerTitle {
       padding-right: 50px;
@@ -230,11 +230,14 @@ export const GNBStylesWrapper = styled.div`
     }
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  @media (min-width: 600px) and (max-width: 1151px) {
+
+    .GNBDefault {
+      padding: 0 20px;
+    }
 
     .GNBTabletNav {
       display: block;
-      text-align: center; 
     }
   }
 

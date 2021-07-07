@@ -6,7 +6,7 @@ import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import { Layout, Link } from '$components';
 import NextPrevious from './NextPrevious';
 import config from '../../config';
-import { StyledHeading, StyledHeadingTabMain, StyledMainWrapper, Divider } from './styles/guide';
+import { StyledHeading, StyledHeadingTabMain, StyledMainWrapper, StyledMainWrapperTabMain, Divider } from './styles/guide';
 
 const forcedNavOrder = [];
 
@@ -71,6 +71,7 @@ export default class MDXRuntimeTest extends Component {
     const metaDescription = mdx.frontmatter.metaDescription;
 
     const titleDescription = mdx.frontmatter.titleDescription;
+    const titlePhoto = mdx.frontmatter.titlePhoto;
 
     let canonicalUrl = config.gatsby.siteUrl;
 
@@ -91,17 +92,21 @@ export default class MDXRuntimeTest extends Component {
           ) : null}
           <link rel="canonical" href={canonicalUrl} />
         </Helmet>
-        { mdx.frontmatter.template === 'tabMain' ?
+        { mdx.frontmatter.template && mdx.frontmatter.template === 'tabMain' ?
           <div className={'tabMainWrapper'}>
             <div className={'tabMainPhoto'}>
-              
+              {titlePhoto && <img src={mdx.frontmatter.titlePhoto} />}
             </div>
             <div className={'titleWrapperTabMain'}>
               <StyledHeadingTabMain>{mdx.fields.title}</StyledHeadingTabMain> 
               {titleDescription && <div className={'titleDescriptionTabMain'}>{mdx.frontmatter.titleDescription}</div>}
               <Divider />
             </div>
+            <StyledMainWrapperTabMain>
+              <MDXRenderer>{mdx.body}</MDXRenderer>
+            </StyledMainWrapperTabMain>
           </div>
+
           :
           <div className={'defaultWrapper'}>
             <div className={'titleWrapper'}>
@@ -148,6 +153,7 @@ export const pageQuery = graphql`
         metaTitle
         metaDescription
         template
+        titlePhoto
         titleDescription
       }
     }

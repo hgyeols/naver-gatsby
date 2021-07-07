@@ -22,18 +22,18 @@ const Footer = () => {
                 <li key={key}>
                   <Link to={link.link}>
                     {link.text}
-                    {key === lastLink-1 ?  null : <span> | </span> }
                   </Link>
+                  {key === lastLink-1 ?  null : <span>|</span> }
                 </li>
               );
             }
           })}
         </ul>
       </div>
-      <div className="copyright">
+      {/* <div className="copyright">
         <span dangerouslySetInnerHTML={{ "__html": "&copy; " + new Date().getFullYear() + " " }} />
         <span>NAVER corp.</span>
-      </div>
+      </div> */}
     </div>
   )
 }

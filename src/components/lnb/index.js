@@ -128,17 +128,17 @@ const Sidebar = styled('aside')`
   padding-right: 0;
   border-right: 1px solid #eaeaea;
 
-  @media only screen and (max-width: 1023px) {
+  @media only screen and (max-width: 1151px) {
     width: 100%;
     /* position: relative; */
     height: 100vh;
   }
 
-  @media (min-width: 767px) and (max-width: 1023px) {
+  @media (min-width: 600px) and (max-width: 1151px) {
     padding-left: 0;
   }
 
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 1151px) {
     padding-left: 0px;
     height: auto;
   }
@@ -271,6 +271,7 @@ const LNBLayout = ({ location }) => (
         }
         site {
           siteMetadata {
+            naverOSS
             gnbMenu {
               text
               folderName
@@ -285,11 +286,16 @@ const LNBLayout = ({ location }) => (
       const {
         allMdx,
         site: {
-          siteMetadata: { gnbMenu },
+          siteMetadata: { naverOSS, gnbMenu },
         },
       } = data; // graphQL로 데이터 가져옴
 
-      let currGNB = config.gatsby.pathPrefix !== '/' ? location.pathname.slice(1).split('/')[1] : location.pathname.slice(1).split('/')[0];
+      let currGNB
+      if (naverOSS) {
+        currGNB = config.gatsby.pathPrefix !== '/' ? location.pathname.slice(1).split('/')[2] : location.pathname.slice(1).split('/')[0];
+      } else {
+        currGNB = config.gatsby.pathPrefix !== '/' ? location.pathname.slice(1).split('/')[1] : location.pathname.slice(1).split('/')[0];
+      }
 
 
       // 전체 markdown 중에서 현재 GNB에 맞는 것만 필터

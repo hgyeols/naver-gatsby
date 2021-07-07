@@ -67,7 +67,7 @@ const Input = styled.input`
 const Form = styled.form`
   display: flex;
   align-items: center;
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 599px) {
     width: 100%;
     margin-left: 15px;
   }

@@ -40,7 +40,7 @@ const HitsWrapper = styled.div`
     width: 400px;
     max-width: 400px;
   }
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 599px) {
     width: 100%;
     max-width: 500px;
   }
@@ -91,7 +91,7 @@ const Root = styled.div`
   position: relative;
   display: grid;
   grid-gap: 1em;
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 599px) {
     width: 100%;
   }
 `;
