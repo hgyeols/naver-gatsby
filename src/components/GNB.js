@@ -26,7 +26,6 @@ const LoadableComponent = Loadable({
 });
 
 function mobileMenuClick() {
-
   if (typeof document !== 'undefined') {
     var x = document.getElementById('navbar');
 
@@ -55,7 +54,7 @@ const GNB = ({ location }) => (
         }
       }
     `}
-    render = { data => {
+    render={(data) => {
       const {
         site: {
           siteMetadata: { titleLink, gnbTitle, gnbTitleTablet, gnbMenu },
@@ -75,22 +74,39 @@ const GNB = ({ location }) => (
                 />
               </Link>
               {/* GNB Menu */}
-              <ul className={'GNBUL GNBNav GNBULRight'}>
-                {gnbMenu.map((menu, key) => {
-                  if (menu.text !== '' && menu.folderName !== '') {
-                    return (
-                      <li key={key}>
-                        <Link to={`/${menu.folderName}/index`} activeClassName="active"> 
-                          <div
-                            className={'sidebarLink displayInline'}
-                            dangerouslySetInnerHTML={{ __html: menu.text }}
-                          />
-                        </Link>
-                      </li>
-                    );
-                  }
-                })}
-              </ul>
+              <div className={'GNBNavWrapper'}>
+                <ul className={'GNBUL GNBNav GNBULRight'}>
+                  {gnbMenu.map((menu, key) => {
+                    if (menu.text !== '' && menu.folderName !== '') {
+                      return (
+                        <li key={key}>
+                          <Link to={`/${menu.folderName}/index`} activeClassName="active">
+                            <div
+                              className={'sidebarLink displayInline'}
+                              dangerouslySetInnerHTML={{ __html: menu.text }}
+                            />
+                          </Link>
+                        </li>
+                      );
+                    }
+                  })}
+                </ul>
+              </div>
+              <div className={'GNBSearchIcon'}>
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="22" cy="22" r="7.25" stroke="#E2E2E2" strokeWidth="1.5" />
+                  <path
+                    d="M32.4697 33.5303C32.7626 33.8232 33.2374 33.8232 33.5303 33.5303C33.8232 33.2374 33.8232 32.7626 33.5303 32.4697L32.4697 33.5303ZM26.4697 27.5303L32.4697 33.5303L33.5303 32.4697L27.5303 26.4697L26.4697 27.5303Z"
+                    fill="#E2E2E2"
+                  />
+                </svg>
+              </div>
             </div>
             <div className={'GNBTabletNav'}>
               <div
@@ -98,11 +114,16 @@ const GNB = ({ location }) => (
                 dangerouslySetInnerHTML={{ __html: gnbTitleTablet }}
               />
               <div className={'GNBheaderTitleTabletSVG'}>
-                <svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5 5L0.669872 0.5L9.33013 0.5L5 5Z" fill="#E2E2E2"/>
+                <svg
+                  width="10"
+                  height="5"
+                  viewBox="0 0 10 5"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M5 5L0.669872 0.5L9.33013 0.5L5 5Z" fill="#E2E2E2" />
                 </svg>
               </div>
-
             </div>
             <div className={'GNBMobileWrapper'}>
               {/* Hamburger Button (Mobile) */}
@@ -127,13 +148,13 @@ const GNB = ({ location }) => (
                 <LoadableComponent collapse={true} indices={searchIndices} />
               </div>
             ) : null}
-          </nav>   
+          </nav>
           {/* LNB (mobile) */}
           <div id="navbar" className={'mobileLNB'}>
             <div className={'visibleMobileOnly'}>
               <LNB location={location} />
             </div>
-          </div>  
+          </div>
         </GNBStylesWrapper>
       );
     }}

@@ -92,7 +92,8 @@ export default class MDXRuntimeTest extends Component {
           ) : null}
           <link rel="canonical" href={canonicalUrl} />
         </Helmet>
-        { mdx.frontmatter.template && mdx.frontmatter.template === 'tabMain' ?
+        { mdx.frontmatter.template && mdx.frontmatter.template === 'tabMain' 
+          ?
           <div className={'tabMainWrapper'}>
             <div className={'tabMainPhoto'}>
               {titlePhoto && <img src={mdx.frontmatter.titlePhoto} />}
@@ -106,21 +107,34 @@ export default class MDXRuntimeTest extends Component {
               <MDXRenderer>{mdx.body}</MDXRenderer>
             </StyledMainWrapperTabMain>
           </div>
-
-          :
-          <div className={'defaultWrapper'}>
-            <div className={'titleWrapper'}>
-              <StyledHeading>{mdx.fields.title}</StyledHeading> 
-              {titleDescription && <div className={'titleDescription'}>{mdx.frontmatter.titleDescription}</div>}
-              <Divider />
+          : mdx.frontmatter.template === 'withDownload' 
+            ?
+            <div className={'defaultWrapper'}>
+              <div className={'titleWrapper'}>
+                <StyledHeading>{mdx.fields.title}</StyledHeading> 
+                {titleDescription && <div className={'titleDescription'}>{mdx.frontmatter.titleDescription}</div>}
+              </div>
+              <StyledMainWrapper>
+                <MDXRenderer>{mdx.body}</MDXRenderer>
+              </StyledMainWrapper>
+              <div className={'addPaddTopBottom'}>
+                <NextPrevious mdx={mdx} nav={nav} />
+              </div>
             </div>
-            <StyledMainWrapper>
-              <MDXRenderer>{mdx.body}</MDXRenderer>
-            </StyledMainWrapper>
-            <div className={'addPaddTopBottom'}>
-              <NextPrevious mdx={mdx} nav={nav} />
+            :
+            <div className={'defaultWrapper'}>
+              <div className={'titleWrapper'}>
+                <StyledHeading>{mdx.fields.title}</StyledHeading> 
+                {titleDescription && <div className={'titleDescription'}>{mdx.frontmatter.titleDescription}</div>}
+                <Divider />
+              </div>
+              <StyledMainWrapper>
+                <MDXRenderer>{mdx.body}</MDXRenderer>
+              </StyledMainWrapper>
+              <div className={'addPaddTopBottom'}>
+                <NextPrevious mdx={mdx} nav={nav} />
+              </div>
             </div>
-          </div>
         }
 
         

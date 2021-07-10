@@ -1,7 +1,7 @@
-import React from "react"
+import React from 'react';
 import Link from './link';
 import config from '../../config';
-import NaverSVG from "./svgs/naver.svg";
+import NaverSVG from './svgs/naver.svg';
 
 const lastLink = config.footerLinks.length;
 
@@ -9,10 +9,7 @@ const Footer = () => {
   return (
     <div className="footerContainer">
       <div className="footerLogo">
-        <NaverSVG 
-          className={'displayInline'}
-          alt={'logo'}
-        />
+        <NaverSVG className={'displayInline'} alt={'logo'} />
       </div>
       <div className="footerLinks">
         <ul>
@@ -20,10 +17,20 @@ const Footer = () => {
             if (link.link !== '' && link.text !== '') {
               return (
                 <li key={key}>
-                  <Link to={link.link}>
-                    {link.text}
-                  </Link>
-                  {key === lastLink-1 ?  null : <span>|</span> }
+                  <Link to={link.link}>{link.text}</Link>
+                  {key === lastLink - 1 ? null : (
+                    <div className="footerSVG">
+                      <svg
+                        width="1"
+                        height="12"
+                        viewBox="0 0 1 12"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect width="1" height="12" fill="#E2E2E2" />
+                      </svg>
+                    </div>
+                  )}
                 </li>
               );
             }
@@ -35,7 +42,7 @@ const Footer = () => {
         <span>NAVER corp.</span>
       </div> */}
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

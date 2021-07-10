@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
 
 export const baseStyles = css`
-
   @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
 
   * {
@@ -29,19 +28,31 @@ export const baseStyles = css`
 
   html,
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'SF Pro Text', 'SF Pro Display', 'Segoe UI', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif,
-      'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'SF Pro Text',
+      'SF Pro Display', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+      'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     font-size: 16px;
     scroll-behavior: smooth;
   }
 
-  a {
-    // text-decoration: none;
+  a:link {
+    text-decoration: none;
+    color: #424242;
+  }
+
+  a:visited {
+    text-decoration: none;
+    color: #424242;
   }
 
   a:hover {
-    // text-decoration: none;
+    text-decoration: none;
+    color: #424242;
+  }
+
+  a:active {
+    text-decoration: none;
+    color: #424242;
   }
 
   body {
@@ -64,7 +75,7 @@ export const baseStyles = css`
   pre {
     font-family: 'IBM Plex Mono', monospace;
     border: 0;
-    background-color: #131313 !important; 
+    background-color: #131313 !important;
     overflow: auto;
     margin: 0px;
     padding: 20px;
@@ -128,7 +139,6 @@ export const baseStyles = css`
     line-height: 130%;
     letter-spacing: -0.022em;
     padding: 24px 24px 22px 24px;
-  
   }
 
   // .lnbNav {
@@ -160,7 +170,6 @@ export const baseStyles = css`
   }
 
   .tabMainWrapper {
-
   }
 
   .titleWrapperTabMain {
@@ -325,7 +334,7 @@ export const baseStyles = css`
           letter-spacing: -0.017em;
           color: #424242;
         }
-      }      
+      }
     }
   }
 
@@ -336,7 +345,6 @@ export const baseStyles = css`
     @media (max-width: 599px) {
       display: none !important;
     }
-
   }
 
   .tabMainResourceContent {
@@ -344,7 +352,7 @@ export const baseStyles = css`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid #E2E2E2;
+    border: 1px solid #e2e2e2;
     border-collapse: collapse;
   }
 
@@ -360,7 +368,6 @@ export const baseStyles = css`
       padding-top: 30px;
       padding-bottom: 45px;
     }
-
   }
 
   .tabMainResourceContentText {
@@ -381,7 +388,6 @@ export const baseStyles = css`
     @media (max-width: 599px) {
       padding-right: 12px;
     }
-    
   }
 
   .tabMainResourceContentTextText {
@@ -412,6 +418,74 @@ export const baseStyles = css`
     }
   }
 
+  .titleDownloadWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 24px;
+    margin-bottom: 24px;
+
+    @media (max-width: 599px) {
+      display: none !important;
+    }
+  }
+
+  .titleDownloadContent {
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    height: 120px;
+  }
+
+  .titleDownloadContent:hover {
+    background-color: #fafafa;
+  }
+
+  .titleDownloadContentNo {
+    border: 0;
+    height: 120px;
+  }
+
+  .titleDownloadContentLogo {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+    margin-right: 16px;
+  }
+
+  .titleDownloadContentText {
+    display: block;
+    margin-left: 24px;
+  }
+
+  .titleDownloadContentTextTitle {
+    span {
+      font-family: 'SF Pro Text';
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.6;
+      letter-spacing: -0.017em;
+      color: #131313;
+    }
+  }
+
+  .titleDownloadContentLink {
+    span {
+      font-family: 'SF Pro Text';
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+      letter-spacing: -0.017em;
+      color: #636363;
+    }
+  }
+
+  .titleDownloadWrapperMobile {
+    display: none;
+
+    @media (max-width: 599px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
 
   .addPaddTopBottom {
     padding: 96px 0;
@@ -453,7 +527,7 @@ export const baseStyles = css`
   .codeTabWrapper label {
     order: 1;
     display: block;
-    width: 100%; 
+    width: 100%;
     height: 48px;
     text-align: center;
     padding-top: 14px;
@@ -469,12 +543,12 @@ export const baseStyles = css`
     color: #fff;
   }
 
-  .codeTabWrapper [class^="codeTabContent"] {
+  .codeTabWrapper [class^='codeTabContent'] {
     order: 99;
     display: none;
     position: absolute;
-    left: 0; 
-    top: 48px; 
+    left: 0;
+    top: 48px;
     flex-grow: 1;
     width: 100%;
     height: 100%;
@@ -491,32 +565,28 @@ export const baseStyles = css`
       cursor: pointer;
 
       .copyBtn {
-        all: unset; 
+        all: unset;
       }
-
     }
 
     .codeCopyButton:hover {
       background-color: rgba(255, 255, 255, 0.1);
       border-radius: 50%;
     }
-
-
   }
 
-  .codeTabWrapper input[type="radio"] {
+  .codeTabWrapper input[type='radio'] {
     display: none;
   }
 
-  .codeTabWrapper input[type="radio"]:checked + label {
+  .codeTabWrapper input[type='radio']:checked + label {
     background: #131313;
     color: #fff;
   }
 
-  .codeTabWrapper input[type="radio"]:checked + label + [class^="codeTabContent"] {
+  .codeTabWrapper input[type='radio']:checked + label + [class^='codeTabContent'] {
     display: block;
   }
-
 
   .codeTabBtn {
     background: #424242;
@@ -535,7 +605,7 @@ export const baseStyles = css`
 
   .codeOutlinkDiv {
     color: #fff;
-    
+
     span {
       margin-right: 10.5px;
     }
@@ -560,9 +630,8 @@ export const baseStyles = css`
       cursor: pointer;
 
       .copyBtn {
-        all: unset; 
+        all: unset;
       }
-
     }
 
     .codeCopyButton:hover {
@@ -588,7 +657,6 @@ export const baseStyles = css`
     img {
       width: 402px !important;
       height: auto;
-      
     }
 
     .imageIconYes {
@@ -696,7 +764,7 @@ export const baseStyles = css`
   }
 
   table tr th :first-of-type,
-  table tr td :first-of-type{
+  table tr td :first-of-type {
     margin-top: 0;
   }
 
@@ -713,7 +781,7 @@ export const baseStyles = css`
   
     Markdown Section 
   
-  */ 
+  */
 
   .heading1 {
     font-size: 32px;
@@ -791,6 +859,10 @@ export const baseStyles = css`
     height: 6px !important;
   }
 
+  .br10 {
+    height: 10px !important;
+  }
+
   .videoEmbed {
     position: relative;
     padding-bottom: 2px;
@@ -821,7 +893,7 @@ export const baseStyles = css`
   }
 
   .play-btn:focus {
-    outline:0;
+    outline: 0;
   }
 
   .play-btn:hover {
@@ -846,7 +918,7 @@ export const baseStyles = css`
     margin-bottom: 2px;
     border: 1px solid #e2e2e2;
     border-radius: 4px;
-  
+
     font-family: 'SF Pro Text';
     color: #424242;
     font-weight: 400;
@@ -854,12 +926,12 @@ export const baseStyles = css`
     line-height: 1.6;
     overflow: hidden;
     display: flex;
-   
+
     .controls {
       padding: 0 14px;
       display: grid;
       grid-template-columns: 32px 102px 168px 42px;
-  
+
       > * {
         align-items: center;
         display: flex;
@@ -914,7 +986,7 @@ export const baseStyles = css`
 
       .time {
         display: flex;
-  
+
         > * {
           padding: 2px;
         }
@@ -940,24 +1012,24 @@ export const baseStyles = css`
           padding-top: 1px;
           display: none;
         }
-      
+
         .volume-button-on {
           padding-top: 1px;
           display: block;
         }
-        
+
         position: relative;
         z-index: 2;
 
         .volume-slider {
           position: absolute;
-          left: -3px; 
+          left: -3px;
           top: 18px;
           z-index: -1;
           width: 0;
           height: 16px;
           background: #e2e2e2;
-          transition: .25s;
+          transition: 0.25s;
           border: 6px solid #414141;
           border-radius: 10px;
 
@@ -1074,7 +1146,6 @@ export const baseStyles = css`
         }
       }
     }
-
   }
 
   .downloadWrapperTypeB:hover {
@@ -1118,14 +1189,13 @@ export const baseStyles = css`
       line-height: 21px;
       letter-spacing: -0.017em;
       color: #636363;
-      
+
       a {
         text-decoration: none !important;
       }
       span {
         margin-right: 7px;
       }
-
     }
 
     .linkTextSecondSVG {
@@ -1154,7 +1224,7 @@ export const baseStyles = css`
     justify-content: space-between;
 
     .linkSecondChild {
-      width: calc((100% - 24px)/2);
+      width: calc((100% - 24px) / 2);
       display: grid;
       grid-template-columns: 80px 1fr;
       border: 1px solid #e2e2e2;
@@ -1202,7 +1272,7 @@ export const baseStyles = css`
   .MailLinkWrapper {
     width: 372px;
     height: 80px;
-    border: 1px solid #E2E2E2;
+    border: 1px solid #e2e2e2;
     border-radius: 4px;
     display: grid;
     grid-template-columns: 80px 1fr 48px;
@@ -1252,9 +1322,8 @@ export const baseStyles = css`
   }
 
   .MailLinkWrapper:hover {
-    background: #FAFAFA;
+    background: #fafafa;
   }
-
 
   /* 
     
@@ -1280,14 +1349,17 @@ export const baseStyles = css`
 
   .searchInput {
     width: calc(100% - 26px);
-    background-color: transparent!important;
-    border-width: 0!important;
-    color: #c2c2c2
+    background-color: transparent !important;
+    border-width: 0 !important;
+    color: #c2c2c2;
   }
 
-  .searchInput:focus,.searchInput:focus-within,.searchInput:hover,.searchInput:visited {
+  .searchInput:focus,
+  .searchInput:focus-within,
+  .searchInput:hover,
+  .searchInput:visited {
     outline: none;
-    border: 0
+    border: 0;
   }
 
   .searchWrapper {
@@ -1295,11 +1367,11 @@ export const baseStyles = css`
     padding-right: 20px;
     flex: 1 1;
     max-width: 600px;
-    position: relative
+    position: relative;
   }
 
   .searchWrapper a {
-    font-weight: 500
+    font-weight: 500;
   }
 
   .poweredBy {
@@ -1362,7 +1434,16 @@ export const baseStyles = css`
     grid-template-columns: 97px 1fr;
     align-items: center;
     border-top: 1px solid #f2f2f3;
-    padding: 30px 60px;
+    padding: 0 60px;
+    height: 88px;
+
+    @media (min-width: 600px) and (max-width: 1151px) {
+      padding: 0 36px;
+    }
+
+    @media (max-width: 599px) {
+      padding: 0 20px;
+    }
   }
 
   .footerLogo {
@@ -1385,10 +1466,17 @@ export const baseStyles = css`
       display: inline-block;
       list-style: none;
 
-      span {
+      .footerSVG {
+        display: inline-block;
+      }
+
+      svg {
         padding-left: 12px;
         padding-right: 12px;
+        width: 100%;
+        height: 100%;
       }
+
       a {
         font-family: 'SF Pro Text';
         font-weight: 400;
@@ -1399,6 +1487,10 @@ export const baseStyles = css`
         text-decoration: none !important;
         display: inline-block;
       }
+
+      a:hover {
+        color: #131313;
+      }
     }
   }
 
@@ -1407,7 +1499,7 @@ export const baseStyles = css`
     Mobile section 
 
   */
- 
+
   @media (max-width: 599px) {
     .hiddenMobile {
       display: none !important;
@@ -1446,7 +1538,6 @@ export const baseStyles = css`
     }
   }
 
-  
   /* 
     
     Tablet section 
@@ -1454,13 +1545,8 @@ export const baseStyles = css`
   */
 
   @media (min-width: 600px) and (max-width: 1151px) {
-
     .hiddenTablet {
       display: none !important;
     }
   }
-
-  
-
-  
 `;

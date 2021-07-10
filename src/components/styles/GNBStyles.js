@@ -1,33 +1,41 @@
 import styled from '@emotion/styled';
 
 export const GNBStylesWrapper = styled.div`
-  
   .GNBDefault {
     background-color: #131313;
     border-radius: 0;
-    // border-top: 0;
     margin-bottom: 0;
     border: 0;
     z-index: 1;
-    padding: 0 24px;
+    /* padding: 0 24px; */
     position: relative;
     height: 72px;
+    display: flex;
+    align-items: center;
   }
 
   .GNBHeader {
-    min-width: 335px;
-    flex: 1 1;
+    margin-left: 26px;
+    /* flex: 1 1; */
   }
 
-  .GNBDefault,.GNBHeader {
-    display: flex;
+  .GNBDefault,
+  .GNBHeader {
+    /* display: flex; */
     align-items: center;
+  }
+
+  .GNBNavWrapper {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .GNBNav {
     display: flex;
     align-items: center;
-    padding: 0 60px;
   }
 
   .GNBUL {
@@ -50,20 +58,19 @@ export const GNBStylesWrapper = styled.div`
   .GNBUL li a {
     color: #fff !important;
     font-family: 'SF Pro Text';
-    font-weight: 700;
+    font-weight: 600;
     font-size: 18px;
     line-height: 100%;
     margin: 0 16px;
     letter-spacing: -0.022em;
-
   }
 
   .GNBUL li a.active {
-    border-bottom: 2px solid #fff;
+    color: #fff !important;
   }
 
   .GNBUL:hover li a.active {
-    border-bottom: 2px solid #919191;
+    color: #fff !important;
   }
 
   .GNBUL li a:hover {
@@ -71,21 +78,30 @@ export const GNBStylesWrapper = styled.div`
   }
 
   .GNBUL li a.active:hover {
-    border-bottom: 2px solid #fff;
+    color: #fff !important;
   }
-  
+
+  .GNBSearchIcon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translate(0%, -50%);
+    display: flex;
+    align-items: center;
+  }
+
   .GNBheaderTitle {
     font-family: 'SF Pro Display';
     height: auto;
     font-size: 22px;
     line-height: 22px;
     font-weight: 900;
-    color: #fff !important;
+    color: #f3f3f3 !important;
     text-transform: uppercase;
   }
 
   .GNBheaderTitle a {
-    color: #fff;
+    color: #f3f3f3;
   }
 
   .GNBheaderTitle a:hover {
@@ -100,7 +116,7 @@ export const GNBStylesWrapper = styled.div`
     font-size: 22px;
     line-height: 22px;
     font-weight: 900;
-    color: #fff !important;
+    color: #f3f3f3 !important;
     text-transform: uppercase;
   }
 
@@ -111,7 +127,7 @@ export const GNBStylesWrapper = styled.div`
     font-size: 22px;
     line-height: 22px;
     font-weight: 900;
-    color: #fff !important;
+    color: #f3f3f3 !important;
     text-transform: uppercase;
     position: absolute;
     left: 20px;
@@ -158,9 +174,8 @@ export const GNBStylesWrapper = styled.div`
   .mobileMenuButton .iconBar:first-of-type {
     margin-top: 0px;
   }
-  
-  @media (max-width: 599px) {
 
+  @media (max-width: 599px) {
     .headerTitle {
       padding-right: 50px;
       font-size: 16px;
@@ -231,7 +246,6 @@ export const GNBStylesWrapper = styled.div`
   }
 
   @media (min-width: 600px) and (max-width: 1151px) {
-
     .GNBDefault {
       padding: 0 20px;
     }
@@ -240,6 +254,4 @@ export const GNBStylesWrapper = styled.div`
       display: block;
     }
   }
-
 `;
-

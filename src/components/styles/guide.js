@@ -52,7 +52,7 @@ export const StyledHeadingTabMain = styled('h1')`
   }
 `;
 
-export const Divider = styled(props => (
+export const Divider = styled((props) => (
   <li {...props}>
     <hr />
   </li>
@@ -78,7 +78,7 @@ export const StyledMainWrapperTabMain = styled.div`
     li {
       height: 26px;
       letter-spacing: -0.017em;
-      color: #666
+      color: #666;
     }
   }
 
@@ -122,7 +122,6 @@ export const StyledMainWrapperTabMain = styled.div`
         height: initial;
       }
     }
-
   }
 `;
 
@@ -135,9 +134,9 @@ export const StyledMainWrapper = styled.div`
     align-items: center;
     li {
       height: 26px;
-      
+
       letter-spacing: -0.017em;
-      color: #666
+      color: #666;
     }
   }
 
@@ -155,11 +154,10 @@ export const StyledMainWrapper = styled.div`
     padding: 2px 6px;
     font-size: 0.9375em;
 
-    background: ${props => props.theme.colors.background};
+    background: ${(props) => props.theme.colors.background};
   }
 
   @media (min-width: 600px) and (max-width: 1151px) {
-
     ul,
     ol {
       li {
@@ -169,13 +167,11 @@ export const StyledMainWrapper = styled.div`
   }
 
   @media (max-width: 599px) {
-    
     ul,
     ol {
       li {
         height: initial;
       }
     }
-
   }
 `;
