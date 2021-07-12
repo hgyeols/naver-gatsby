@@ -145,7 +145,7 @@ export const StyledMainWrapper = styled.div`
   ol {
     align-items: center;
     li {
-      height: 26px;
+      line-height: 160%;
 
       letter-spacing: -0.017em;
       color: #666;
