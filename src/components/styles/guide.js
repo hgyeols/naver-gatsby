@@ -81,8 +81,8 @@ export const StyledMainWrapperTabMain = styled.div`
   ol {
     align-items: center;
     li {
-      height: 26px;
       letter-spacing: -0.017em;
+      line-height: 160%;
       color: #666;
     }
   }
