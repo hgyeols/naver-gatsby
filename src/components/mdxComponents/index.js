@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import config from '../../../config.js';
 
 import CodeBlock from './codeBlock';
 import AnchorTag from './anchor';
 import VideoEmbed from './VideoEmbed';
 import CodeDemo from './CodeDemo';
 import SoundEmbed from './SoundEmbed';
-import DownloadEmbed from './DownloadEmbed';
+import DownloadEmbedTypeA from './DownloadEmbedTypeA';
+import DownloadEmbedTypeB from './DownloadEmbedTypeB';
 import CodeSimulator from './sim';
 import ImageIcon from './ImageIcon';
 import LinkFirst from './LinkFirst';
@@ -50,38 +52,86 @@ const StyledImg = styled('div')`
   margin-top: 16px;
   width: 100%;
   height: auto;
+  font-size: 0;
 
   img {
     width: 100%;
   }
+
+  @media (max-width: ${config.responsive.mobileMax}px) {
+    margin-top: 0px;
+  }
 `;
 
 const StyledImg2 = styled('div')`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 24px;
+  font-size: 0;
+
   p {
-    width: 402px !important;
     height: auto;
+  }
+
+  @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+      .tabletMax}px) {
+    column-gap: 18px;
+  }
+
+  @media (max-width: ${config.responsive.mobileMax}px) {
+    display: grid;
+    grid-template-columns: unset;
+    row-gap: 8px;
+    margin-top: 16px;
   }
 `;
 
 const StyledImg3 = styled('div')`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 24px;
+  font-size: 0;
+
   p {
-    width: 260px !important;
     height: auto;
+  }
+
+  @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+      .tabletMax}px) {
+    column-gap: 18px;
+  }
+
+  @media (max-width: ${config.responsive.mobileMax}px) {
+    display: grid;
+    grid-template-columns: unset;
+    row-gap: 8px;
+    margin-top: 16px;
   }
 `;
 
 const StyledImg5 = styled('div')`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 24px;
+  font-size: 0;
+
   p {
-    width: 402px !important;
   }
+
   span {
-    margin-top: 20px;
+    margin-top: 16px;
+  }
+
+  @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+      .tabletMax}px) {
+    column-gap: 18px;
+  }
+
+  @media (max-width: ${config.responsive.mobileMax}px) {
+    display: grid;
+    grid-template-columns: unset;
+    row-gap: 8px;
+    margin-top: 16px;
   }
 `;
 
@@ -167,7 +217,8 @@ export default {
   codeDemo: (props) => <CodeDemo {...props} />,
   sim: CodeSimulator,
   sound: SoundEmbed,
-  down: DownloadEmbed,
+  downA: DownloadEmbedTypeA,
+  downB: DownloadEmbedTypeB,
   link1: LinkFirst,
   link2: LinkSecond,
   outlink: Outlink,

@@ -1,35 +1,34 @@
 import styled from '@emotion/styled';
+import config from '../../../config.js';
 
 export const StyledHeading = styled('h1')`
   font-family: 'SF Pro Display', 'Apple SD Gothic Neo';
   font-weight: 700 !important;
-  font-size: 60px;
-  line-height: 1.5;
-  font-weight: 500;
-  padding: 9px 0 18px 0;
+  font-size: 58px;
+  line-height: 130%;
   flex: 1;
   margin-top: 0;
   padding-top: 68px;
   padding-bottom: 8px;
   color: #131313 !important;
 
-  @media (min-width: 600px) and (max-width: 1151px) {
-    font-size: 48px;
-    padding: 0 0 8px 0;
+  @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+      .tabletMax}px) {
+    font-size: 46px;
+    padding-top: 54px;
   }
 
-  @media (max-width: 599px) {
+  @media (max-width: ${config.responsive.maxWidth}px) {
+    padding-top: 54px;
     font-size: 36px;
-    padding: 0 0 8px 0;
   }
 `;
 
 export const StyledHeadingTabMain = styled('h1')`
   font-family: 'SF Pro Display', 'Apple SD Gothic Neo';
-  font-weight: 700 !important;
+  font-weight: 600 !important;
   font-size: 66px;
   line-height: 1;
-  font-weight: 500;
   flex: 1;
   padding-bottom: 78px;
   padding-top: 245px;
@@ -37,7 +36,8 @@ export const StyledHeadingTabMain = styled('h1')`
   text-underline-offset: 8px;
   color: #131313 !important;
 
-  @media (min-width: 600px) and (max-width: 1151px) {
+  @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+      .tabletMax}px) {
     font-size: 52px;
     text-decoration: solid underline #131313 4px;
     text-underline-offset: 6px;
@@ -45,7 +45,7 @@ export const StyledHeadingTabMain = styled('h1')`
     padding-top: 265px;
   }
 
-  @media (max-width: 599px) {
+  @media (max-width: ${config.responsive.maxWidth}px) {
     padding-top: 108px;
     font-size: 41px;
     padding-bottom: 57px;
@@ -69,8 +69,13 @@ export const Divider = styled((props) => (
 `;
 
 export const StyledMainWrapperTabMain = styled.div`
-  max-width: 828px;
+  max-width: ${config.responsive.maxWidth}px;
   color: #424242;
+  font-weight: 300;
+
+  b {
+    font-weight: 600;
+  }
 
   ul,
   ol {
@@ -90,15 +95,22 @@ export const StyledMainWrapperTabMain = styled.div`
     padding: 0px 0px 0px 18px;
   }
 
+  h1 {
+    font-weight: 600;
+  }
+
   h2 {
+    font-weight: 600;
     font-size: 23px;
   }
 
   h3 {
     font-size: 16px;
+    font-weight: 600;
   }
 
-  @media (min-width: 600px) and (max-width: 1151px) {
+  @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+      .tabletMax}px) {
     h2 {
       font-size: 20px;
     }
@@ -111,7 +123,7 @@ export const StyledMainWrapperTabMain = styled.div`
     }
   }
 
-  @media (max-width: 599px) {
+  @media (max-width: ${config.responsive.maxWidth}px) {
     h2 {
       font-size: 20px;
     }
@@ -126,7 +138,7 @@ export const StyledMainWrapperTabMain = styled.div`
 `;
 
 export const StyledMainWrapper = styled.div`
-  max-width: 828px;
+  max-width: ${config.responsive.maxWidth}px;
   color: #424242;
 
   ul,
@@ -157,7 +169,16 @@ export const StyledMainWrapper = styled.div`
     background: ${(props) => props.theme.colors.background};
   }
 
-  @media (min-width: 600px) and (max-width: 1151px) {
+  @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+      .tabletMax}px) {
+    h1 {
+      font-size: 29px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
     ul,
     ol {
       li {
@@ -166,7 +187,15 @@ export const StyledMainWrapper = styled.div`
     }
   }
 
-  @media (max-width: 599px) {
+  @media (max-width: ${config.responsive.maxWidth}px) {
+    h1 {
+      font-size: 29px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
     ul,
     ol {
       li {

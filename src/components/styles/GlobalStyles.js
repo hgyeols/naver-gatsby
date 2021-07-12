@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import config from '../../../config.js';
 
 export const baseStyles = css`
   @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
@@ -186,7 +187,7 @@ export const baseStyles = css`
     height: 360px;
     z-index: 2;
 
-    @media (max-width: 599px) {
+    @media (max-width: ${config.responsive.mobileMax}px) {
       height: 175px;
     }
 
@@ -204,22 +205,32 @@ export const baseStyles = css`
     letter-spacing: -0.017em;
     line-height: 1.6;
     color: #424242;
+
+    @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+        .tabletMax}px) {
+      padding-bottom: 52px;
+    }
+
+    @media (max-width: ${config.responsive.mobileMax}px) {
+      padding-bottom: 52px;
+    }
   }
 
   .titleDescriptionTabMain {
     padding-bottom: 44px;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 20px;
     letter-spacing: -0.017em;
     line-height: 1.6;
     color: #131313;
 
-    @media (min-width: 600px) and (max-width: 1151px) {
+    @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+        .tabletMax}px) {
       padding-bottom: 30px;
       font-size: 16px;
     }
 
-    @media (max-width: 599px) {
+    @media (max-width: ${config.responsive.mobileMax}px) {
       padding-bottom: 30px;
       font-size: 16px;
     }
@@ -234,10 +245,17 @@ export const baseStyles = css`
     column-gap: 24px;
 
     .tabMainImgImg {
+      overflow: hidden;
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+
+      img:hover {
+        transform: scale(1.2);
+        /* object-fit: cover; */
+        transition: 0.2s;
       }
 
       .tabMainImgBack {
@@ -252,7 +270,7 @@ export const baseStyles = css`
       padding-bottom: 9px;
       span {
         font-family: 'SF Pro Display';
-        font-weight: 700;
+        font-weight: 600;
         font-size: 20px;
         line-height: 130%;
         color: #131313;
@@ -262,7 +280,7 @@ export const baseStyles = css`
     .tabMainImgText {
       span {
         font-family: 'Apple SD Gothic Neo';
-        font-weight: 400;
+        font-weight: 300;
         font-size: 16px;
         line-height: 160%;
         letter-spacing: -0.017em;
@@ -270,7 +288,8 @@ export const baseStyles = css`
       }
     }
 
-    @media (min-width: 600px) and (max-width: 1151px) {
+    @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+        .tabletMax}px) {
       grid-template-columns: 1fr 1fr 1fr;
       column-gap: 18px;
       grid-template-rows: auto auto auto;
@@ -283,7 +302,7 @@ export const baseStyles = css`
       }
     }
 
-    @media (max-width: 599px) {
+    @media (max-width: ${config.responsive.mobileMax}px) {
       display: none !important;
     }
   }
@@ -291,7 +310,7 @@ export const baseStyles = css`
   .tabMainImgWrapperMobile {
     display: none;
 
-    @media (max-width: 599px) {
+    @media (max-width: ${config.responsive.mobileMax}px) {
       display: grid;
       padding-top: 18px;
       padding-bottom: 16px;
@@ -317,8 +336,8 @@ export const baseStyles = css`
         padding-top: 16px;
         padding-bottom: 9px;
         span {
-          font-family: 'SF Pro Display';
-          font-weight: 700;
+          font-family: 'SF Pro Display', 'Apple SD Gothic Neo';
+          font-weight: 600;
           font-size: 20px;
           line-height: 130%;
           color: #131313;
@@ -327,8 +346,8 @@ export const baseStyles = css`
 
       .tabMainImgText {
         span {
-          font-family: 'Apple SD Gothic Neo';
-          font-weight: 400;
+          font-family: 'Apple SD Gothic Neo', 'SF Pro Display';
+          font-weight: 300;
           font-size: 16px;
           line-height: 160%;
           letter-spacing: -0.017em;
@@ -342,7 +361,7 @@ export const baseStyles = css`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 
-    @media (max-width: 599px) {
+    @media (max-width: ${config.responsive.mobileMax}px) {
       display: none !important;
     }
   }
@@ -353,18 +372,28 @@ export const baseStyles = css`
     align-items: center;
     justify-content: center;
     border: 1px solid #e2e2e2;
-    border-collapse: collapse;
+    margin: -1px 0 0 -1px;
+  }
+
+  .tabMainResourceContent:hover {
+    outline: 1px solid #d1d1d1;
+    background-color: #fafafa;
+  }
+
+  .tabMainResourceContentNo {
+    border: 0;
   }
 
   .tabMainResourceContentLogo {
     padding-top: 60px;
     padding-bottom: 75px;
 
-    @media (min-width: 600px) and (max-width: 1151px) {
+    @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+        .tabletMax}px) {
       padding-top: 46px;
     }
 
-    @media (max-width: 599px) {
+    @media (max-width: ${config.responsive.mobileMax}px) {
       padding-top: 30px;
       padding-bottom: 45px;
     }
@@ -382,10 +411,11 @@ export const baseStyles = css`
     align-self: center;
     padding-right: 20px;
 
-    @media (min-width: 600px) and (max-width: 1151px) {
+    @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+        .tabletMax}px) {
       padding-right: 16px;
     }
-    @media (max-width: 599px) {
+    @media (max-width: ${config.responsive.mobileMax}px) {
       padding-right: 12px;
     }
   }
@@ -394,17 +424,18 @@ export const baseStyles = css`
     padding-left: 20px;
     span {
       font-family: 'SF Pro Text';
-      font-weight: 400;
+      font-weight: 300;
       font-size: 15px;
       line-height: 160%;
       letter-spacing: -0.017em;
       color: #131313;
     }
 
-    @media (min-width: 600px) and (max-width: 1151px) {
+    @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+        .tabletMax}px) {
       padding-left: 16px;
     }
-    @media (max-width: 599px) {
+    @media (max-width: ${config.responsive.mobileMax}px) {
       padding-left: 12px;
     }
   }
@@ -412,7 +443,7 @@ export const baseStyles = css`
   .tabMainResourceWrapperMobile {
     display: none;
 
-    @media (max-width: 599px) {
+    @media (max-width: ${config.responsive.mobileMax}px) {
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
@@ -424,7 +455,7 @@ export const baseStyles = css`
     column-gap: 24px;
     margin-bottom: 24px;
 
-    @media (max-width: 599px) {
+    @media (max-width: ${config.responsive.mobileMax}px) {
       display: none !important;
     }
   }
@@ -481,7 +512,7 @@ export const baseStyles = css`
   .titleDownloadWrapperMobile {
     display: none;
 
-    @media (max-width: 599px) {
+    @media (max-width: ${config.responsive.mobileMax}px) {
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
@@ -641,21 +672,32 @@ export const baseStyles = css`
   }
 
   .imageIconWrapper {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
     margin-top: 16px;
     margin-bottom: 2px;
 
+    @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+        .tabletMax}px) {
+      column-gap: 18px;
+    }
+
+    @media (max-width: ${config.responsive.mobileMax}px) {
+      column-gap: 18px;
+    }
+
     .imageIconFirst {
+      font-size: 0;
       position: relative;
     }
 
     .imageIconSecond {
+      font-size: 0;
       position: relative;
     }
 
     img {
-      width: 402px !important;
       height: auto;
     }
 
@@ -719,14 +761,11 @@ export const baseStyles = css`
   }
 
   table {
-    width: 828px;
+    width: 100%;
     padding: 0;
     border-spacing: 0;
     margin-bottom: 2px;
-
-    @media (min-width: 600px) and (max-width: 1151px) {
-      width: 100%;
-    }
+    border-collapse: collapse;
   }
 
   thead {
@@ -751,16 +790,26 @@ export const baseStyles = css`
     border: 1px solid #eaeaea;
     text-align: left;
     margin: 0;
-    padding: 0px 24px;
     height: 56px;
+    padding: 0 24px;
     white-space: nowrap;
+
+    @media (max-width: ${config.responsive.mobileMax}px) {
+      padding: 0 20px;
+      white-space: unset;
+      min-width: 50px;
+    }
   }
 
   table tr td {
     border: 1px solid #eaeaea;
     text-align: left;
     margin: 0;
-    padding: 25px 24px;
+    padding: 14px 24px;
+
+    @media (max-width: ${config.responsive.mobileMax}px) {
+      padding: 14px 20px;
+    }
   }
 
   table tr th :first-of-type,
@@ -873,13 +922,9 @@ export const baseStyles = css`
   }
 
   .videoWrapper {
-    width: 828px;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0.2);
     min-height: 465.75px;
-
-    @media (min-width: 600px) and (max-width: 1151px) {
-      width: 100%;
-    }
   }
 
   .play-btn {
@@ -1055,15 +1100,68 @@ export const baseStyles = css`
 
   */
 
+  .downloadTypeA {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
+    margin-bottom: 24px;
+
+    @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+        .tabletMax}px) {
+      column-gap: 18px;
+    }
+
+    @media (max-width: ${config.responsive.mobileMax}px) {
+      display: none !important;
+    }
+  }
+
+  .downloadTypeB {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 24px;
+    margin-bottom: 24px;
+
+    @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+        .tabletMax}px) {
+      column-gap: 18px;
+    }
+
+    @media (max-width: ${config.responsive.mobileMax}px) {
+      display: none !important;
+    }
+  }
+
+  .downloadTypeBMobile {
+    display: none;
+
+    @media (max-width: ${config.responsive.mobileMax}px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 5px;
+    }
+  }
+
+  .downloadTypeAMobile {
+    display: none;
+
+    @media (max-width: ${config.responsive.mobileMax}px) {
+      display: block;
+    }
+  }
+
   .downloadWrapperTypeA {
-    width: 372px;
     height: 80px;
     background-color: #fff;
     border: 1px solid #e2e2e2;
     border-radius: 4px;
     display: grid;
-    grid-template-columns: 80px 244px 48px;
+    grid-template-columns: 20fr 61fr 12fr;
     align-items: center;
+
+    @media (max-width: ${config.responsive.mobileMax}px) {
+      margin-bottom: 10px;
+    }
 
     .downloadLogoTypeA {
       padding-left: 16px;
@@ -1104,20 +1202,24 @@ export const baseStyles = css`
   }
 
   .downloadWrapperTypeB {
-    width: 240px;
     height: 120px;
     background-color: #fff;
     border: 1px solid #e2e2e2;
     border-radius: 4px;
+
+    @media (max-width: ${config.responsive.mobileMax}px) {
+      margin-bottom: 5px;
+    }
 
     a {
       text-decoration: none !important;
     }
 
     .downloadLogoTypeB {
-      display: block;
-      margin-left: 182px;
-      transform: scale(0.67);
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 16px;
+      margin-right: 16px;
     }
 
     .downloadTextTypeB {
@@ -1269,14 +1371,41 @@ export const baseStyles = css`
     }
   }
 
+  .MailLink {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
+    margin-bottom: 16px;
+
+    @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+        .tabletMax}px) {
+      column-gap: 18px;
+    }
+
+    @media (max-width: ${config.responsive.mobileMax}px) {
+      display: none !important;
+    }
+  }
+
+  .MailLinkMobile {
+    display: none;
+
+    @media (max-width: ${config.responsive.mobileMax}px) {
+      display: block;
+    }
+  }
+
   .MailLinkWrapper {
-    width: 372px;
     height: 80px;
     border: 1px solid #e2e2e2;
     border-radius: 4px;
     display: grid;
     grid-template-columns: 80px 1fr 48px;
     margin-bottom: 2px;
+
+    @media (max-width: ${config.responsive.mobileMax}px) {
+      margin-bottom: 16px;
+    }
 
     .MailLinkIcon {
       align-self: center;
@@ -1437,11 +1566,12 @@ export const baseStyles = css`
     padding: 0 60px;
     height: 88px;
 
-    @media (min-width: 600px) and (max-width: 1151px) {
+    @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+        .tabletMax}px) {
       padding: 0 36px;
     }
 
-    @media (max-width: 599px) {
+    @media (max-width: ${config.responsive.mobileMax}px) {
       padding: 0 20px;
     }
   }
@@ -1500,7 +1630,7 @@ export const baseStyles = css`
 
   */
 
-  @media (max-width: 599px) {
+  @media (max-width: ${config.responsive.mobileMax}px) {
     .hiddenMobile {
       display: none !important;
     }
@@ -1510,14 +1640,6 @@ export const baseStyles = css`
       position: relative;
       // padding-bottom: 20px;
       border-top: 1px solid #fff;
-    }
-
-    .heading1 {
-      font-size: 26px;
-    }
-
-    .heading2 {
-      font-size: 20px;
     }
 
     hr {
@@ -1544,7 +1666,8 @@ export const baseStyles = css`
   
   */
 
-  @media (min-width: 600px) and (max-width: 1151px) {
+  @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+      .tabletMax}px) {
     .hiddenTablet {
       display: none !important;
     }

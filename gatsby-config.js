@@ -39,7 +39,7 @@ const plugins = [
         {
           resolve: 'gatsby-remark-images', // markdown에서 이미지 처리
           options: {
-            maxWidth: 828,
+            maxWidth: config.responsive.maxWidth,
             // withWebp: true, // 이 옵션을 넣으면 이미지가 Webp 파일이 됨
             wrapperStyle: 'margin-left: 0 !important; margin-right: 0 !important;',
           },

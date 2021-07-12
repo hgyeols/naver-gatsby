@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import config from '../../../config.js';
 
 export const GNBStylesWrapper = styled.div`
   .GNBDefault {
@@ -118,6 +119,7 @@ export const GNBStylesWrapper = styled.div`
     font-weight: 900;
     color: #f3f3f3 !important;
     text-transform: uppercase;
+    margin-left: 20px;
   }
 
   .GNBheaderTitleMobile {
@@ -143,8 +145,40 @@ export const GNBStylesWrapper = styled.div`
 
   .GNBTabletNav {
     display: none;
-    min-width: 135px;
     width: 100%;
+
+    @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+        .tabletMax}px) {
+      display: block;
+    }
+  }
+
+  .GNBTabletNavBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .GNBTabletNavBarIcons {
+    margin-right: 8px;
+
+    .GNBTabletNavBarSearchIcon {
+      margin-right: 4px;
+    }
+
+    .GNBTabletNavBarMenuIcon {
+      svg {
+        pointer-events: none;
+
+        rect {
+          pointer-events: auto;
+          stroke: #fff;
+          fill: #fff;
+          fill-opacity: 0;
+          stroke-opacity: 0;
+        }
+      }
+    }
   }
 
   /* .mobileLNB {
@@ -175,7 +209,14 @@ export const GNBStylesWrapper = styled.div`
     margin-top: 0px;
   }
 
-  @media (max-width: 599px) {
+  @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+      .tabletMax}px) {
+    .mobileLNB.responsive .visibleMobileOnly {
+      display: block;
+    }
+  }
+
+  @media (max-width: ${config.responsive.mobileMax}px) {
     .headerTitle {
       padding-right: 50px;
       font-size: 16px;
@@ -242,16 +283,6 @@ export const GNBStylesWrapper = styled.div`
       min-width: auto;
       padding-right: 0;
       align-items: center;
-    }
-  }
-
-  @media (min-width: 600px) and (max-width: 1151px) {
-    .GNBDefault {
-      padding: 0 20px;
-    }
-
-    .GNBTabletNav {
-      display: block;
     }
   }
 `;

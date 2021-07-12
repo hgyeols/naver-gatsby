@@ -25,10 +25,26 @@
 
 @font-face {
   font-family: 'Apple SD Gothic Neo';
+  font-weight: 300;
+  font-style: normal;
+  src: url('./AppleSDGothicNeoL.woff2') format('woff2'),
+    url('./AppleSDGothicNeoL.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Apple SD Gothic Neo';
   font-weight: 400;
   font-style: normal;
   src: url('./AppleSDGothicNeoR.woff2') format('woff2'),
     url('./AppleSDGothicNeoR.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  font-weight: 300;
+  font-style: normal;
+  src: url('./SF-Pro-Text-Light.woff2') format('woff2'),
+    url('./SF-Pro-Text-Light.otf') format('opentype');
 }
 
 @font-face {

@@ -6,7 +6,7 @@ import ThemeProvider from './theme/themeProvider';
 import mdxComponents from './mdxComponents';
 import LNB from './lnb';
 import RightSidebar from './rightSidebar';
-import Footer from './footer'
+import Footer from './footer';
 import config from '../../config.js';
 
 const Wrapper = styled('div')`
@@ -38,7 +38,6 @@ const Content = styled('main')`
   display: flex;
   // flex-grow: 1;
   margin: 0px 60px;
-  width: 828px;
   background: ${({ theme }) => theme.colors.background};
 
   table tr {
@@ -46,7 +45,6 @@ const Content = styled('main')`
   }
 
   @media (min-width: 600px) and (max-width: 1151px) {
-    /* max-width: 828px; */
     width: 100%;
     margin: 0px 36px;
   }
@@ -58,7 +56,7 @@ const Content = styled('main')`
 `;
 
 const MaxWidth = styled('div')`
-  width: 828px;
+  width: ${config.responsive.maxWidth}px;
 
   @media (min-width: 600px) and (max-width: 1151px) {
     width: 100%;

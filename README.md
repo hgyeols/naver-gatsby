@@ -2,20 +2,42 @@
 
 **작성중**
 
-- 엔드페이지-가이드 라이브 버전: https://starry99.github.io/naver-gatsby/ux-writing/aboutux/test/td
-- 엔드페이지-가이드 markdown raw 파일: https://raw.githubusercontent.com/starry99/naver-gatsby/main/content/ux-writing/aboutux/test/td.md
-  아래에 Develop 파트를 따라하신 후, VSCode를 이용한 local 설정을 하신 다음에, VSCode로 /content/ux-writing/aboutux/test/td.md 열고 이를 참고하시며 작업하시면 됩니다.
+아래에 Develop 파트를 따라하신 후, VSCode를 이용한 local 설정을 하신 다음에, VSCode로 /content/ux-writing/aboutux/test/td.md 열고 이를 참고하시며 작업하시면 됩니다.
+
+- 기본 엔드페이지 가이드 라이브 버전: https://starry99.github.io/naver-gatsby/ux-writing/aboutux/test/td
+- 기본 엔드페이지 가이드 markdown raw 파일: https://raw.githubusercontent.com/starry99/naver-gatsby/main/content/ux-writing/aboutux/test/td.md
+- 타이틀+다운로드 엔드페이지 가이드: https://starry99.github.io/naver-gatsby/ux-writing/aboutux/test/ttt
+- Tab Main 페이지 가이드: https://starry99.github.io/naver-gatsby/ux-writing/index
 
 **21.07.05** 0.1.3
 
-- 엔드페이지 마크다운 펑션 업데이트 (위의 가이드 참조)  
-  **21.07.06** 0.1.4
-- Tab Main 페이지 구현(https://starry99.github.io/naver-gatsby/ux-writing/index 참조), Footer 업데이트, deploy 기능 개선, figma의 tab main 페이지를 따라 모바일과 태블릿 기준 재설정
-  **21.07.09** 0.1.5
+- 엔드페이지 마크다운 펑션 업데이트 (위의 가이드 참조)
+
+**21.07.06** 0.1.4
+
+- Tab Main 페이지 구현(위의 Tab Main 가이드 참조), Footer 업데이트, deploy 기능 개선, figma의 tab main 페이지를 따라 모바일과 태블릿 기준 재설정
+
+**21.07.09** 0.1.5
+
 - Footer Figma에 맞게 업데이트
 - GNB 데스크탑 메뉴 Figma에 맞게 업데이트
-- 엔드페이지 이미지 로컬 파일 기능 추가 (위의 엔드페이지-가이드 참고)
-- 타이틀+다운로드 템플릿 추가
+- 엔드페이지 이미지 로컬 파일 기능 추가 (위의 엔드페이지 가이드 참고)
+- 타이틀+다운로드 템플릿 추가 (위에 타이틀+다운로드 가이드 참고)
+- 크롬 외에 다른 브라우저에도 적용되도록 전반적으로 확장성 추가
+
+**21.07.11** 0.1.6
+
+- Desktop의 컨텐츠 Width (지금 828px)를 config.js에서 한번에 수정할 수 있도록 변경, 이 width에 맞게 마크다운에서 n개 출력하는 요소들도 모두 반영
+- Reponsive design의 기준 width를 config.js에서 설정할 수 있도록 변경
+- Tab Main 페이지 11일 기준 Figma 모두 반영 완료
+- - 폰트 Figma에 맞게 수정
+- - Tab Main 페이지 Resource 항목 border 수정 및 홀수개일때 처리 추가
+- - Tab Main 페이지 Hover 추가
+- 엔드페이지 요소들 업데이트
+- - 태블릿 모바일 반응형 요소들 반영
+- - 다운로드 파트 재설계 (다운로드 쪽 호출 명령어 변경됨)
+- 모든 Table의 border 중첩 현상 수정
+- 모든 이미지 bottom에 unknown 6px 여백 붙었던 현상 해결 (https://github.com/TimTree/games-by-tim/issues/3)
 
 ## Configure - Markdown
 

@@ -99,9 +99,9 @@ ordered 리스트는 `1.`로 호출합니다.
 
 <br2/>
 
-만약 local 파일을 넣으려면 해당 마크다운 파일과 같은 폴더에 있거나 아래 폴더에 있어야합니다.  
-local에서 develop시 image가 blur처리만 되고 안나온다면 .cache폴더를 삭제해보세요.  
-로컬 png의 경우 개발 컴퓨터 환경에 따라 오류가 날 수도 있으니 jpg를 권장합니다.
+- 만약 local 파일을 넣으려면 해당 마크다운 파일과 같은 폴더에 있거나 아래 폴더에 있어야합니다.
+- local에서 develop시 image가 blur처리만 되고 안나온다면 .cache폴더를 삭제해보세요.
+- 로컬 png의 경우 개발 컴퓨터 환경에 따라 오류가 날 수도 있으니 jpg를 권장합니다.
 
 ![alt](./img/dd.jpg)
 
@@ -131,8 +131,12 @@ local에서 develop시 image가 blur처리만 되고 안나온다면 .cache폴�
 
 <br2/>
 
-이미지가 2개 일때는 `<img2>`와 `</img2>`와 사이에 이미지를 넣어주셔야하고, 이때 엔터2번으로 한칸씩 띄어주셔야만 합니다.  
-각 그림 사이의 여백은 24px이고, 데스크탑 기준 각 이미지의 width는 402px(828-24 / 2)가 됩니다.
+- 이미지가 2개 일때는 `<img2>`와 `</img2>`와 사이에 이미지를 넣어주셔야하고, 이때 엔터2번으로 한칸씩 띄어주셔야만 합니다.
+- config.js에서 페이지의 maxWidth를 변경하더라도 각 이미지 간 간격 24px를 유지합니다. 각 이미지의 width는 (maxWidth-24 / 2)가 됩니다.
+- Tablet에서는 간격이 18px가 됩니다.
+- Mobile에서는 세로로 정렬됩니다. Figma에서 각 요소간 간격이 10px로 되어있는데, 기본으로 모든 요소 아래에 2px이 붙게 설계되었기 때문에, 사이 margin을 8px로 주어서 10px 간격을 맞췄습니다.
+- 세로로 정렬 되더라도 최상단에 16px 여백은 동일하게 존재합니다.
+- 캡션은 가장 아래 이미지 밑에 붙습니다.
 
 <br1/>
 
@@ -158,9 +162,7 @@ local에서 develop시 image가 blur처리만 되고 안나온다면 .cache폴�
 
 <br2/>
 
-이미지가 3개 일때는 `<img3>`와 `</img3>`와 사이에 이미지를 넣어주셔야하고, 이때 엔터 2번으로 한칸씩 띄어주셔야만 합니다.
-
-각 그림 사이의 여백은 24px이고, 데스크탑 기준 각 이미지의 width는 260px(828-48 / 3)가 됩니다.
+- 이미지가 3개 일때는 `<img3>`와 `</img3>`와 사이에 이미지를 넣어주셔야하고, 나머지 사용법은 `img2`와 같습니다.
 
 <br1/>
 
@@ -183,8 +185,9 @@ local에서 develop시 image가 blur처리만 되고 안나온다면 .cache폴�
 
 <br2/>
 
-이미지에 icon이 들어가는 경우입니다. 위에 16px, 아래에 2px margin이 생성됩니다.  
-`src1`과 `src2`에 각각 이미지 주소를 넣으면 됩니다. 좌측 그림에 yes가, 우측 그림에 no가 표시됩니다.
+- 이미지에 icon이 들어가는 경우입니다. 위에 16px, 아래에 2px margin이 생성됩니다.
+- `src1`과 `src2`에 각각 이미지 주소를 넣으면 됩니다. 좌측 그림에 yes가, 우측 그림에 no가 표시됩니다.
+- 사이 간격은 24px이고 태블릿에선 18px로 조정됩니다.
 
 <br1/>
 
@@ -199,6 +202,9 @@ local에서 develop시 image가 blur처리만 되고 안나온다면 .cache폴�
 <br2 />
 
 그 다음으로 텍스트 부분은 `<span>`과 `</span>`으로 감싸고, img부분은 평소처럼 작성합니다. 이때 한칸씩 띄어줘야 정상적으로 인식합니다.
+
+사이 간격은 데스크탑 24px, 테블릿 18px로 동일합니다.
+모바일에는 텍스트 부분과 이미지 부분이 세로로 정렬됩니다.
 
 </span>
 
@@ -270,7 +276,8 @@ local에서 develop시 image가 blur처리만 되고 안나온다면 .cache폴�
   </tr>
   <tr>
     <th>헤더테스트 길이에 맞게 늘어납니다</th>
-    <td>네이버(NAVER)는 대한민국 최대 포털 사이트다.자매 서비스로 모바일 메신저 라인, 뉴스, 웹툰, 지도, 검색 엔진 등을 보유하고 있다. 포털 서비스를 중심으로 블로그, 카페, 포스트 등의 커뮤니티 서비스를 비롯하여 뉴스, 스포츠, 연예, 쇼핑 등 총 38개의 다양한 콘텐츠 주제판을 제공하고 있다. 지식백과 서비스를 통해 검색 결과에서도 믿을 만한 정보를 쉽게 찾아볼 수 있도록 하고 있으며, 국어, 영어, 중국어, 일본어를 비롯한 33개의 어학사전을 제공하여 전문 DB를 구축하고 있다.</td>
+    <td>
+    기본 가로 양식과 달리 세로 양식은 header 길이가 길 때 줄바꿈이 되며 min-width는 임의로 100px로 설정했습니다.</td>
   </tr>
 </table>
 
@@ -279,12 +286,12 @@ local에서 develop시 image가 blur처리만 되고 안나온다면 .cache폴�
 
 <br1/>
 
-|           | 적용대상                                                                                                                                      | AA 수준 | AAA 수준 |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------- | --- |
-| 기본 규칙 | 텍스트                                                                                                                                        | 4.5 : 1 | 7 : 1    |
-| 예외 2    | - 18포인트 이상의 텍스트(Text-200 이상)<br6 /> Bold가 적용된 14포인트 이상의 텍스트(Text-90이상 ) <br /> 화면 확대가 가능하도록 구현된 텍스트 | f       | header3  |
-| 예외 2    | <ul><li>리스트1</li><li>리스트2</li></ul>                                                                                                     | f       | header3  |
-| 예외 3    | d                                                                                                                                             | f       | header3  | ​   |
+| 적용대상  | AA 수준                                                                                                                                       | AAA 수준 | ㅇㅇ    |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
+| 기본 규칙 | 텍스트                                                                                                                                        | 4.5 : 1  | 7 : 1   |
+| 예외 2    | - 18포인트 이상의 텍스트(Text-200 이상)<br6 /> Bold가 적용된 14포인트 이상의 텍스트(Text-90이상 ) <br /> 화면 확대가 가능하도록 구현된 텍스트 | f        | header3 |
+| 예외 2    | <ul><li>리스트1</li><li>리스트2</li></ul>                                                                                                     | f        | header3 |
+| 예외 3    | d                                                                                                                                             | f        | header3 |
 
 `<br6/>` 추가됨 (6px)  
 테이블 내부의 띄어쓰기는, 여백없이 줄바꿈하려면 <br/>을 넣습니다.  
@@ -430,16 +437,34 @@ export default showExamples;
 
 <br2/>
 
-다운로드 양식은 아래와 같습니다. `type`에는 현재 `a`와 `b`양식이 구현되어 있습니다.  
-`logo`에는 sketch, figma, zeplin, font, PSD, illust, PDF, lottie가 들어갈 수 있습니다.
+다운로드는 현재 `A`와 `B` 두 타입이 구현되어 있습니다.
 
-<down type='a' logo='figma' text1='Figma Design Kit' text2="피그마" link='https://github.com/git-for-windows/git/releases/download/v2.32.0.windows.1/Git-2.32.0-64-bit.exe' />
+- 먼저 `A`타입은 `<downA />`로 호출합니다.
+- 변수로는 logo, title, text, link 4개씩 필요합니다.
+- `logo`에는 sketch, figma, zeplin, font, PSD, illust, PDF, lottie가 들어갈 수 있습니다.
+- Desktop에서는 각 다운로드 간 간격이 24px이고, Tablet에서는 18px입니다. width가 변할수록 비율을 유지한 상태로 줄어듭니다.
+- Mobile에서는 한줄로 바뀝니다.
+
+<downA
+ logo1='figma' title1='Figma Design Kit' text1="피그마" link1='https://github.com/git-for-windows/git/releases/download/v2.32.0.windows.1/Git-2.32.0-64-bit.exe'
+ logo2='sketch' title2='Sketch Design Kit' text2="스케치" link2='https://github.com/git-for-windows/git/releases/download/v2.32.0.windows.1/Git-2.32.0-64-bit.exe' 
+ logo3='PSD' title3='PSD Design Kit' text3="PSD" link3='https://github.com/git-for-windows/git/releases/download/v2.32.0.windows.1/Git-2.32.0-64-bit.exe' 
+/>
 
 <br2/>
 
 두번째 양식입니다.
 
-<down type='b' logo='zeplin' text1='Zeplin Design Kit' text2="Download" link='https://github.com/git-for-windows/git/releases/download/v2.32.0.windows.1/Git-2.32.0-64-bit.exe' />
+- `B`타입은 `<downB />`로 호출합니다.
+- 마찬가지로 변수로는 logo, title, text, link 4개씩 필요합니다.
+- Desktop에서는 각 다운로드 간 간격이 24px이고, Tablet에서는 18px, Mobile에서는 5px(figma에 없어서 임의)입니다. width가 변할수록 비율을 유지한 상태로 줄어듭니다.
+- Desktop에서는 한줄에 3개씩, Mobile에서는 한줄에 2개씩으로 바뀝니다.
+
+<downB
+ logo1='figma' title1='Figma Design Kit' text1="피그마" link1='https://github.com/git-for-windows/git/releases/download/v2.32.0.windows.1/Git-2.32.0-64-bit.exe'
+ logo2='sketch' title2='Sketch Design Kit' text2="스케치" link2='https://github.com/git-for-windows/git/releases/download/v2.32.0.windows.1/Git-2.32.0-64-bit.exe' 
+ logo3='PSD' title3='PSD Design Kit' text3="PSD" link3='https://github.com/git-for-windows/git/releases/download/v2.32.0.windows.1/Git-2.32.0-64-bit.exe' 
+/>
 
 <br1/>
 
@@ -457,7 +482,7 @@ export default showExamples;
 
 <br2/>
 
-커스텀 링크 2번은 다음과 같습니다. 아래 6개의 인자를 필요로 합니다. 총 width 828px에 중간 margin 24px로 각 402px입니다.
+커스텀 링크 2번은 다음과 같습니다. 아래 6개의 인자를 필요로 합니다. 각 width는 (maxWidth/2)-24 입니다.
 
 <link2 
   link1='http://www.naver.com' text11='Naver Design' text12='Related link' 
@@ -493,13 +518,22 @@ text와 link의 수가 같아야하며, 인자에 띄어쓰기가 들어가면 �
 
 Mail Link는 다음과 같이 호출합니다.
 
-<mailLink name='Name_Eng' mail='mail@navercorp.com' />
+<mailLink
+ name1='Name_1' mail1='mail@navercorp.com' photo1=''
+ name2='Name_2' mail2='mail@navercorp.com' photo2=''  
+ name3='Name_3' mail3='mail@navercorp.com' photo3=''
+/>
+
+- 변수 3개 `name`, `mail`, `photo`가 모두 필요합니다. `''`이런 식으로 비워져있어도 됩니다.
+- 각 요소 간 간격은 24px고 태블릿에서는 18px입니다.
+- 모바일에서는 1줄로 바뀝니다.
+- 이때 아래 margin은 16px입니다 (figma에 없어서 임의)
 
 <br2/>
 
 만약 인자 `photo`에 사진 링크를 넣으면 사진이 표시됩니다.
 
-<mailLink name='Name_Eng' mail='mail@navercorp.com' photo='https://i.imgur.com/CNhZzYY.jpeg' />
+<mailLink name1='Name_Eng' mail1='mail@navercorp.com' photo1='https://i.imgur.com/CNhZzYY.jpeg' />
 
 <br1/>
 

@@ -1,17 +1,17 @@
 import React from 'react';
 import LogoIcon32 from './LogoIcon32';
 
-const TitleDownload = (props) => {
+const DownloadEmbedTypeB = (props) => {
   let propsLength = 0;
   if (props) propsLength = Object.keys(props).length;
 
-  if (propsLength !== 0 && propsLength % 3 === 0) {
+  if (propsLength !== 0 && propsLength % 4 === 0) {
     let newArray = [];
 
     // Markdown에서 받아온 인자(object type)를 array로 변환
-    for (let i = 0; i < propsLength / 3; i++) {
+    for (let i = 0; i < propsLength / 4; i++) {
       let sliced = Object.keys(props)
-        .slice(3 * i, 3 * i + 3)
+        .slice(4 * i, 4 * i + 4)
         .reduce((result, key) => {
           result[key] = props[key];
           return result;
@@ -20,7 +20,6 @@ const TitleDownload = (props) => {
       newArray.push(sliced);
     }
 
-    // Markdown에서 받아온 인자(object type)를 array로 변환
     let renamedArray = [];
     newArray.map((el) => {
       let altObj = Object.fromEntries(
@@ -45,60 +44,60 @@ const TitleDownload = (props) => {
       <div>
         {finalArrayThree.map((el, key) => {
           return (
-            <div className="titleDownloadWrapper" id={'titleDownload' + key}>
+            <div className="downloadTypeB" id={'downTypeB' + key}>
               {el[0] === undefined ? (
-                <div className="titleDownloadContentNo" />
+                <div className="" />
               ) : (
-                <div className="titleDownloadContent">
+                <div className="downloadWrapperTypeB">
                   <a href={el[0].link} download>
-                    <div className="titleDownloadContentLogo">
+                    <div className="downloadLogoTypeB">
                       {el[0].logo === '' ? <div /> : <LogoIcon32 logo={el[0].logo} />}
                     </div>
-                    <div className="titleDownloadContentText">
-                      <div className="titleDownloadContentTextTitle">
+                    <div className="downloadTextTypeB">
+                      <div className="downloadTextTypeBInput">
                         {el[0].title === '' ? <span></span> : <span>{el[0].title}</span>}
                       </div>
-                      <div className="titleDownloadContentLink">
-                        <span>Download</span>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              )}
-              {el[1] === undefined ? (
-                <div className="titleDownloadContentNo" />
-              ) : (
-                <div className="titleDownloadContent">
-                  <a href={el[1].link} download>
-                    <div className="titleDownloadContentLogo">
-                      {el[0].logo === '' ? <div /> : <LogoIcon32 logo={el[1].logo} />}
-                    </div>
-                    <div className="titleDownloadContentText">
-                      <div className="titleDownloadContentTextTitle">
-                        {el[1].title === '' ? <span></span> : <span>{el[1].title}</span>}
-                      </div>
-                      <div className="titleDownloadContentLink">
-                        <span>Download</span>
+                      <div className="downloadTextTypeBInput2">
+                        {el[0].text === '' ? <span></span> : <span>{el[0].text}</span>}
                       </div>
                     </div>
                   </a>
                 </div>
               )}
 
-              {el[2] === undefined ? (
-                <div className="titleDownloadContentNo" />
+              {el[1] === undefined ? (
+                <div className="" />
               ) : (
-                <div className="titleDownloadContent">
+                <div className="downloadWrapperTypeB">
+                  <a href={el[1].link} download>
+                    <div className="downloadLogoTypeB">
+                      {el[1].logo === '' ? <div /> : <LogoIcon32 logo={el[1].logo} />}
+                    </div>
+                    <div className="downloadTextTypeB">
+                      <div className="downloadTextTypeBInput">
+                        {el[1].title === '' ? <span></span> : <span>{el[1].title}</span>}
+                      </div>
+                      <div className="downloadTextTypeBInput2">
+                        {el[1].text === '' ? <span></span> : <span>{el[1].text}</span>}
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              )}
+              {el[2] === undefined ? (
+                <div className="" />
+              ) : (
+                <div className="downloadWrapperTypeB">
                   <a href={el[2].link} download>
-                    <div className="titleDownloadContentLogo">
+                    <div className="downloadLogoTypeB">
                       {el[2].logo === '' ? <div /> : <LogoIcon32 logo={el[2].logo} />}
                     </div>
-                    <div className="titleDownloadContentText">
-                      <div className="titleDownloadContentTextTitle">
+                    <div className="downloadTextTypeB">
+                      <div className="downloadTextTypeBInput">
                         {el[2].title === '' ? <span></span> : <span>{el[2].title}</span>}
                       </div>
-                      <div className="titleDownloadContentLink">
-                        <span>Download</span>
+                      <div className="downloadTextTypeBInput2">
+                        {el[2].text === '' ? <span></span> : <span>{el[2].text}</span>}
                       </div>
                     </div>
                   </a>
@@ -109,21 +108,21 @@ const TitleDownload = (props) => {
         })}
         {finalArrayTwo.map((el, key) => {
           return (
-            <div className="titleDownloadWrapperMobile" id={'titleDownloadMob' + key}>
+            <div className="downloadTypeBMobile" id={'downTypeBMob' + key}>
               {el[0] === undefined ? (
-                <div className="titleDownloadContentNo" />
+                <div className="" />
               ) : (
-                <div className="titleDownloadContent">
+                <div className="downloadWrapperTypeB">
                   <a href={el[0].link} download>
-                    <div className="titleDownloadContentLogo">
+                    <div className="downloadLogoTypeB">
                       {el[0].logo === '' ? <div /> : <LogoIcon32 logo={el[0].logo} />}
                     </div>
-                    <div className="titleDownloadContentText">
-                      <div className="titleDownloadContentTextTitle">
+                    <div className="downloadTextTypeB">
+                      <div className="downloadTextTypeBInput">
                         {el[0].title === '' ? <span></span> : <span>{el[0].title}</span>}
                       </div>
-                      <div className="titleDownloadContentLink">
-                        <span>Download</span>
+                      <div className="downloadTextTypeBInput2">
+                        {el[0].text === '' ? <span></span> : <span>{el[0].text}</span>}
                       </div>
                     </div>
                   </a>
@@ -131,19 +130,19 @@ const TitleDownload = (props) => {
               )}
 
               {el[1] === undefined ? (
-                <div className="titleDownloadContentNo" />
+                <div className="" />
               ) : (
-                <div className="titleDownloadContent">
+                <div className="downloadWrapperTypeB">
                   <a href={el[1].link} download>
-                    <div className="titleDownloadContentLogo">
+                    <div className="downloadLogoTypeB">
                       {el[1].logo === '' ? <div /> : <LogoIcon32 logo={el[1].logo} />}
                     </div>
-                    <div className="titleDownloadContentText">
-                      <div className="titleDownloadContentTextTitle">
-                        {el[0].title === '' ? <span></span> : <span>{el[1].title}</span>}
+                    <div className="downloadTextTypeB">
+                      <div className="downloadTextTypeBInput">
+                        {el[1].title === '' ? <span></span> : <span>{el[1].title}</span>}
                       </div>
-                      <div className="titleDownloadContentLink">
-                        <span>Download</span>
+                      <div className="downloadTextTypeBInput2">
+                        {el[1].text === '' ? <span></span> : <span>{el[1].text}</span>}
                       </div>
                     </div>
                   </a>
@@ -163,4 +162,4 @@ const TitleDownload = (props) => {
   }
 };
 
-export default TitleDownload;
+export default DownloadEmbedTypeB;
