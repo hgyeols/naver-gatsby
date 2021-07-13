@@ -3,6 +3,9 @@ import styled from '@emotion/styled';
 export const Sidebar = styled('aside')`
   width: 100%;
   height: 100vh;
+  @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+    min-height: -webkit-fill-available;
+  }
   overflow: auto;
   position: fixed;
   padding-left: 24px;
@@ -11,7 +14,7 @@ export const Sidebar = styled('aside')`
   position: sticky;
   top: 0;
 
-  // background: ${props => props.theme.colors.background};
+  // background: ${(props) => props.theme.colors.background};
 
   .rightSideBarUL {
     margin-top: 344px;
@@ -50,7 +53,7 @@ export const ListItem = styled(({ className, active, level, ...props }) => {
     color: #636363;
     text-decoration: none;
     font-weight: ${({ level }) => (level === 0 ? 700 : 400)};
-    // padding: 0.45rem 0 0.45rem ${props => 2 + (props.level || 0) * 1}rem;
+    // padding: 0.45rem 0 0.45rem ${(props) => 2 + (props.level || 0) * 1}rem;
     display: block;
     position: relative;
 
@@ -60,7 +63,7 @@ export const ListItem = styled(({ className, active, level, ...props }) => {
       border-left: 1px solid #131313;
     }
 
-    ${props =>
+    ${(props) =>
       props.active &&
       `
       font-weight: 700 !important;

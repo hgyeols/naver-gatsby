@@ -134,12 +134,12 @@ export const baseStyles = css`
 
   .lnbPart {
     font-family: 'SF Pro Text';
-    font-weight: 400;
+    font-weight: 600;
     font-size: 18px;
     color: #131313;
     line-height: 130%;
     letter-spacing: -0.022em;
-    padding: 24px 24px 22px 24px;
+    padding: 24px 24px 19px 24px;
   }
 
   // .lnbNav {
@@ -152,7 +152,7 @@ export const baseStyles = css`
   // }
 
   .firstLevel ul .item ul .item {
-    border-left: 1px solid #e6ecf1;
+    /* border-left: 1px solid #e6ecf1; */
   }
 
   .firstLevel > ul > .item {
@@ -246,6 +246,9 @@ export const baseStyles = css`
 
     .tabMainImgImg {
       overflow: hidden;
+      position: relative;
+      padding-top: 100%;
+
       img {
         width: 100%;
         height: 100%;
@@ -262,6 +265,13 @@ export const baseStyles = css`
         width: 100%;
         height: 100%;
         background-color: #f3f3f3;
+      }
+
+      .tabMainImgRatio {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
       }
     }
 
@@ -296,8 +306,7 @@ export const baseStyles = css`
 
       .tabMainImgImg {
         img {
-          width: 100%;
-          height: 100%;
+          /* aspect-ratio: 1; */
         }
       }
     }
@@ -319,16 +328,27 @@ export const baseStyles = css`
       column-gap: 10px;
 
       .tabMainImgImg {
+        position: relative;
+        padding-top: 100%;
+
         img {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          /* aspect-ratio: 1; */
         }
 
         .tabMainImgBack {
           width: 100%;
           height: 100%;
           background-color: #f3f3f3;
+        }
+
+        .tabMainImgRatio {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
         }
       }
 
@@ -373,10 +393,16 @@ export const baseStyles = css`
     justify-content: center;
     border: 1px solid #e2e2e2;
     margin: -1px 0 0 -1px;
+    position: relative;
+    padding-top: 100%;
+    @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+        .tabletMax}px) {
+    }
   }
 
   .tabMainResourceContent:hover {
     outline: 1px solid #d1d1d1;
+    outline-offset: -2.3px;
     background-color: #fafafa;
   }
 
@@ -385,26 +411,34 @@ export const baseStyles = css`
   }
 
   .tabMainResourceContentLogo {
-    padding-top: 60px;
-    padding-bottom: 75px;
+    position: absolute;
+    top: 60px;
 
     @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
         .tabletMax}px) {
-      padding-top: 46px;
+      top: 46px;
     }
 
     @media (max-width: ${config.responsive.mobileMax}px) {
-      padding-top: 30px;
-      padding-bottom: 45px;
+      top: 30px;
     }
   }
 
   .tabMainResourceContentText {
+    position: absolute;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 16px;
+    bottom: 16px;
+
+    @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+        .tabletMax}px) {
+      bottom: 12px;
+    }
+    @media (max-width: ${config.responsive.mobileMax}px) {
+      bottom: 12px;
+    }
   }
 
   .tabMainResourceContentLink {
@@ -434,8 +468,15 @@ export const baseStyles = css`
     @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
         .tabletMax}px) {
       padding-left: 16px;
+
+      span {
+        font-size: 13px;
+      }
     }
     @media (max-width: ${config.responsive.mobileMax}px) {
+      span {
+        font-size: 13px;
+      }
       padding-left: 12px;
     }
   }
@@ -1581,6 +1622,12 @@ export const baseStyles = css`
     align-items: center;
   }
 
+  .footerManual {
+    padding-left: 12px;
+    padding-right: 12px;
+    color: #636363;
+  }
+
   .footerLinks {
     display: flex;
     align-items: center;
@@ -1604,16 +1651,16 @@ export const baseStyles = css`
         padding-left: 12px;
         padding-right: 12px;
         width: 100%;
-        height: 100%;
+        height: 12px;
       }
 
       a {
         font-family: 'SF Pro Text';
-        font-weight: 400;
+        font-weight: 300;
         font-size: 14px;
         line-height: 130%;
         letter-spacing: -0.017em;
-        color: #424242;
+        color: #636363;
         text-decoration: none !important;
         display: inline-block;
       }

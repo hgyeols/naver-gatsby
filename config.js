@@ -32,10 +32,11 @@ const config = {
     ignoreIndex: true, // content/index.mdx를 LNB 메뉴에 넣지 않는지 결정
   },
   responsive: {
-    maxWidth: 828, // (px), desktop 뷰에서 마크다운 컨텐츠의 maximum width
-    mobileMax: 599, // (px)
-    tabletMax: 1151, // (px)
-    tabletMin: 600, // (px)
+    maxWidth: 768, // (px), desktop 뷰에서 마크다운 컨텐츠(컨테이너)의 maximum width
+    mobileMax: 599, // (px) 이 px 이하는 mobile
+    tabletMax: 1151, // (px) 이 px 이하는 tablet
+    tabletMin: 600, // (px) 이 px 이상은 tablet
+    LNBWidth: 264, // (px) desktop 뷰에서 LNB의 width
   },
   footerLinks: [
     { text: 'Contact Us', link: 'https://naver.com' },

@@ -15,6 +15,9 @@ const SidebarLayout = ({ location }) => (
               fields {
                 slug
               }
+              frontmatter {
+                template
+              }
               tableOfContents
             }
           }
@@ -26,6 +29,8 @@ const SidebarLayout = ({ location }) => (
 
       let finalNavItems;
 
+      let frontmatter;
+
       if (allMdx.edges !== undefined && allMdx.edges.length > 0) {
         const navItems = allMdx.edges.map((item, index) => {
           let innerItems;
@@ -35,7 +40,6 @@ const SidebarLayout = ({ location }) => (
               item.node.fields.slug === location.pathname ||
               config.gatsby.pathPrefix + item.node.fields.slug === location.pathname
             ) {
-              
               if (item.node.tableOfContents.items) {
                 innerItems = item.node.tableOfContents.items.map((innerItem, index) => {
                   const itemId = innerItem.title
@@ -49,6 +53,10 @@ const SidebarLayout = ({ location }) => (
                   );
                 });
               }
+
+              if (item.node.frontmatter) {
+                frontmatter = item.node.frontmatter.template;
+              }
             }
           }
           if (innerItems) {
@@ -56,21 +64,30 @@ const SidebarLayout = ({ location }) => (
           }
         });
       }
-      if (finalNavItems && finalNavItems.length) {
-        return (
-          <Sidebar>
-            <ul className={'rightSideBarUL'}>
-              {/* <li className={'rightSideTitle'}>CONTENTS</li> */}
-              {finalNavItems}
-            </ul>
-          </Sidebar>
-        );
-      } else {
+
+      if (frontmatter === 'tabMain') {
         return (
           <Sidebar>
             <ul></ul>
           </Sidebar>
         );
+      } else {
+        if (finalNavItems && finalNavItems.length) {
+          return (
+            <Sidebar>
+              <ul className={'rightSideBarUL'}>
+                {/* <li className={'rightSideTitle'}>CONTENTS</li> */}
+                {finalNavItems}
+              </ul>
+            </Sidebar>
+          );
+        } else {
+          return (
+            <Sidebar>
+              <ul></ul>
+            </Sidebar>
+          );
+        }
       }
     }}
   />

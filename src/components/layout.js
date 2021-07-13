@@ -14,13 +14,13 @@ const Wrapper = styled('div')`
   justify-content: space-between;
   // background: ${({ theme }) => theme.colors.background};
 
-  @media only screen and (max-width: 599px) {
+  @media only screen and (max-width: ${config.responsive.mobileMax}px) {
     display: block;
   }
 `;
 
 const LNBside = styled('div')`
-  width: 252px;
+  min-width: ${config.responsive.LNBWidth}px;
 `;
 
 const LNBoutside = styled('div')`
@@ -44,12 +44,13 @@ const Content = styled('main')`
     background: ${({ theme }) => theme.colors.background};
   }
 
-  @media (min-width: 600px) and (max-width: 1151px) {
+  @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+      .tabletMax}px) {
     width: 100%;
     margin: 0px 36px;
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: ${config.responsive.mobileMax}px) {
     width: 100%;
     margin: 0px 20px;
   }
@@ -58,17 +59,18 @@ const Content = styled('main')`
 const MaxWidth = styled('div')`
   width: ${config.responsive.maxWidth}px;
 
-  @media (min-width: 600px) and (max-width: 1151px) {
+  @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+      .tabletMax}px) {
     width: 100%;
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: ${config.responsive.mobileMax}px) {
     width: 100%;
   }
 `;
 
 const RightSideBarSide = styled('div')`
-  width: 224px;
+  width: 228px;
 `;
 
 const Layout = ({ children, location }) => (

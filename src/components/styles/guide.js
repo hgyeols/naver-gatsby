@@ -111,6 +111,10 @@ export const StyledMainWrapperTabMain = styled.div`
 
   @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
       .tabletMax}px) {
+    h1 {
+      font-size: 29px;
+    }
+
     h2 {
       font-size: 20px;
     }
@@ -124,6 +128,10 @@ export const StyledMainWrapperTabMain = styled.div`
   }
 
   @media (max-width: ${config.responsive.maxWidth}px) {
+    h1 {
+      font-size: 29px;
+    }
+
     h2 {
       font-size: 20px;
     }

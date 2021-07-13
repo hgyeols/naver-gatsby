@@ -38,6 +38,15 @@ function mobileMenuClick() {
   }
 }
 
+const gnbClick = () => {
+  if (typeof document !== 'undefined') {
+    var x = document.querySelectorAll('.GNBUL li a');
+    for (var i = 0; i < x.length; i++) {
+      x[i].setAttribute('style', 'color: #919191');
+    }
+  }
+};
+
 const GNB = ({ location }) => (
   <StaticQuery
     query={graphql`
@@ -76,12 +85,16 @@ const GNB = ({ location }) => (
               </Link>
               {/* GNB Menu */}
               <div className={'GNBNavWrapper'}>
-                <ul className={'GNBUL GNBNav GNBULRight'}>
+                <ul className={'GNBUL'} id="GNBid">
                   {gnbMenu.map((menu, key) => {
                     if (menu.text !== '' && menu.folderName !== '') {
                       return (
                         <li key={key}>
-                          <Link to={`/${menu.folderName}/index`} activeClassName="active">
+                          <Link
+                            to={`/${menu.folderName}/index`}
+                            activeClassName="active"
+                            onClick={gnbClick}
+                          >
                             <div
                               className={'sidebarLink displayInline'}
                               dangerouslySetInnerHTML={{ __html: menu.text }}

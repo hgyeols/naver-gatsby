@@ -34,22 +34,14 @@ export const GNBStylesWrapper = styled.div`
     transform: translate(-50%, -50%);
   }
 
-  .GNBNav {
+  .GNBUL {
+    -webkit-overflow-scrolling: touch;
     display: flex;
     align-items: center;
   }
 
-  .GNBUL {
-    -webkit-overflow-scrolling: touch;
-  }
-
   .GNBUL:hover li a {
     color: #919191 !important;
-  }
-
-  .GNBULRight {
-    /* position: absolute;
-    right: 30px; */
   }
 
   .GNBUL li {
@@ -57,7 +49,7 @@ export const GNBStylesWrapper = styled.div`
   }
 
   .GNBUL li a {
-    color: #fff !important;
+    color: #fff;
     font-family: 'SF Pro Text';
     font-weight: 600;
     font-size: 18px;
@@ -248,10 +240,6 @@ export const GNBStylesWrapper = styled.div`
     .mobileLNB.responsive .GNBUL {
       display: block;
       text-align: left;
-    }
-
-    .GNBULRight {
-      position: static;
     }
 
     .GNBUL {
