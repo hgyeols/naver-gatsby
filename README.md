@@ -39,6 +39,11 @@
 - 모든 Table의 border 중첩 현상 수정
 - 모든 이미지 bottom에 unknown 6px 여백 붙었던 현상 해결 (https://github.com/TimTree/games-by-tim/issues/3)
 
+**21.07.12** 0.1.7
+
+- Grid Figma에 맞게 변경 (config.js에 LNB의 width도 변경가능하도록 추가)
+- Tab Main 페이지 Figma 수정사항 적용
+
 ## Configure - Markdown
 
 모든 markdown 파일은 `content` 폴더 아래에 있어야합니다.
