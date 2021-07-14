@@ -166,6 +166,8 @@ const StyledImg6 = styled('div')`
 
   p {
     height: auto;
+    font-size: 15px;
+    color: #424242;
   }
 
   span {
