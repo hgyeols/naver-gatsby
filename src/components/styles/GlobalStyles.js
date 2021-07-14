@@ -187,8 +187,13 @@ export const baseStyles = css`
     height: 360px;
     z-index: 2;
 
+    @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+        .tabletMax}px) {
+      height: 280px;
+    }
+
     @media (max-width: ${config.responsive.mobileMax}px) {
-      height: 175px;
+      height: 180px;
     }
 
     img {
@@ -199,7 +204,7 @@ export const baseStyles = css`
   }
 
   .titleDescription {
-    padding-bottom: 66px;
+    padding-bottom: 64px;
     font-weight: 400;
     font-size: 16px;
     letter-spacing: -0.017em;
@@ -217,7 +222,7 @@ export const baseStyles = css`
   }
 
   .titleDescriptionTabMain {
-    padding-bottom: 44px;
+    padding-bottom: 34px;
     font-weight: 300;
     font-size: 20px;
     letter-spacing: -0.017em;
@@ -240,8 +245,8 @@ export const baseStyles = css`
     display: grid;
     padding-top: 18px;
     padding-bottom: 16px;
-    grid-template-columns: 260px 260px 260px;
-    grid-template-rows: 260px auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
     column-gap: 24px;
 
     .tabMainImgImg {
@@ -277,7 +282,7 @@ export const baseStyles = css`
 
     .tabMainImgTitle {
       padding-top: 16px;
-      padding-bottom: 9px;
+      padding-bottom: 8px;
       span {
         font-family: 'SF Pro Display';
         font-weight: 600;
@@ -354,7 +359,7 @@ export const baseStyles = css`
 
       .tabMainImgTitle {
         padding-top: 16px;
-        padding-bottom: 9px;
+        padding-bottom: 8px;
         span {
           font-family: 'SF Pro Display', 'Apple SD Gothic Neo';
           font-weight: 600;
@@ -402,8 +407,9 @@ export const baseStyles = css`
 
   .tabMainResourceContent:hover {
     outline: 1px solid #d1d1d1;
-    outline-offset: -2.3px;
+    outline-offset: -1px;
     background-color: #fafafa;
+    z-index: 10;
   }
 
   .tabMainResourceContentNo {
@@ -876,55 +882,55 @@ export const baseStyles = css`
   .heading1 {
     font-size: 32px;
     font-family: 'SF Pro Display', 'Apple SD Gothic Neo';
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.3;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
     margin-top: 18px;
     color: #131313;
   }
 
   .heading2 {
-    font-size: 26px;
+    font-size: 23px;
     font-family: 'SF Pro Display', 'Apple SD Gothic Neo';
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.3;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     margin-top: 20px;
     color: #131313;
   }
 
   .heading3 {
-    font-size: 20px;
+    font-size: 16px;
     font-family: 'SF Pro Display', 'Apple SD Gothic Neo';
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.3;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
     margin-top: 10px;
     color: #131313;
   }
 
   .heading4 {
-    font-size: 16px;
+    font-size: 14px;
     font-family: 'SF Pro Display', 'Apple SD Gothic Neo';
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.3;
     margin-bottom: 16px;
     margin-top: 32px;
   }
 
   .heading5 {
-    font-size: 14px;
+    font-size: 12px;
     font-family: 'SF Pro Display', 'Apple SD Gothic Neo';
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.3;
     margin-bottom: 16px;
     margin-top: 32px;
   }
 
   .heading6 {
-    font-size: 12px;
+    font-size: 10px;
     font-family: 'SF Pro Display', 'Apple SD Gothic Neo';
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.3;
     margin-bottom: 16px;
     margin-top: 32px;
@@ -934,7 +940,7 @@ export const baseStyles = css`
     font-size: 16px;
     margin-bottom: 2px;
     line-height: 1.6;
-    letter-spacing: -0.017em;
+    letter-spacing: -0.02em;
   }
 
   .br1 {
@@ -942,7 +948,7 @@ export const baseStyles = css`
   }
 
   .br2 {
-    height: 14px !important;
+    height: 16px !important;
   }
 
   .br6 {
@@ -1600,20 +1606,40 @@ export const baseStyles = css`
   */
 
   .footerContainer {
+    display: flex;
+    justify-content: center;
+  }
+
+  .footerWrapper {
     display: grid;
     grid-template-columns: 97px 1fr;
     align-items: center;
     border-top: 1px solid #f2f2f3;
-    padding: 0 60px;
     height: 88px;
+    width: ${config.responsive.maxWidth}px;
 
     @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
         .tabletMax}px) {
       padding: 0 36px;
+      width: 100%;
     }
 
     @media (max-width: ${config.responsive.mobileMax}px) {
       padding: 0 20px;
+      width: 100%;
+    }
+  }
+
+  .footerVoid {
+    width: 228px;
+
+    @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+        .tabletMax}px) {
+      display: none;
+    }
+
+    @media (max-width: ${config.responsive.mobileMax}px) {
+      display: none;
     }
   }
 
@@ -1625,7 +1651,7 @@ export const baseStyles = css`
   .footerManual {
     padding-left: 12px;
     padding-right: 12px;
-    color: #636363;
+    color: #e2e2e2;
   }
 
   .footerLinks {

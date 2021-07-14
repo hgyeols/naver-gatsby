@@ -44,6 +44,13 @@
 - Grid Figma에 맞게 변경 (config.js에 LNB의 width도 변경가능하도록 추가)
 - Tab Main 페이지 Figma 수정사항 적용
 
+**21.07.13** 0.1.8
+
+- **이번에 바뀐 기능으로 인해 패키지가 추가되어서, git clone이후에 npm i 해주셔야 합니다**
+- Grid 수정 (컨텐츠 센터 정렬, 태블릿 반응형 이슈 해결)
+- Tab Main 2차 QA 반영
+- Endpage 수정
+
 ## Configure - Markdown
 
 모든 markdown 파일은 `content` 폴더 아래에 있어야합니다.

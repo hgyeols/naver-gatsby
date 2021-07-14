@@ -135,6 +135,64 @@ const StyledImg5 = styled('div')`
   }
 `;
 
+const StyledImg6 = styled('div')`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  grid-auto-flow: column;
+  column-gap: 24px;
+  font-size: 0;
+
+  > :nth-child(1) {
+    img {
+      border-bottom: solid 8px #03c75a;
+      padding-bottom: 16px;
+    }
+  }
+
+  > :nth-child(4) {
+    img {
+      border-bottom: solid 8px #ffa143;
+      padding-bottom: 16px;
+    }
+  }
+
+  > :nth-child(7) {
+    img {
+      border-bottom: solid 8px #fa6767;
+      padding-bottom: 16px;
+    }
+  }
+
+  p {
+    height: auto;
+  }
+
+  span {
+    font-family: 'Apple SD Gothic Neo';
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 130%;
+
+    letter-spacing: -0.02em;
+    color: #131313;
+    padding-top: 12px;
+    padding-bottom: 8px;
+  }
+
+  @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+      .tabletMax}px) {
+    column-gap: 18px;
+  }
+
+  @media (max-width: ${config.responsive.mobileMax}px) {
+    display: grid;
+    grid-template-columns: unset;
+    row-gap: 8px;
+    margin-top: 16px;
+  }
+`;
+
 const appendString = (children) => {
   if (Array.isArray(children)) {
     return children.reduce((acc, current) => {
@@ -209,6 +267,7 @@ export default {
   ),
   img2: (props) => <StyledImg2 {...props} />,
   img3: (props) => <StyledImg3 {...props} />,
+  img6: (props) => <StyledImg6 {...props} />,
   imgIcon: ImageIcon,
   imgText: (props) => <StyledImg5 {...props} />,
   video: VideoEmbed,

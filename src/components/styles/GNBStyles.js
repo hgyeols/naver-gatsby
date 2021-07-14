@@ -8,11 +8,11 @@ export const GNBStylesWrapper = styled.div`
     margin-bottom: 0;
     border: 0;
     z-index: 1;
-    /* padding: 0 24px; */
     position: relative;
     height: 72px;
     display: flex;
     align-items: center;
+    width: 100%;
   }
 
   .GNBHeader {
@@ -223,6 +223,8 @@ export const GNBStylesWrapper = styled.div`
       display: flex;
       min-width: auto;
       align-items: center;
+      width: 100%;
+      justify-content: flex-end;
     }
 
     .mobileLNB {

@@ -5,6 +5,12 @@
 require('dotenv').config(); // 환경변수...
 const queries = require('./src/utils/algolia');
 const config = require('./config'); // config.js에서 세팅값을 가져옴
+
+const myCustomQueries = {
+  sm: '(max-width: 599px)',
+  md: '(max-width: 1151px)',
+};
+
 const plugins = [
   {
     resolve: 'gatsby-plugin-react-svg',
@@ -29,6 +35,12 @@ const plugins = [
     },
   },
   'gatsby-plugin-emotion',
+  {
+    resolve: 'gatsby-plugin-breakpoints',
+    options: {
+      queries: myCustomQueries,
+    },
+  },
   'gatsby-plugin-preload-fonts',
   'gatsby-plugin-remove-trailing-slashes',
   'gatsby-plugin-react-helmet',

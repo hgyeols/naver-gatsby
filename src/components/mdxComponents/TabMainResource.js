@@ -1,5 +1,9 @@
 import React from 'react';
+import { useBreakpoint } from 'gatsby-plugin-breakpoints';
+
 import LogoIcon80 from './LogoIcon80';
+import LogoIcon72 from './LogoIcon72';
+import LogoIcon60 from './LogoIcon60';
 
 const TabMainResource = (props) => {
   let propsLength = 0;
@@ -39,6 +43,8 @@ const TabMainResource = (props) => {
       finalArrayTwo.push(sliced);
     }
 
+    const breakpoints = useBreakpoint();
+
     return (
       <div>
         {finalArrayThree.map((el, key) => {
@@ -49,7 +55,13 @@ const TabMainResource = (props) => {
               ) : (
                 <div className="tabMainResourceContent">
                   <div className="tabMainResourceContentLogo">
-                    {el[0].logo === '' ? <div /> : <LogoIcon80 logo={el[0].logo} />}
+                    {el[0].logo === '' ? (
+                      <div />
+                    ) : breakpoints.md ? (
+                      <LogoIcon72 logo={el[0].logo} />
+                    ) : (
+                      <LogoIcon80 logo={el[0].logo} />
+                    )}
                   </div>
                   <div className="tabMainResourceContentText">
                     <div className="tabMainResourceContentTextText">
@@ -163,7 +175,7 @@ const TabMainResource = (props) => {
               ) : (
                 <div className="tabMainResourceContent">
                   <div className="tabMainResourceContentLogo">
-                    {el[0].logo === '' ? <div /> : <LogoIcon80 logo={el[0].logo} />}
+                    {el[0].logo === '' ? <div /> : <LogoIcon60 logo={el[0].logo} />}
                   </div>
                   <div className="tabMainResourceContentText">
                     <div className="tabMainResourceContentTextText">
@@ -200,7 +212,7 @@ const TabMainResource = (props) => {
               ) : (
                 <div className="tabMainResourceContent">
                   <div className="tabMainResourceContentLogo">
-                    {el[1].logo === '' ? <div /> : <LogoIcon80 logo={el[1].logo} />}
+                    {el[1].logo === '' ? <div /> : <LogoIcon60 logo={el[1].logo} />}
                   </div>
                   <div className="tabMainResourceContentText">
                     <div className="tabMainResourceContentTextText">

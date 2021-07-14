@@ -546,3 +546,33 @@ Mail Link는 다음과 같이 호출합니다.
 **strong 글씨 표현**은 이 방법을 사용합니다.
 
 Bold와 italic을 한번에 하려면 **_이 방법_**을 사용합니다.
+
+<br1/>
+
+# 추가 컴포넌트
+
+<br2/>
+
+<img6>
+
+![alt](https://www.naverlabs.com/naverlabs_/story/201904/1556186628283_SEK_8634.JPG)
+
+<span>원칙</span>
+
+이렇게 `<img6>`으로 감싸고 이미지->타이틀->본문 순서대로 적어주세요. 타이틀은 `<span>`으로 감싸면 인식합니다.
+
+![alt](https://www.naverlabs.com/naverlabs_/story/201904/1556182063383_002.JPG)
+
+<span>허용</span>
+
+줄바꿈으로 각 파트를 인식하기 때문에, 또다른 줄바꿈이 생기면 안됩니다. <br2/> <ul><li> 리스트1 </li><li> 리스트2 </li></ul>
+
+![alt](https://www.naverlabs.com/naverlabs_/story/201904/1556182489355_SEK_9008.JPG)
+
+<span>비허용</span>
+
+줄바꾸려면 <br/> 이렇게 해도 됩니다.  
+**뒤에 스페이스 두번 후 엔터**  
+해도 됩니다.
+
+</img6>

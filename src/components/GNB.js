@@ -198,23 +198,74 @@ const GNB = ({ location }) => (
                 className={'GNBheaderTitleMobile displayInline'}
                 dangerouslySetInnerHTML={{ __html: gnbTitle }}
               />
-              <span
-                onClick={mobileMenuClick}
-                className={'mobileMenuButton'}
-                onKeyDown={mobileMenuClick}
-                role="button"
-                tabIndex={0}
-              >
-                <span className={'iconBar'}></span>
-                <span className={'iconBar'}></span>
-                <span className={'iconBar'}></span>
-              </span>
+              <div className={'GNBTabletNavBarIcons'}>
+                <div className={'GNBTabletNavBarSearchIcon displayInline'}>
+                  <svg
+                    width="48"
+                    height="48"
+                    viewBox="0 0 48 48"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="22" cy="22" r="7.25" stroke="#E2E2E2" strokeWidth="1.5" />
+                    <path
+                      d="M32.4697 33.5303C32.7626 33.8232 33.2374 33.8232 33.5303 33.5303C33.8232 33.2374 33.8232 32.7626 33.5303 32.4697L32.4697 33.5303ZM26.4697 27.5303L32.4697 33.5303L33.5303 32.4697L27.5303 26.4697L26.4697 27.5303Z"
+                      fill="#E2E2E2"
+                    />
+                  </svg>
+                </div>
+                <div className={'GNBTabletNavBarMenuIcon displayInline'}>
+                  <svg
+                    width="48"
+                    height="48"
+                    viewBox="0 0 48 48"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line
+                      x1="14.75"
+                      y1="16.25"
+                      x2="33.25"
+                      y2="16.25"
+                      stroke="#E2E2E2"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                    />
+                    <line
+                      x1="14.75"
+                      y1="23.25"
+                      x2="33.25"
+                      y2="23.25"
+                      stroke="#E2E2E2"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                    />
+                    <line
+                      x1="14.75"
+                      y1="30.25"
+                      x2="33.25"
+                      y2="30.25"
+                      stroke="#E2E2E2"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                    />
+                    <rect
+                      class="btn"
+                      x="0"
+                      y="0"
+                      width="100%"
+                      height="100%"
+                      onClick={mobileMenuClick}
+                    />
+                  </svg>
+                </div>
+              </div>
             </div>
-            {isSearchEnabled ? (
+            {/* {isSearchEnabled ? (
               <div className={'searchWrapper hiddenMobile GNBUL'}>
                 <LoadableComponent collapse={true} indices={searchIndices} />
               </div>
-            ) : null}
+            ) : null} */}
           </nav>
           {/* LNB (mobile) */}
           <div id="navbarMobile" className={'mobileLNB'}>

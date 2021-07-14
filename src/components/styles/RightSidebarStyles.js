@@ -14,10 +14,8 @@ export const Sidebar = styled('aside')`
   position: sticky;
   top: 0;
 
-  // background: ${(props) => props.theme.colors.background};
-
   .rightSideBarUL {
-    margin-top: 344px;
+    margin-top: 272px;
   }
 
   .rightSideBarUL li {
@@ -29,7 +27,10 @@ export const Sidebar = styled('aside')`
     font-size: 14px;
     font-weight: 400;
     line-height: 1.3;
-    padding: 7px 24px 7px 16px;
+    padding: 9px 24px 9px 24px;
+    display: flex;
+    align-items: center;
+    height: 36px;
   }
 
   @media only screen and (max-width: 50rem) {
@@ -58,24 +59,19 @@ export const ListItem = styled(({ className, active, level, ...props }) => {
     position: relative;
 
     &:hover {
-      font-weight: 700 !important;
       color: #131313 !important;
       border-left: 1px solid #131313;
+      right: 1px;
     }
 
     ${(props) =>
       props.active &&
       `
-      font-weight: 700 !important;
       color: #131313 !important;
       border-color: #131313 !important;
       border-style: solid none solid solid;
       border-width: 1px 0px 1px 1px;
       background-color: #fff;
-    `} // external link icon
-    svg {
-      float: right;
-      margin-right: 1rem;
-    }
+    `}
   }
 `;

@@ -41,10 +41,29 @@
 
 @font-face {
   font-family: 'Apple SD Gothic Neo';
+  font-weight: 300;
+  font-style: normal;
+  src: url('./SF-Pro-Text-Light.woff2') format('woff2'),
+    url('./SF-Pro-Text-Light.otf') format('opentype');
+  unicode-range: U+0020-007E;
+}
+
+@font-face {
+  font-family: 'Apple SD Gothic Neo';
   font-weight: 400;
   font-style: normal;
   src: url('./AppleSDGothicNeoR.woff2') format('woff2'),
     url('./AppleSDGothicNeoR.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Apple SD Gothic Neo';
+  font-weight: 400;
+  font-style: normal;
+  src: url('./SF-Pro-Text-Regular.woff2') format('woff2'),
+    url('./SF-Pro-Text-Regular.otf') format('opentype');
+  /* unicode-range: U+0041-005A, U+0061-007A; */
+  unicode-range: U+0020-007E;
 }
 
 @font-face {

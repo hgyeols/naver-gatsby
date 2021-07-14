@@ -3,13 +3,13 @@ import config from '../../../config.js';
 
 export const StyledHeading = styled('h1')`
   font-family: 'SF Pro Display', 'Apple SD Gothic Neo';
-  font-weight: 700 !important;
+  font-weight: 600 !important;
   font-size: 58px;
   line-height: 130%;
   flex: 1;
   margin-top: 0;
   padding-top: 68px;
-  padding-bottom: 8px;
+  padding-bottom: 32px;
   color: #131313 !important;
 
   @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
@@ -18,7 +18,7 @@ export const StyledHeading = styled('h1')`
     padding-top: 54px;
   }
 
-  @media (max-width: ${config.responsive.maxWidth}px) {
+  @media (max-width: ${config.responsive.mobileMax}px) {
     padding-top: 54px;
     font-size: 36px;
   }
@@ -32,7 +32,7 @@ export const StyledHeadingTabMain = styled('h1')`
   flex: 1;
   padding-bottom: 78px;
   padding-top: 245px;
-  text-decoration: solid underline #131313 6px;
+  text-decoration: solid underline #131313 5px;
   text-underline-offset: 8px;
   color: #131313 !important;
 
@@ -42,13 +42,14 @@ export const StyledHeadingTabMain = styled('h1')`
     text-decoration: solid underline #131313 4px;
     text-underline-offset: 6px;
     padding-bottom: 74px;
-    padding-top: 265px;
+    padding-top: 184px;
   }
 
-  @media (max-width: ${config.responsive.maxWidth}px) {
-    padding-top: 108px;
+  @media (max-width: ${config.responsive.mobileMax}px) {
+    padding-top: 112px;
     font-size: 41px;
     padding-bottom: 57px;
+    text-decoration: solid underline #131313 3px;
   }
 `;
 
@@ -83,12 +84,16 @@ export const StyledMainWrapperTabMain = styled.div`
     li {
       letter-spacing: -0.017em;
       line-height: 160%;
-      color: #666;
+      color: #636363;
     }
   }
 
   ul {
-    padding: 0px 0px 0px 20px;
+    padding: 0px 0px 0px 21px;
+
+    li::marker {
+      font-size: 14px;
+    }
   }
 
   ol {
@@ -97,6 +102,7 @@ export const StyledMainWrapperTabMain = styled.div`
 
   h1 {
     font-weight: 600;
+    margin-bottom: 8px;
   }
 
   h2 {
@@ -127,7 +133,7 @@ export const StyledMainWrapperTabMain = styled.div`
     }
   }
 
-  @media (max-width: ${config.responsive.maxWidth}px) {
+  @media (max-width: ${config.responsive.mobileMax}px) {
     h1 {
       font-size: 29px;
     }
@@ -149,6 +155,18 @@ export const StyledMainWrapper = styled.div`
   max-width: ${config.responsive.maxWidth}px;
   color: #424242;
 
+  h1 {
+    font-weight: 600;
+  }
+
+  h2 {
+    font-weight: 600;
+  }
+
+  h3 {
+    font-weight: 600;
+  }
+
   ul,
   ol {
     align-items: center;
@@ -156,12 +174,16 @@ export const StyledMainWrapper = styled.div`
       line-height: 160%;
 
       letter-spacing: -0.017em;
-      color: #666;
+      color: #636363;
     }
   }
 
   ul {
-    padding: 0px 0px 0px 20px;
+    padding: 0px 0px 0px 21px;
+
+    li::marker {
+      font-size: 14px;
+    }
   }
 
   ol {
@@ -195,7 +217,7 @@ export const StyledMainWrapper = styled.div`
     }
   }
 
-  @media (max-width: ${config.responsive.maxWidth}px) {
+  @media (max-width: ${config.responsive.mobileMax}px) {
     h1 {
       font-size: 29px;
     }
