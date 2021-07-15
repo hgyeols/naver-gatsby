@@ -51,6 +51,10 @@
 - Tab Main 2차 QA 반영
 - Endpage 수정
 
+**21.07.15** 0.1.9
+
+- 모바일/태블릿 메뉴 반영
+
 ## Configure - Markdown
 
 모든 markdown 파일은 `content` 폴더 아래에 있어야합니다.

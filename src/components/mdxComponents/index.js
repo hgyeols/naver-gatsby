@@ -119,7 +119,7 @@ const StyledImg5 = styled('div')`
   }
 
   span {
-    margin-top: 16px;
+    margin-top: 20px;
   }
 
   @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive

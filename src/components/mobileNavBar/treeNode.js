@@ -1,21 +1,53 @@
 import React from 'react';
+import styled from '@emotion/styled';
 import config from '../../../config';
 import Link from '../link';
 
-const TreeNode = ({ className = '', setCollapsed, collapsed, url, title, items, ...rest }) => {
+const Button = styled.button`
+  background: none !important;
+  border: none;
+  padding: 0 !important;
+  cursor: pointer;
+  color: #636363;
+  font-family: 'SF Pro Text';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 130%;
+  letter-spacing: -0.022em;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: 44px;
+`;
 
+const TreeNode = ({
+  className = '',
+  setCollapsed,
+  collapsed,
+  toggle,
+  url,
+  title,
+  items,
+  ...rest
+}) => {
   const isCollapsed = collapsed[url]; // boolean
   const collapse = () => {
     setCollapsed(url);
+
+    if (typeof document !== 'undefined') {
+      var x = document.getElementById(title + 'button');
+      x.classList.toggle('colorChanged');
+    }
   };
 
   const hasChildren = items.length !== 0;
   let location;
 
-  if (typeof document != 'undefined') {
+  if (typeof document !== 'undefined') {
     location = document.location;
   }
-  const active = // LNB에서 선택되면 true 
+
+  let active = // LNB에서 선택되면 true
     location && (location.pathname === url || location.pathname === config.gatsby.pathPrefix + url);
 
   const calculatedClassName = `${className} item ${active ? 'active' : ''}`;
@@ -24,15 +56,16 @@ const TreeNode = ({ className = '', setCollapsed, collapsed, url, title, items, 
     <li className={calculatedClassName}>
       {title ? ( // markdown의 title
         hasChildren ? (
-          <Link to='javascript:void(0)' onClick={collapse}>
+          <Button onClick={collapse} id={title + 'button'}>
             {title}
-          </Link>
+          </Button>
         ) : (
-          <Link to={url}>
+          // <Link to={void 0} onClick={collapse} >
+          <Link to={url} onClick={toggle}>
             {title}
           </Link>
-        ) 
-      ) : null }
+        )
+      ) : null}
 
       {!isCollapsed && hasChildren ? (
         <ul>
@@ -41,6 +74,7 @@ const TreeNode = ({ className = '', setCollapsed, collapsed, url, title, items, 
               key={item.url + index.toString()}
               setCollapsed={setCollapsed}
               collapsed={collapsed}
+              toggle={toggle}
               {...item}
             />
           ))}

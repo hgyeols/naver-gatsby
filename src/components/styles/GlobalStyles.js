@@ -92,6 +92,10 @@ export const baseStyles = css`
     
   */
 
+  .mobileNavBarMainLinkActive {
+    color: #131313;
+  }
+
   .LNBWrapper {
   }
 
@@ -123,7 +127,7 @@ export const baseStyles = css`
   }
 
   .LNBUL li .active a {
-    font-weight: 700;
+    font-weight: 600;
     background-color: #f1f1f1;
     color: #131313 !important;
   }
@@ -159,6 +163,11 @@ export const baseStyles = css`
     margin-left: 0 !important;
   }
 
+  .colorChanged {
+    font-weight: 600 !important;
+    color: #424242 !important;
+  }
+
   /* 
     
     Page section 
@@ -174,7 +183,7 @@ export const baseStyles = css`
   }
 
   .titleWrapperTabMain {
-    z-index: 3;
+    /* z-index: 3; */
     position: relative;
   }
 
@@ -695,6 +704,7 @@ export const baseStyles = css`
 
   .defaultCodeWrapper {
     position: relative;
+    margin-top: 16px;
 
     .codeCopyButton {
       position: absolute;
@@ -813,6 +823,7 @@ export const baseStyles = css`
     border-spacing: 0;
     margin-bottom: 2px;
     border-collapse: collapse;
+    margin-top: 16px;
   }
 
   thead {
@@ -962,6 +973,7 @@ export const baseStyles = css`
   .videoEmbed {
     position: relative;
     padding-bottom: 2px;
+    margin-top: 16px;
   }
 
   .videoEmbed iframe {
@@ -1008,6 +1020,7 @@ export const baseStyles = css`
     width: 372px;
     background: #fafafa;
     margin-bottom: 2px;
+    margin-top: 16px;
     border: 1px solid #e2e2e2;
     border-radius: 4px;
 
@@ -1151,7 +1164,7 @@ export const baseStyles = css`
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 24px;
-    margin-bottom: 24px;
+    margin-top: 16px;
 
     @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
         .tabletMax}px) {
@@ -1167,7 +1180,7 @@ export const baseStyles = css`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 24px;
-    margin-bottom: 24px;
+    margin-top: 16px;
 
     @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
         .tabletMax}px) {
@@ -1360,6 +1373,7 @@ export const baseStyles = css`
     border-radius: 4px;
     display: grid;
     grid-template-columns: 80px 1fr;
+    margin-top: 16px;
   }
 
   .linkFirstWrapper:hover {
@@ -1371,6 +1385,7 @@ export const baseStyles = css`
     height: 80px;
     display: flex;
     justify-content: space-between;
+    margin-top: 16px;
 
     .linkSecondChild {
       width: calc((100% - 24px) / 2);
@@ -1386,6 +1401,7 @@ export const baseStyles = css`
   }
 
   .OutlinkWrapper {
+    margin-top: 16px;
     width: 100%;
     border: 1px solid #e2e2e2;
     border-radius: 4px;
@@ -1422,7 +1438,7 @@ export const baseStyles = css`
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 24px;
-    margin-bottom: 16px;
+    margin-top: 16px;
 
     @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
         .tabletMax}px) {
