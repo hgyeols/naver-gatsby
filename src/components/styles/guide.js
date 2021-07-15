@@ -32,7 +32,11 @@ export const StyledHeadingTabMain = styled('h1')`
   flex: 1;
   padding-bottom: 78px;
   padding-top: 245px;
+  text-decoration: solid underline #131313;
+  -webkit-text-decoration: solid underline #131313;
   text-decoration: solid underline #131313 5px;
+  -webkit-text-decoration: solid underline #131313 5px;
+
   text-underline-offset: 8px;
   color: #131313 !important;
 
