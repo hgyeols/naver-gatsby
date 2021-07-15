@@ -68,6 +68,10 @@ metaDescription: 'UX Writing' # metadata
 
 <br1/>
 
+<hr />
+
+<br2/>
+
 # Resource
 
 <br2/>

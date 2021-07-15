@@ -153,28 +153,30 @@ const GNB = ({ location }) => {
         </div>
 
         <div className={'GNBMobileWrapper'}>
-          <div
-            className={'GNBheaderTitleMobile displayInline'}
-            dangerouslySetInnerHTML={{ __html: gnbTitle }}
-          />
-          <div className={'GNBTabletNavBarIcons'}>
-            <div className={'GNBTabletNavBarSearchIcon displayInline'}>
-              <svg
-                width="48"
-                height="48"
-                viewBox="0 0 48 48"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="22" cy="22" r="7.25" stroke="#E2E2E2" strokeWidth="1.5" />
-                <path
-                  d="M32.4697 33.5303C32.7626 33.8232 33.2374 33.8232 33.5303 33.5303C33.8232 33.2374 33.8232 32.7626 33.5303 32.4697L32.4697 33.5303ZM26.4697 27.5303L32.4697 33.5303L33.5303 32.4697L27.5303 26.4697L26.4697 27.5303Z"
-                  fill="#E2E2E2"
-                />
-              </svg>
-            </div>
-            <div className={'GNBTabletNavBarMenuIcon displayInline'}>
-              <MobileNavBar location={location} />
+          <div className={'GNBTabletNavBar'}>
+            <div
+              className={'GNBheaderTitleMobile displayInline'}
+              dangerouslySetInnerHTML={{ __html: gnbTitle }}
+            />
+            <div className={'GNBTabletNavBarIcons'}>
+              <div className={'GNBTabletNavBarSearchIcon displayInline'}>
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="22" cy="22" r="7.25" stroke="#E2E2E2" strokeWidth="1.5" />
+                  <path
+                    d="M32.4697 33.5303C32.7626 33.8232 33.2374 33.8232 33.5303 33.5303C33.8232 33.2374 33.8232 32.7626 33.5303 32.4697L32.4697 33.5303ZM26.4697 27.5303L32.4697 33.5303L33.5303 32.4697L27.5303 26.4697L26.4697 27.5303Z"
+                    fill="#E2E2E2"
+                  />
+                </svg>
+              </div>
+              <div className={'GNBTabletNavBarMenuIcon displayInline'}>
+                <MobileNavBar location={location} />
+              </div>
             </div>
           </div>
         </div>

@@ -194,7 +194,7 @@ export const baseStyles = css`
     background-color: #fafafa;
     width: 100%;
     height: 360px;
-    z-index: 2;
+    /* z-index: 2; */
 
     @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
         .tabletMax}px) {
@@ -1624,13 +1624,13 @@ export const baseStyles = css`
   .footerContainer {
     display: flex;
     justify-content: center;
+    border-top: 1px solid #f2f2f3;
   }
 
   .footerWrapper {
     display: grid;
     grid-template-columns: 97px 1fr;
     align-items: center;
-    border-top: 1px solid #f2f2f3;
     height: 88px;
     width: ${config.responsive.maxWidth}px;
 

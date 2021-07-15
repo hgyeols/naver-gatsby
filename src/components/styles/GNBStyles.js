@@ -110,7 +110,7 @@ export const GNBStylesWrapper = styled.div`
     line-height: 22px;
     font-weight: 900;
     color: #f3f3f3 !important;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     margin-left: 20px;
   }
 
@@ -122,9 +122,8 @@ export const GNBStylesWrapper = styled.div`
     line-height: 22px;
     font-weight: 900;
     color: #f3f3f3 !important;
-    text-transform: uppercase;
-    position: absolute;
-    left: 20px;
+    /* text-transform: uppercase; */
+    margin-left: 20px;
   }
 
   .GNBheaderTitleTabletSVG {
@@ -133,10 +132,10 @@ export const GNBStylesWrapper = styled.div`
 
   .GNBMobileWrapper {
     display: none;
+    width: 100%;
 
     @media (max-width: ${config.responsive.mobileMax}px) {
       display: block;
-      width: 100%;
     }
   }
 

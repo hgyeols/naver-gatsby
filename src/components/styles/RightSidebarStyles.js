@@ -33,10 +33,14 @@ export const Sidebar = styled('aside')`
     height: 36px;
   }
 
-  @media only screen and (max-width: 50rem) {
+  @media (min-width: 1152px) and (max-width: 1439px) {
+    visibility: hidden;
+  }
+
+  /* @media only screen and (max-width: 50rem) {
     width: 100%;
     position: relative;
-  }
+  } */
 `;
 
 export const ListItem = styled(({ className, active, level, ...props }) => {

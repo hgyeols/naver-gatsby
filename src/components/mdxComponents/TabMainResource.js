@@ -97,7 +97,13 @@ const TabMainResource = (props) => {
               ) : (
                 <div className="tabMainResourceContent">
                   <div className="tabMainResourceContentLogo">
-                    {el[1].logo === '' ? <div /> : <LogoIcon80 logo={el[1].logo} />}
+                    {el[1].logo === '' ? (
+                      <div />
+                    ) : breakpoints.md ? (
+                      <LogoIcon72 logo={el[1].logo} />
+                    ) : (
+                      <LogoIcon80 logo={el[1].logo} />
+                    )}
                   </div>
                   <div className="tabMainResourceContentText">
                     <div className="tabMainResourceContentTextText">
@@ -133,7 +139,13 @@ const TabMainResource = (props) => {
               ) : (
                 <div className="tabMainResourceContent">
                   <div className="tabMainResourceContentLogo">
-                    {el[2].logo === '' ? <div /> : <LogoIcon80 logo={el[2].logo} />}
+                    {el[2].logo === '' ? (
+                      <div />
+                    ) : breakpoints.md ? (
+                      <LogoIcon72 logo={el[2].logo} />
+                    ) : (
+                      <LogoIcon80 logo={el[2].logo} />
+                    )}
                   </div>
                   <div className="tabMainResourceContentText">
                     <div className="tabMainResourceContentTextText">
