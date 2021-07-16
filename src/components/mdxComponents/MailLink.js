@@ -157,26 +157,27 @@ const MailLink = (props) => {
                       <span>{el[1].name}</span>
                     </div>
                     <div className="MailLinkTextMail">
-                      <a href={'mailto:' + props.mail}>
-                        <span>{el[1].mail}</span>
-                      </a>
+                      {/* <a href={'mailto:' + props.mail}> */}
+                      <span>{el[1].mail}</span>
                     </div>
                   </div>
                   <div className="MailLinkIcon">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12.394 21.1046L21.5035 11.9951L12.5035 2.84961"
-                        stroke="#636363"
-                        strokeLinecap="round"
-                      />
-                      <path d="M21.2379 11.9951H1.73241" stroke="#636363" strokeLinecap="round" />
-                    </svg>
+                    <a href="https://mail.navercorp.com" target="_blank">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12.394 21.1046L21.5035 11.9951L12.5035 2.84961"
+                          stroke="#636363"
+                          strokeLinecap="round"
+                        />
+                        <path d="M21.2379 11.9951H1.73241" stroke="#636363" strokeLinecap="round" />
+                      </svg>
+                    </a>
                   </div>
                 </div>
               )}
