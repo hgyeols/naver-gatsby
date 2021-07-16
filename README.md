@@ -65,7 +65,7 @@
 
 - Contact Us 템플릿 추가
 - - 가이드 라이브 (https://starry99.github.io/naver-gatsby/about/contactus)
-- - 가이드 raw (https://raw.githubusercontent.com/starry99/naver-gatsby/main/content/about/contactus.md)
+- - /content/about/contactus.md 참고
 
 ## Configure - Markdown
 
