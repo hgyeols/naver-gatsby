@@ -280,6 +280,20 @@ const Divider = styled((props) => (
 ))`
   list-style: none;
   padding: 0;
+  position: relative;
+  margin-top: 20px;
+  padding-right: 1300px;
+
+  &::after {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -30%;
+    right: 0;
+    border-bottom: solid 1px #e2e2e2;
+  }
 
   hr {
     margin: 0;
@@ -422,6 +436,8 @@ export function NavMenu({ location, toggle, isOpen }) {
       });
     };
 
+    let partLength = Object.keys(calculatedLNBobject).length - 1;
+
     return (
       <NavMenuContainer>
         <NavListDepth>
@@ -452,7 +468,7 @@ export function NavMenu({ location, toggle, isOpen }) {
                       <MobileNavBarMainLinkActive dangerouslySetInnerHTML={{ __html: menu.text }} />
                     </Link>
                     <MobileLNBWrapper>
-                      {Object.keys(calculatedLNBobject).map((key) => {
+                      {Object.keys(calculatedLNBobject).map((key, index) => {
                         return key === 'etc' ? (
                           <MobileLNBul key={key}>
                             <TreeNode
@@ -475,6 +491,7 @@ export function NavMenu({ location, toggle, isOpen }) {
                               toggle={toggle}
                               {...calculatedLNBobject[key]}
                             />
+                            {index === partLength ? null : <Divider />}
                           </MobileLNBul>
                         );
                       })}

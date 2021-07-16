@@ -309,8 +309,6 @@ const FilteredLNB = (props) => {
 
   let partLength = Object.keys(calculatedLNBobject).length - 1;
 
-  console.log('tesrt: ', partLength);
-
   return (
     <LNBWrapper>
       {/* object key로 대체 */}
@@ -336,7 +334,6 @@ const FilteredLNB = (props) => {
               collapsed={collapsed}
               {...calculatedLNBobject[key]}
             />
-            {console.log('ket! ', index)}
             {index === partLength ? null : <Divider />}
           </LNBUL>
         );

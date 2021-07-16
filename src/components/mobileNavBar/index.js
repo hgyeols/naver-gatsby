@@ -18,6 +18,7 @@ const MenuContainer = styled(motion.div)`
   top: 0;
   right: 0;
   user-select: none;
+  overflow: auto;
 `;
 
 const ContentContainer = styled.div`
