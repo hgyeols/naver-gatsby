@@ -261,6 +261,7 @@ export default {
   br2: (props) => <p className="br2" {...props} />,
   br6: (props) => <p className="br6" {...props} />,
   br10: (props) => <p className="br10" {...props} />,
+  br18: (props) => <p className="br18" {...props} />,
   cap: (props) => <Caption {...props} />,
   img: (props) => (
     <StyledImg>

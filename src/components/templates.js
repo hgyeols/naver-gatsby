@@ -12,7 +12,9 @@ import {
   StyledMainWrapper,
   StyledMainWrapperTabMain,
   Divider,
-} from './styles/guide';
+  StyledHeadingContactUs,
+  StyledMainWrapperContactUs,
+} from './styles/TemplateStyles';
 
 const forcedNavOrder = [];
 
@@ -99,14 +101,14 @@ export default class MDXRuntimeTest extends Component {
           <link rel="canonical" href={canonicalUrl} />
         </Helmet>
         {mdx.frontmatter.template && mdx.frontmatter.template === 'tabMain' ? (
-          <div className={'tabMainWrapper'}>
-            <div className={'tabMainPhoto'}>
+          <div className="tabMainWrapper">
+            <div className="tabMainPhoto">
               {titlePhoto && <img src={mdx.frontmatter.titlePhoto} />}
             </div>
-            <div className={'titleWrapperTabMain'}>
+            <div className="titleWrapperTabMain">
               <StyledHeadingTabMain>{mdx.fields.title}</StyledHeadingTabMain>
               {titleDescription && (
-                <div className={'titleDescriptionTabMain'}>{mdx.frontmatter.titleDescription}</div>
+                <div className="titleDescriptionTabMain">{mdx.frontmatter.titleDescription}</div>
               )}
               <Divider />
             </div>
@@ -115,49 +117,46 @@ export default class MDXRuntimeTest extends Component {
             </StyledMainWrapperTabMain>
           </div>
         ) : mdx.frontmatter.template === 'withDownload' ? (
-          <div className={'defaultWrapper'}>
-            <div className={'titleWrapper'}>
+          <div className="defaultWrapper">
+            <div className="titleWrapper">
               <StyledHeading>{mdx.fields.title}</StyledHeading>
               {titleDescription && (
-                <div className={'titleDescription'}>{mdx.frontmatter.titleDescription}</div>
+                <div className="titleDescription">{mdx.frontmatter.titleDescription}</div>
               )}
             </div>
             <StyledMainWrapper>
               <MDXRenderer>{mdx.body}</MDXRenderer>
             </StyledMainWrapper>
-            <div className={'addPaddTopBottom'}>
+            <div className="addPaddTopBottom">
               <NextPrevious mdx={mdx} nav={nav} />
             </div>
           </div>
         ) : mdx.frontmatter.template === 'contactUs' ? (
-          <div className={'defaultWrapper'}>
-            <div className={'titleWrapper'}>
-              <StyledHeading>{mdx.fields.title}</StyledHeading>
+          <div className="defaultWrapper">
+            <div className="titleWrapper">
+              <StyledHeadingContactUs>{mdx.fields.title}</StyledHeadingContactUs>
               {titleDescription && (
-                <div className={'titleDescription'}>{mdx.frontmatter.titleDescription}</div>
+                <div className="titleDescriptionContactUs">{mdx.frontmatter.titleDescription}</div>
               )}
               <Divider />
             </div>
-            <StyledMainWrapper>
+            <StyledMainWrapperContactUs>
               <MDXRenderer>{mdx.body}</MDXRenderer>
-            </StyledMainWrapper>
-            <div className={'addPaddTopBottom'}>
-              <NextPrevious mdx={mdx} nav={nav} />
-            </div>
+            </StyledMainWrapperContactUs>
           </div>
         ) : (
-          <div className={'defaultWrapper'}>
-            <div className={'titleWrapper'}>
+          <div className="defaultWrapper">
+            <div className="titleWrapper">
               <StyledHeading>{mdx.fields.title}</StyledHeading>
               {titleDescription && (
-                <div className={'titleDescription'}>{mdx.frontmatter.titleDescription}</div>
+                <div className="titleDescription">{mdx.frontmatter.titleDescription}</div>
               )}
               <Divider />
             </div>
             <StyledMainWrapper>
               <MDXRenderer>{mdx.body}</MDXRenderer>
             </StyledMainWrapper>
-            <div className={'addPaddTopBottom'}>
+            <div className="addPaddTopBottom">
               <NextPrevious mdx={mdx} nav={nav} />
             </div>
           </div>

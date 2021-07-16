@@ -187,6 +187,24 @@ export const baseStyles = css`
     }
   }
 
+  .titleDescriptionContactUs {
+    margin-bottom: 66px;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: -0.017em;
+    line-height: 160%;
+    color: #474747;
+
+    @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+        .tabletMax}px) {
+      margin-bottom: 52px;
+    }
+
+    @media (max-width: ${config.responsive.mobileMax}px) {
+      margin-bottom: 52px;
+    }
+  }
+
   .tabMainImgWrapper {
     display: grid;
     padding-top: 18px;
@@ -905,6 +923,10 @@ export const baseStyles = css`
 
   .br10 {
     height: 10px !important;
+  }
+
+  .br18 {
+    height: 18px !important;
   }
 
   .videoEmbed {

@@ -57,13 +57,39 @@ export const StyledHeadingTabMain = styled('h1')`
   }
 `;
 
+export const StyledHeadingContactUs = styled('h1')`
+  font-family: 'SF Pro Display', 'Apple SD Gothic Neo';
+  font-weight: 700 !important;
+  font-size: 58px;
+  line-height: 130%;
+  flex: 1;
+  margin-top: 68px;
+  margin-bottom: 10px;
+  height: 75px;
+  color: #000 !important;
+
+  @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+      .tabletMax}px) {
+    font-size: 46px;
+    height: 60px;
+    margin-top: 54px;
+  }
+
+  @media (max-width: ${config.responsive.mobileMax}px) {
+    margin-top: 54px;
+    font-size: 36px;
+    height: 47px;
+    color: #131313 !important;
+  }
+`;
+
 export const Divider = styled((props) => (
   <li {...props}>
     <hr />
   </li>
 ))`
   list-style: none;
-  padding: 10px 0;
+  padding: 10px 0 12px 0;
 
   hr {
     margin: 0;
@@ -161,6 +187,92 @@ export const StyledMainWrapper = styled.div`
 
   h1 {
     font-weight: 600;
+  }
+
+  h2 {
+    font-weight: 600;
+  }
+
+  h3 {
+    font-weight: 600;
+  }
+
+  ul,
+  ol {
+    align-items: center;
+    li {
+      line-height: 160%;
+
+      letter-spacing: -0.017em;
+      color: #636363;
+    }
+  }
+
+  ul {
+    padding: 0px 0px 0px 21px;
+
+    li::marker {
+      font-size: 14px;
+    }
+  }
+
+  ol {
+    padding: 0px 0px 0px 18px;
+  }
+
+  code {
+    border: 1px solid #ede7f3;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 0.9375em;
+
+    background: ${(props) => props.theme.colors.background};
+  }
+
+  @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+      .tabletMax}px) {
+    h1 {
+      font-size: 29px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    ul,
+    ol {
+      li {
+        height: initial;
+      }
+    }
+  }
+
+  @media (max-width: ${config.responsive.mobileMax}px) {
+    h1 {
+      font-size: 29px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    ul,
+    ol {
+      li {
+        height: initial;
+      }
+    }
+  }
+`;
+
+export const StyledMainWrapperContactUs = styled.div`
+  max-width: ${config.responsive.maxWidth}px;
+  color: #474747;
+
+  h1 {
+    margin-top: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
   }
 
   h2 {

@@ -65,7 +65,7 @@ const SidebarLayout = ({ location }) => (
         });
       }
 
-      if (frontmatter === 'tabMain') {
+      if (frontmatter === 'tabMain' || frontmatter === 'contactUs') {
         return (
           <Sidebar>
             <ul></ul>
