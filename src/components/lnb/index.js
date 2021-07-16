@@ -4,6 +4,130 @@ import styled from '@emotion/styled';
 import config from '../../../config';
 import TreeNode from './treeNode';
 
+const LNBWrapper = styled.div`
+  margin-left: 24px;
+`;
+
+const LNBUL = styled.ul`
+  li {
+    list-style-type: none;
+    width: auto;
+    list-style: none;
+  }
+
+  li a {
+    color: #636363;
+    font-family: 'SF Pro Text';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    letter-spacing: -0.022em;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    white-space: nowrap;
+    padding-right: 1300px;
+    position: relative;
+  }
+
+  li a:hover {
+    background-color: #f1f1f1;
+    color: #424242 !important;
+  }
+
+  li a::after {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -30%;
+    right: 0;
+  }
+
+  li a:hover::after {
+    background-color: #f1f1f1;
+  }
+
+  .firstlevel > ul > .item {
+    margin-left: 0 !important;
+  }
+
+  .item .item {
+    margin-left: 20px;
+  }
+
+  li .active a {
+    font-weight: 600;
+    color: #424242 !important;
+  }
+`;
+
+const LNBPart = styled.li`
+  font-family: 'SF Pro Text';
+  font-weight: 600;
+  font-size: 18px;
+  color: #131313;
+  line-height: 130%;
+  letter-spacing: -0.022em;
+  margin-top: 24px;
+  margin-bottom: 9px;
+`;
+
+const Sidebar = styled('aside')`
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  position: fixed;
+  padding-left: 0px;
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: sticky;
+  top: 0;
+  padding-right: 0;
+  border-right: 1px solid #eaeaea;
+
+  @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+    min-height: -webkit-fill-available;
+  }
+
+  @media only screen and (max-width: ${config.responsive.tabletMax}px) {
+    width: 100%;
+    /* position: relative; */
+    height: 100vh;
+    @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+      min-height: -webkit-fill-available;
+    }
+  }
+
+  @media (min-width: ${config.responsive.tabletMax}px) and (max-width: ${config.responsive
+      .tabletMax}px) {
+    padding-left: 0;
+  }
+
+  @media only screen and (max-width: ${config.responsive.tabletMax}px) {
+    padding-left: 0px;
+    height: auto;
+  }
+`;
+
+const Divider = styled((props) => (
+  <li {...props}>
+    <hr />
+  </li>
+))`
+  list-style: none;
+  padding: 0;
+
+  hr {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid #e2e2e2;
+  }
+`;
+
 const calculateTreeData = (edges) => {
   const withoutServicePage = config.lnb.ignoreIndex
     ? edges.filter(
@@ -117,59 +241,6 @@ const calculateTreeData = (edges) => {
   }, tree);
 };
 
-const Sidebar = styled('aside')`
-  width: 100%;
-  height: 100vh;
-  overflow: auto;
-  position: fixed;
-  padding-left: 0px;
-  position: -webkit-sticky;
-  position: -moz-sticky;
-  position: sticky;
-  top: 0;
-  padding-right: 0;
-  border-right: 1px solid #eaeaea;
-
-  @supports (-webkit-appearance: none) and (stroke-color: transparent) {
-    min-height: -webkit-fill-available;
-  }
-
-  @media only screen and (max-width: ${config.responsive.tabletMax}px) {
-    width: 100%;
-    /* position: relative; */
-    height: 100vh;
-    @supports (-webkit-appearance: none) and (stroke-color: transparent) {
-      min-height: -webkit-fill-available;
-    }
-  }
-
-  @media (min-width: ${config.responsive.tabletMax}px) and (max-width: ${config.responsive
-      .tabletMax}px) {
-    padding-left: 0;
-  }
-
-  @media only screen and (max-width: ${config.responsive.tabletMax}px) {
-    padding-left: 0px;
-    height: auto;
-  }
-`;
-
-const Divider = styled((props) => (
-  <li {...props}>
-    <hr />
-  </li>
-))`
-  list-style: none;
-  padding: 0;
-
-  hr {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    border-bottom: 1px solid #e2e2e2;
-  }
-`;
-
 const FilteredLNB = (props) => {
   let LNBobject = props.finalLNB;
   let calculatedLNBobject = {}; // tree구조가 됨
@@ -224,35 +295,34 @@ const FilteredLNB = (props) => {
   };
 
   return (
-    <div className={'LNBWrapper'}>
+    <LNBWrapper>
       {/* object key로 대체 */}
       {Object.keys(calculatedLNBobject).map((key) => {
         return key === 'etc' ? (
-          <ul key={key} className={'LNBUL'}>
+          <LNBUL key={key}>
             <TreeNode
-              className={'lnbNav firstLevel'}
+              className="lnbNav firstLevel"
               setCollapsed={toggle}
               collapsed={collapsed}
               {...calculatedLNBobject[key]}
             />
-          </ul>
+          </LNBUL>
         ) : (
-          <ul key={key} className={'LNBUL'}>
-            <li
-              className={'lnbPart'}
+          <LNBUL key={key}>
+            <LNBPart
               // className={} // mobile서 나중에 보이도록
               dangerouslySetInnerHTML={{ __html: key }}
             />
             <TreeNode
-              className={'lnbNav firstLevel'}
+              className="lnbNav firstLevel"
               setCollapsed={toggle}
               collapsed={collapsed}
               {...calculatedLNBobject[key]}
             />
-          </ul>
+          </LNBUL>
         );
       })}
-    </div>
+    </LNBWrapper>
   );
 };
 
@@ -260,7 +330,6 @@ const LNBLayout = ({ location }) => (
   <StaticQuery
     query={graphql`
       query {
-        # allMdx(filter: {fields: {slug: {regex: "/about/"}}}) {
         allMdx {
           edges {
             node {
@@ -287,7 +356,6 @@ const LNBLayout = ({ location }) => (
         }
       }
     `}
-    // render={({ allMdx }) => {
     render={(data) => {
       const {
         allMdx,

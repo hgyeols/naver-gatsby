@@ -92,69 +92,6 @@ export const baseStyles = css`
     
   */
 
-  .mobileNavBarMainLinkActive {
-    color: #131313;
-  }
-
-  .LNBWrapper {
-  }
-
-  .LNBUL li {
-    list-style-type: none;
-    width: auto;
-    list-style: none;
-  }
-
-  .LNBUL li a {
-    color: #636363;
-    font-family: 'SF Pro Text';
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 130%;
-    letter-spacing: -0.022em;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    padding: 11px 24px 11px 24px;
-    border-style: solid none solid solid;
-    border-width: 1px 0px 1px 1px;
-    border-color: transparent currentcolor transparent transparent;
-  }
-
-  .LNBUL li a:hover {
-    background-color: #fafafa;
-    color: #131313 !important;
-  }
-
-  .LNBUL li .active a {
-    font-weight: 600;
-    background-color: #f1f1f1;
-    color: #131313 !important;
-  }
-
-  .LNBUL .item .item {
-    margin-left: 16px;
-  }
-
-  .lnbPart {
-    font-family: 'SF Pro Text';
-    font-weight: 600;
-    font-size: 18px;
-    color: #131313;
-    line-height: 130%;
-    letter-spacing: -0.022em;
-    padding: 24px 24px 19px 24px;
-  }
-
-  // .lnbNav {
-  //   color: #131313 !important;
-  // }
-
-  // .lnbNav .active > a {
-  //   background-color: #ededed;
-  //   color: #131313 !important;
-  // }
-
   .firstLevel ul .item ul .item {
     /* border-left: 1px solid #e6ecf1; */
   }
@@ -163,7 +100,7 @@ export const baseStyles = css`
     margin-left: 0 !important;
   }
 
-  .colorChanged {
+  .onClickClorChangeLNB {
     font-weight: 600 !important;
     color: #424242 !important;
   }
@@ -1613,104 +1550,6 @@ export const baseStyles = css`
   .hitWrapper span {
     color: black;
     font-size: 14px;
-  }
-
-  /* 
-    
-    Footer section 
-  
-  */
-
-  .footerContainer {
-    display: flex;
-    justify-content: center;
-    border-top: 1px solid #f2f2f3;
-  }
-
-  .footerWrapper {
-    display: grid;
-    grid-template-columns: 97px 1fr;
-    align-items: center;
-    height: 88px;
-    width: ${config.responsive.maxWidth}px;
-
-    @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
-        .tabletMax}px) {
-      padding: 0 36px;
-      width: 100%;
-    }
-
-    @media (max-width: ${config.responsive.mobileMax}px) {
-      padding: 0 20px;
-      width: 100%;
-    }
-  }
-
-  .footerVoid {
-    width: 228px;
-
-    @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
-        .tabletMax}px) {
-      display: none;
-    }
-
-    @media (max-width: ${config.responsive.mobileMax}px) {
-      display: none;
-    }
-  }
-
-  .footerLogo {
-    display: flex;
-    align-items: center;
-  }
-
-  .footerManual {
-    padding-left: 12px;
-    padding-right: 12px;
-    color: #e2e2e2;
-  }
-
-  .footerLinks {
-    display: flex;
-    align-items: center;
-    margin-left: 10px;
-
-    ul,
-    li {
-      margin: 0;
-      padding: 0;
-    }
-
-    li {
-      display: inline-block;
-      list-style: none;
-
-      .footerSVG {
-        display: inline-block;
-      }
-
-      svg {
-        padding-left: 12px;
-        padding-right: 12px;
-        width: 100%;
-        height: 12px;
-      }
-
-      a {
-        font-family: 'SF Pro Text';
-        font-weight: 300;
-        font-size: 14px;
-        line-height: 130%;
-        letter-spacing: -0.017em;
-        color: #636363;
-        text-decoration: none !important;
-        display: inline-block;
-      }
-
-      a:hover {
-        color: #131313;
-      }
-    }
   }
 
   /* 

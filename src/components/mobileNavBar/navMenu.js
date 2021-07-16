@@ -74,6 +74,10 @@ const NavLinkDepth = styled(motion.li)`
 
 const MobileLNBWrapper = styled.div``;
 
+const MobileNavBarMainLinkActive = styled.div`
+  color: #131313;
+`;
+
 const MobileLNBul = styled.ul`
   li {
     list-style-type: none;
@@ -285,90 +289,6 @@ const Divider = styled((props) => (
   }
 `;
 
-const FilteredLNB = ({ finalLNB, part, isOpen }) => {
-  let LNBobject = finalLNB;
-  let calculatedLNBobject = {}; // tree구조가 됨
-  Object.keys(LNBobject).forEach((key) => {
-    if (key !== '') {
-      // console.log('calculate됨!',' + ', key, ' + ', LNBobject[key])
-      calculatedLNBobject[key] = calculateTreeData(LNBobject[key]);
-    }
-  });
-
-  Object.keys(calculatedLNBobject).forEach((key) => {
-    if (key !== '') {
-      // depth-1 sort
-      if (calculatedLNBobject[key].items.length > 1) {
-        calculatedLNBobject[key].items.sort((a, b) => {
-          return a.order - b.order;
-        });
-      }
-    }
-  });
-
-  Object.keys(calculatedLNBobject).forEach((key) => {
-    if (key !== '') {
-      // depth-2 sort
-      if (calculatedLNBobject[key].items.length > 0) {
-        calculatedLNBobject[key].items.forEach((el) => {
-          el.items.sort((a, b) => {
-            return a.order - b.order;
-          });
-        });
-      }
-    }
-  });
-
-  const defaultCollapsed = {};
-
-  Object.keys(calculatedLNBobject).forEach((key) => {
-    if (key !== '' && key !== 'etc') {
-      calculatedLNBobject[key].items.forEach((item) => {
-        defaultCollapsed[item.url] = true; // 닫혀있음
-      });
-    }
-  });
-
-  const [collapsed, setCollapsed] = useState(defaultCollapsed);
-  // setCollapsed(defaultCollapsed)
-  const toggleMenu = (url) => {
-    setCollapsed({
-      ...collapsed,
-      [url]: !collapsed[url],
-    });
-  };
-
-  return (
-    <MobileLNBWrapper>
-      {Object.keys(calculatedLNBobject).map((key) => {
-        return key === 'etc' ? (
-          <MobileLNBul key={key}>
-            <TreeNode
-              className={'MobileLNBli firstlevel'}
-              setCollapsed={toggleMenu}
-              collapsed={collapsed}
-              {...calculatedLNBobject[key]}
-            />
-          </MobileLNBul>
-        ) : (
-          <MobileLNBul key={key}>
-            <MobileLNBliPartName
-              // className={} // mobile서 나중에 보이도록
-              dangerouslySetInnerHTML={{ __html: key }}
-            />
-            <TreeNode
-              className={'MobileLNBli firstlevel'}
-              setCollapsed={toggleMenu}
-              collapsed={collapsed}
-              {...calculatedLNBobject[key]}
-            />
-          </MobileLNBul>
-        );
-      })}
-    </MobileLNBWrapper>
-  );
-};
-
 export function NavMenu({ location, toggle, isOpen }) {
   const data = useStaticQuery(graphql`
     query navMenuQuery {
@@ -529,10 +449,7 @@ export function NavMenu({ location, toggle, isOpen }) {
                       activeClassName="active"
                       onClick={toggle}
                     >
-                      <div
-                        className={'mobileNavBarMainLinkActive'}
-                        dangerouslySetInnerHTML={{ __html: menu.text }}
-                      />
+                      <MobileNavBarMainLinkActive dangerouslySetInnerHTML={{ __html: menu.text }} />
                     </Link>
                     <MobileLNBWrapper>
                       {Object.keys(calculatedLNBobject).map((key) => {

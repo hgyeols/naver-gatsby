@@ -36,7 +36,7 @@ const TreeNode = ({
 
     if (typeof document !== 'undefined') {
       var x = document.getElementById(title + 'button');
-      x.classList.toggle('colorChanged');
+      x.classList.toggle('onClickClorChangeLNB');
     }
   };
 

@@ -20,6 +20,7 @@ const Wrapper = styled('div')`
 `;
 
 const LNBside = styled('div')`
+  width: ${config.responsive.LNBWidth}px;
   min-width: ${config.responsive.LNBWidth}px;
 `;
 

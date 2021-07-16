@@ -51,10 +51,14 @@
 - Tab Main 2차 QA 반영
 - Endpage 수정
 
-**21.07.15** 0.1.9
+**21.07.14** 0.1.9
 
 - 모바일/태블릿 메뉴 추가
 - Tab Main 3차 QA 반영
+
+**21.07.15** 0.1.10
+
+- GNB/LNB 쪽 figma 반영
 
 ## Configure - Markdown
 
