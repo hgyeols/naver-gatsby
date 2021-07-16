@@ -6,7 +6,13 @@ import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import { Layout, Link } from '$components';
 import NextPrevious from './NextPrevious';
 import config from '../../config';
-import { StyledHeading, StyledHeadingTabMain, StyledMainWrapper, StyledMainWrapperTabMain, Divider } from './styles/guide';
+import {
+  StyledHeading,
+  StyledHeadingTabMain,
+  StyledMainWrapper,
+  StyledMainWrapperTabMain,
+  Divider,
+} from './styles/guide';
 
 const forcedNavOrder = [];
 
@@ -20,18 +26,18 @@ export default class MDXRuntimeTest extends Component {
       allMdx,
       mdx,
       site: {
-        siteMetadata: { title }
+        siteMetadata: { title },
       },
     } = data;
 
     // next previos 에서!!
     const navItems = allMdx.edges
       .map(({ node }) => node.fields.slug)
-      .filter(slug => slug !== '/')
+      .filter((slug) => slug !== '/')
       .sort()
       .reduce(
         (acc, cur) => {
-          if (forcedNavOrder.find(url => url === cur)) {
+          if (forcedNavOrder.find((url) => url === cur)) {
             return { ...acc, [cur]: [cur] };
           }
 
@@ -46,9 +52,8 @@ export default class MDXRuntimeTest extends Component {
           // } else {
           //   return { ...acc, items: [...acc.items, cur] };
           // }
-     
+
           return { ...acc, items: [...acc.items, cur] };
-          
         },
         { items: [] }
       );
@@ -58,7 +63,7 @@ export default class MDXRuntimeTest extends Component {
         return acc.concat(navItems[cur]);
       }, [])
       .concat(navItems.items)
-      .map(slug => {
+      .map((slug) => {
         if (slug) {
           const { node } = allMdx.edges.find(({ node }) => node.fields.slug === slug);
 
@@ -75,13 +80,14 @@ export default class MDXRuntimeTest extends Component {
 
     let canonicalUrl = config.gatsby.siteUrl;
 
-    canonicalUrl = config.gatsby.pathPrefix !== '/' ? canonicalUrl + config.gatsby.pathPrefix : canonicalUrl;
+    canonicalUrl =
+      config.gatsby.pathPrefix !== '/' ? canonicalUrl + config.gatsby.pathPrefix : canonicalUrl;
     canonicalUrl = canonicalUrl + mdx.fields.slug;
 
     return (
       <Layout {...this.props}>
         <Helmet>
-          {metaTitle ? <title>{metaTitle}</title> : null} 
+          {metaTitle ? <title>{metaTitle}</title> : null}
           {metaTitle ? <meta name="title" content={metaTitle} /> : null}
           {metaDescription ? <meta name="description" content={metaDescription} /> : null}
           {metaTitle ? <meta property="og:title" content={metaTitle} /> : null}
@@ -92,59 +98,77 @@ export default class MDXRuntimeTest extends Component {
           ) : null}
           <link rel="canonical" href={canonicalUrl} />
         </Helmet>
-        { mdx.frontmatter.template && mdx.frontmatter.template === 'tabMain' 
-          ?
+        {mdx.frontmatter.template && mdx.frontmatter.template === 'tabMain' ? (
           <div className={'tabMainWrapper'}>
             <div className={'tabMainPhoto'}>
               {titlePhoto && <img src={mdx.frontmatter.titlePhoto} />}
             </div>
             <div className={'titleWrapperTabMain'}>
-              <StyledHeadingTabMain>{mdx.fields.title}</StyledHeadingTabMain> 
-              {titleDescription && <div className={'titleDescriptionTabMain'}>{mdx.frontmatter.titleDescription}</div>}
+              <StyledHeadingTabMain>{mdx.fields.title}</StyledHeadingTabMain>
+              {titleDescription && (
+                <div className={'titleDescriptionTabMain'}>{mdx.frontmatter.titleDescription}</div>
+              )}
               <Divider />
             </div>
             <StyledMainWrapperTabMain>
               <MDXRenderer>{mdx.body}</MDXRenderer>
             </StyledMainWrapperTabMain>
           </div>
-          : mdx.frontmatter.template === 'withDownload' 
-            ?
-            <div className={'defaultWrapper'}>
-              <div className={'titleWrapper'}>
-                <StyledHeading>{mdx.fields.title}</StyledHeading> 
-                {titleDescription && <div className={'titleDescription'}>{mdx.frontmatter.titleDescription}</div>}
-              </div>
-              <StyledMainWrapper>
-                <MDXRenderer>{mdx.body}</MDXRenderer>
-              </StyledMainWrapper>
-              <div className={'addPaddTopBottom'}>
-                <NextPrevious mdx={mdx} nav={nav} />
-              </div>
+        ) : mdx.frontmatter.template === 'withDownload' ? (
+          <div className={'defaultWrapper'}>
+            <div className={'titleWrapper'}>
+              <StyledHeading>{mdx.fields.title}</StyledHeading>
+              {titleDescription && (
+                <div className={'titleDescription'}>{mdx.frontmatter.titleDescription}</div>
+              )}
             </div>
-            :
-            <div className={'defaultWrapper'}>
-              <div className={'titleWrapper'}>
-                <StyledHeading>{mdx.fields.title}</StyledHeading> 
-                {titleDescription && <div className={'titleDescription'}>{mdx.frontmatter.titleDescription}</div>}
-                <Divider />
-              </div>
-              <StyledMainWrapper>
-                <MDXRenderer>{mdx.body}</MDXRenderer>
-              </StyledMainWrapper>
-              <div className={'addPaddTopBottom'}>
-                <NextPrevious mdx={mdx} nav={nav} />
-              </div>
+            <StyledMainWrapper>
+              <MDXRenderer>{mdx.body}</MDXRenderer>
+            </StyledMainWrapper>
+            <div className={'addPaddTopBottom'}>
+              <NextPrevious mdx={mdx} nav={nav} />
             </div>
-        }
-
-        
+          </div>
+        ) : mdx.frontmatter.template === 'contactUs' ? (
+          <div className={'defaultWrapper'}>
+            <div className={'titleWrapper'}>
+              <StyledHeading>{mdx.fields.title}</StyledHeading>
+              {titleDescription && (
+                <div className={'titleDescription'}>{mdx.frontmatter.titleDescription}</div>
+              )}
+              <Divider />
+            </div>
+            <StyledMainWrapper>
+              <MDXRenderer>{mdx.body}</MDXRenderer>
+            </StyledMainWrapper>
+            <div className={'addPaddTopBottom'}>
+              <NextPrevious mdx={mdx} nav={nav} />
+            </div>
+          </div>
+        ) : (
+          <div className={'defaultWrapper'}>
+            <div className={'titleWrapper'}>
+              <StyledHeading>{mdx.fields.title}</StyledHeading>
+              {titleDescription && (
+                <div className={'titleDescription'}>{mdx.frontmatter.titleDescription}</div>
+              )}
+              <Divider />
+            </div>
+            <StyledMainWrapper>
+              <MDXRenderer>{mdx.body}</MDXRenderer>
+            </StyledMainWrapper>
+            <div className={'addPaddTopBottom'}>
+              <NextPrevious mdx={mdx} nav={nav} />
+            </div>
+          </div>
+        )}
       </Layout>
     );
   }
 }
 
 export const pageQuery = graphql`
-  query($id: String!) {
+  query ($id: String!) {
     site {
       siteMetadata {
         title

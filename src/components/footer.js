@@ -48,20 +48,7 @@ const Footer = () => {
                   return (
                     <li key={key}>
                       <Link to={link.link}>{link.text}</Link>
-                      {key === lastLink - 1 ? null : (
-                        // <div className="footerSVG">
-                        //   <svg
-                        //     width="1"
-                        //     height="12"
-                        //     viewBox="0 0 1 12"
-                        //     fill="none"
-                        //     xmlns="http://www.w3.org/2000/svg"
-                        //   >
-                        //     <rect width="1" height="12" fill="#E2E2E2" />
-                        //   </svg>
-                        // </div>
-                        <span className="footerManual">|</span>
-                      )}
+                      {key === lastLink - 1 ? null : <span className="footerManual">|</span>}
                     </li>
                   );
                 }
