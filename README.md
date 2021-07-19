@@ -69,7 +69,7 @@
 
 **21.07.18** 0.2.0
 
-- eng page QA 반영
+- end page QA 반영
 
 ## Configure - Markdown
 
