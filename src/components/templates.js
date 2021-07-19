@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 // import { MDXProvider } from "@mdx-js/react"
 import { Layout, Link } from '$components';
+import WhatsNew from './whatsNew';
 import NextPrevious from './NextPrevious';
 import config from '../../config';
 import {
@@ -143,6 +144,19 @@ export default class MDXRuntimeTest extends Component {
             <StyledMainWrapperContactUs>
               <MDXRenderer>{mdx.body}</MDXRenderer>
             </StyledMainWrapperContactUs>
+          </div>
+        ) : mdx.frontmatter.template === 'whatsNew' ? (
+          <div className="defaultWrapper">
+            <div className="titleWrapper">
+              <StyledHeadingContactUs>{mdx.fields.title}</StyledHeadingContactUs>
+              {titleDescription && (
+                <div className="titleDescriptionContactUs">{mdx.frontmatter.titleDescription}</div>
+              )}
+            </div>
+            {/* <StyledMainWrapperContactUs>
+              <MDXRenderer>{mdx.body}</MDXRenderer>
+            </StyledMainWrapperContactUs> */}
+            <WhatsNew />
           </div>
         ) : (
           <div className="defaultWrapper">

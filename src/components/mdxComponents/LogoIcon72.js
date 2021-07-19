@@ -50,7 +50,7 @@ const LogoIcon72 = (props) => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <circle cx="36" cy="36" r="36" fill="#1F2226" />
+        <circle cx="36" cy="36" r="36" fill="#FEE6B7" />
         <path
           fillRule="evenodd"
           clipRule="evenodd"

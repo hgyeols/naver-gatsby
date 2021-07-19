@@ -6,8 +6,24 @@ export const StyledNextPrevious = styled('div')`
   width: auto;
   display: grid;
   grid-template-rows: auto;
-  column-gap: 34px;
-  grid-template-columns: calc(50% - 8px) calc(50% - 8px);
+  column-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+
+  .nextPreviousTitle {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    transition: color 200ms ease 0s;
+    position: relative;
+  }
+
+  .nextPreviousTitle span {
+    font-family: 'SF Pro Display';
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 1.3;
+    color: #131313;
+  }
 
   .previousBtn {
     cursor: pointer;
@@ -18,10 +34,30 @@ export const StyledNextPrevious = styled('div')`
     padding: 0px;
     position: relative;
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
     place-self: stretch;
     text-decoration: none;
+    justify-content: center;
+
+    .preRightWrapper {
+      display: flex;
+      margin: 0;
+      text-align: left;
+      align-items: center;
+    }
+
+    .smallContent {
+      position: absolute;
+      top: -18px;
+
+      span {
+        font-family: 'SF Pro Text';
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.3;
+        color: #919191;
+      }
+    }
   }
 
   .nextBtn {
@@ -33,12 +69,32 @@ export const StyledNextPrevious = styled('div')`
     padding: 0px;
     position: relative;
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
     place-self: stretch;
     text-decoration: none;
+    justify-content: center;
+
+    .nextRightWrapper {
+      display: flex;
+      margin: 0;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .smallContent {
+      position: absolute;
+      top: -18px;
+
+      span {
+        font-family: 'SF Pro Text';
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.3;
+        color: #919191;
+      }
+    }
   }
-  
+
   .nextBtn:hover,
   .previousBtn:hover {
     text-decoration: none;
@@ -46,24 +102,16 @@ export const StyledNextPrevious = styled('div')`
   .nextBtn:hover .rightArrow,
   .previousBtn:hover .leftArrow {
   }
+
   .leftArrow {
     display: flex;
-    margin: 0px;
-    color: rgb(157, 170, 182);
-    flex: 0 0 auto;
-    font-size: 24px;
+    margin: 0 16px 0 0;
     transition: color 200ms ease 0s;
-    padding: 16px;
-    padding-right: 16px;
   }
+
   .rightArrow {
     display: flex;
-    flex: 0 0 auto;
-    font-size: 24px;
     transition: color 200ms ease 0s;
-    padding: 16px;
-    padding-left: 16px;
-    margin: 0px;
-    color: rgb(157, 170, 182);
+    margin: 0 0 0 16px;
   }
 `;

@@ -149,7 +149,7 @@ const calculateTreeData = (edges) => {
             fields: { slug },
           },
           // }) => slug !== '/'
-        }) => !slug.includes('index')
+        }) => !slug.includes('index') && !slug.includes('whatsNewChanges')
       )
     : edges;
 

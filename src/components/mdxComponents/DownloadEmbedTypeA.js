@@ -1,5 +1,87 @@
 import React from 'react';
+import styled from '@emotion/styled';
 import LogoIcon48 from './LogoIcon48';
+import config from '../../../config';
+
+const DownloadTypeAWrapper = styled('div')`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 24px;
+  margin-top: 16px;
+
+  @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+      .tabletMax}px) {
+    column-gap: 18px;
+  }
+
+  @media (max-width: ${config.responsive.mobileMax}px) {
+    display: none !important;
+  }
+`;
+
+const DownloadTypeAMobile = styled('div')`
+  display: none;
+
+  @media (max-width: ${config.responsive.mobileMax}px) {
+    display: block;
+  }
+`;
+
+const DownloadTypeAContent = styled('div')`
+  height: 80px;
+  background-color: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 21fr 60fr 19fr;
+  align-items: center;
+
+  &:hover {
+    background-color: #fafafa;
+  }
+
+  @media (max-width: ${config.responsive.mobileMax}px) {
+    margin-bottom: 10px;
+  }
+
+  .downloadLogoTypeA {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .downloadTextTypeA {
+    display: block;
+    padding-left: 1px;
+
+    .downloadTextTypeAInput {
+      span {
+        font-family: 'SF Pro Text';
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.6;
+        letter-spacing: -0.017em;
+        color: #131313;
+      }
+    }
+
+    .downloadTextTypeAInput2 {
+      span {
+        font-family: 'Apple SD Gothic Neo', 'SF Pro Text';
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.4;
+        color: #424242;
+      }
+    }
+  }
+
+  .downloadLinkTypeA {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
 
 const DownloadEmbedTypeA = (props) => {
   let propsLength = 0;
@@ -44,11 +126,11 @@ const DownloadEmbedTypeA = (props) => {
       <div>
         {finalArrayTwo.map((el, key) => {
           return (
-            <div className="downloadTypeA" id={'typeA' + key}>
+            <DownloadTypeAWrapper key={'typeA' + key}>
               {el[0] === undefined ? (
                 <div />
               ) : (
-                <div className="downloadWrapperTypeA">
+                <DownloadTypeAContent>
                   <div className="downloadLogoTypeA">
                     <LogoIcon48 logo={el[0].logo} />
                   </div>
@@ -83,12 +165,12 @@ const DownloadEmbedTypeA = (props) => {
                       </svg>
                     </a>
                   </div>
-                </div>
+                </DownloadTypeAContent>
               )}
               {el[1] === undefined ? (
                 <div />
               ) : (
-                <div className="downloadWrapperTypeA">
+                <DownloadTypeAContent>
                   <div className="downloadLogoTypeA">
                     <LogoIcon48 logo={el[1].logo} />
                   </div>
@@ -123,19 +205,19 @@ const DownloadEmbedTypeA = (props) => {
                       </svg>
                     </a>
                   </div>
-                </div>
+                </DownloadTypeAContent>
               )}
-            </div>
+            </DownloadTypeAWrapper>
           );
         })}
 
         {finalArrayOne.map((el, key) => {
           return (
-            <div className="downloadTypeAMobile" id={'downTypeAMob' + key}>
+            <DownloadTypeAMobile id={'downTypeAMob' + key}>
               {el[0] === undefined ? (
                 <div />
               ) : (
-                <div className="downloadWrapperTypeA">
+                <DownloadTypeAContent>
                   <div className="downloadLogoTypeA">
                     <LogoIcon48 logo={el[0].logo} />
                   </div>
@@ -170,9 +252,9 @@ const DownloadEmbedTypeA = (props) => {
                       </svg>
                     </a>
                   </div>
-                </div>
+                </DownloadTypeAContent>
               )}
-            </div>
+            </DownloadTypeAMobile>
           );
         })}
       </div>

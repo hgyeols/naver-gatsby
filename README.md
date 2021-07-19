@@ -67,6 +67,10 @@
 - - 가이드 라이브 (https://starry99.github.io/naver-gatsby/about/contactus)
 - - /content/about/contactus.md 참고
 
+**21.07.18** 0.2.0
+
+- eng page QA 반영
+
 ## Configure - Markdown
 
 모든 markdown 파일은 `content` 폴더 아래에 있어야합니다.

@@ -26,18 +26,18 @@ if (isSearchEnabled && config.gnb.search.indexName) {
 //   loading: LoadingProvider,
 // });
 
-function mobileMenuClick() {
-  if (typeof document !== 'undefined') {
-    var x = document.getElementById('navbarMobile');
-    var y = document.getElementById('navbarDefault');
+// function mobileMenuClick() {
+//   if (typeof document !== 'undefined') {
+//     var x = document.getElementById('navbarMobile');
+//     var y = document.getElementById('navbarDefault');
 
-    if (x.className === 'mobileLNB') {
-      x.className += ' responsive';
-    } else {
-      x.className = 'mobileLNB';
-    }
-  }
-}
+//     if (x.className === 'mobileLNB') {
+//       x.className += ' responsive';
+//     } else {
+//       x.className = 'mobileLNB';
+//     }
+//   }
+// }
 
 const gnbClick = () => {
   if (typeof document !== 'undefined') {

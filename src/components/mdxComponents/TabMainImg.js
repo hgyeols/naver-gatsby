@@ -42,7 +42,7 @@ const TabMainImg = (props) => {
       <div>
         {finalArrayThree.map((el, key) => {
           return (
-            <div className="tabMainImgWrapper" id={'tabMainImg' + key}>
+            <div className="tabMainImgWrapper" key={key}>
               <div className="tabMainImgImg">
                 {el[0] === undefined ? null : el[0].img === '' ? (
                   <div className="tabMainImgBack" />
@@ -117,7 +117,7 @@ const TabMainImg = (props) => {
         })}
         {finalArrayTwo.map((el, key) => {
           return (
-            <div className="tabMainImgWrapperMobile" id={'tabMainImgMob' + key}>
+            <div className="tabMainImgWrapperMobile" key={key}>
               <div className="tabMainImgImg">
                 {el[0] === undefined ? null : el[0].img === '' ? (
                   <div className="tabMainImgBack" />

@@ -1,4 +1,91 @@
 import React from 'react';
+import styled from '@emotion/styled';
+import config from '../../../config';
+
+const MailLinkWraper = styled('div')`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 24px;
+  margin-top: 16px;
+
+  @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+      .tabletMax}px) {
+    column-gap: 18px;
+  }
+
+  @media (max-width: ${config.responsive.mobileMax}px) {
+    display: none !important;
+  }
+`;
+
+const MailLinkMobile = styled('div')`
+  display: none;
+
+  @media (max-width: ${config.responsive.mobileMax}px) {
+    display: block;
+  }
+`;
+
+const MailLinkContent = styled('div')`
+  height: 80px;
+  border: 1px solid #e2e2e2;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 78px 1fr 48px;
+  margin-bottom: 2px;
+
+  &:hover {
+    background: #fafafa;
+  }
+
+  @media (max-width: ${config.responsive.mobileMax}px) {
+    margin-bottom: 16px;
+  }
+`;
+
+const MailLinkIcon = styled('div')`
+  align-self: center;
+`;
+
+const MailLinkPic = styled('div')`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const MailLinkPhoto = styled('div')`
+  width: 40px;
+  height: 40px;
+
+  img {
+    border-radius: 50%;
+  }
+`;
+
+const MailLinkText = styled('div')`
+  position: relative;
+`;
+const MailLinkTextName = styled('div')`
+  font-family: 'SF Pro Text', 'Apple SD Gothic Neo';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.3;
+  letter-spacing: -0.017em;
+  color: #131313;
+  position: absolute;
+  top: 16px;
+`;
+
+const MailLinkTextMail = styled('div')`
+  font-family: 'SF Pro Text';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.017em;
+  color: #636363;
+  position: absolute;
+  bottom: 14px;
+`;
 
 const MailLink = (props) => {
   let propsLength = 0;
@@ -43,13 +130,13 @@ const MailLink = (props) => {
       <div>
         {finalArrayTwo.map((el, key) => {
           return (
-            <div className="MailLink" id={'MailLink' + key}>
+            <MailLinkWraper key={key}>
               {el[0] === undefined ? (
                 <div />
               ) : (
-                <div className="MailLinkWrapper">
-                  <div className="MailLinkPic">
-                    <div className="MailLinkPhoto">
+                <MailLinkContent>
+                  <MailLinkPic>
+                    <MailLinkPhoto>
                       {el[0].photo === '' || el[0].photo === undefined || el[0].photo === null ? (
                         <svg
                           width="40"
@@ -82,19 +169,19 @@ const MailLink = (props) => {
                       ) : (
                         <img src={el[0].photo} />
                       )}
-                    </div>
-                  </div>
-                  <div className="MailLinkText">
-                    <div className="MailLinkTextName">
+                    </MailLinkPhoto>
+                  </MailLinkPic>
+                  <MailLinkText>
+                    <MailLinkTextName>
                       <span>{el[0].name}</span>
-                    </div>
-                    <div className="MailLinkTextMail">
+                    </MailLinkTextName>
+                    <MailLinkTextMail>
                       <a href={'mailto:' + props.mail}>
                         <span>{el[0].mail}</span>
                       </a>
-                    </div>
-                  </div>
-                  <div className="MailLinkIcon">
+                    </MailLinkTextMail>
+                  </MailLinkText>
+                  <MailLinkIcon>
                     <svg
                       width="24"
                       height="24"
@@ -109,15 +196,15 @@ const MailLink = (props) => {
                       />
                       <path d="M21.2379 11.9951H1.73241" stroke="#636363" strokeLinecap="round" />
                     </svg>
-                  </div>
-                </div>
+                  </MailLinkIcon>
+                </MailLinkContent>
               )}
               {el[1] === undefined ? (
                 <div />
               ) : (
-                <div className="MailLinkWrapper">
-                  <div className="MailLinkPic">
-                    <div className="MailLinkPhoto">
+                <MailLinkContent>
+                  <MailLinkPic>
+                    <MailLinkPhoto>
                       {el[1].photo === '' || el[1].photo === undefined || el[1].photo === null ? (
                         <svg
                           width="40"
@@ -150,18 +237,18 @@ const MailLink = (props) => {
                       ) : (
                         <img src={el[1].photo} />
                       )}
-                    </div>
-                  </div>
-                  <div className="MailLinkText">
-                    <div className="MailLinkTextName">
+                    </MailLinkPhoto>
+                  </MailLinkPic>
+                  <MailLinkText>
+                    <MailLinkTextName>
                       <span>{el[1].name}</span>
-                    </div>
-                    <div className="MailLinkTextMail">
+                    </MailLinkTextName>
+                    <MailLinkTextMail>
                       {/* <a href={'mailto:' + props.mail}> */}
                       <span>{el[1].mail}</span>
-                    </div>
-                  </div>
-                  <div className="MailLinkIcon">
+                    </MailLinkTextMail>
+                  </MailLinkText>
+                  <MailLinkIcon>
                     <a href="https://mail.navercorp.com" target="_blank">
                       <svg
                         width="24"
@@ -178,22 +265,22 @@ const MailLink = (props) => {
                         <path d="M21.2379 11.9951H1.73241" stroke="#636363" strokeLinecap="round" />
                       </svg>
                     </a>
-                  </div>
-                </div>
+                  </MailLinkIcon>
+                </MailLinkContent>
               )}
-            </div>
+            </MailLinkWraper>
           );
         })}
 
         {finalArrayOne.map((el, key) => {
           return (
-            <div className="MailLinkMobile" id={'mailLinkMobile' + key}>
+            <MailLinkMobile key={key}>
               {el[0] === undefined ? (
                 <div />
               ) : (
-                <div className="MailLinkWrapper">
-                  <div className="MailLinkPic">
-                    <div className="MailLinkPhoto">
+                <MailLinkContent>
+                  <MailLinkPic>
+                    <MailLinkPhoto>
                       {el[0].photo === '' || el[0].photo === undefined || el[0].photo === null ? (
                         <svg
                           width="40"
@@ -226,19 +313,19 @@ const MailLink = (props) => {
                       ) : (
                         <img src={el[0].photo} />
                       )}
-                    </div>
-                  </div>
-                  <div className="MailLinkText">
-                    <div className="MailLinkTextName">
+                    </MailLinkPhoto>
+                  </MailLinkPic>
+                  <MailLinkText>
+                    <MailLinkTextName>
                       <span>{el[0].name}</span>
-                    </div>
-                    <div className="MailLinkTextMail">
+                    </MailLinkTextName>
+                    <MailLinkTextMail>
                       <a href={'mailto:' + props.mail}>
                         <span>{el[0].mail}</span>
                       </a>
-                    </div>
-                  </div>
-                  <div className="MailLinkIcon">
+                    </MailLinkTextMail>
+                  </MailLinkText>
+                  <MailLinkIcon>
                     <svg
                       width="24"
                       height="24"
@@ -253,10 +340,10 @@ const MailLink = (props) => {
                       />
                       <path d="M21.2379 11.9951H1.73241" stroke="#636363" strokeLinecap="round" />
                     </svg>
-                  </div>
-                </div>
+                  </MailLinkIcon>
+                </MailLinkContent>
               )}
-            </div>
+            </MailLinkMobile>
           );
         })}
       </div>

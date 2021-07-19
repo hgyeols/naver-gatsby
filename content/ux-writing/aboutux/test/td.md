@@ -242,6 +242,10 @@ ordered 리스트는 `1.`로 호출합니다.
 
 <br2/>
 
+**(0.2.0 추가)** Table은 config에서 설정한 content의 width만큼 유지됩니다. 위 아래 padding 18px입니다.
+
+<br2/>
+
 | 헤더1     | 헤더2                                                |
 | --------- | ---------------------------------------------------- |
 | 테스트123 | 테스트123456                                         |
@@ -303,48 +307,153 @@ ordered 리스트는 `1.`로 호출합니다.
 
 ### 코드 only
 
-아래처럼 ` ``` `을 이용해서 작성합니다. 시작과 끝에 ` ``` `가 있어야 합니다.
+- 아래처럼 ` ``` `을 이용해서 작성합니다. 시작과 끝에 ` ``` `가 있어야 합니다.
+- 첫 인자로는 표현할 언어명이 들어갑니다. 아마 일반적으로는 html을 사용할 듯 합니다.
+- highlighting theme(각 언어별 색 표현)은 가장 널리 쓰이는 prismjs를 사용했습니다.  
+  만약 theme을 바꾸려면 /src/components/mdxComponents/codeBlockTheme.js에서 theme이름을 바꿔주면 됩니다.
 
-첫 인자로는 표현할 언어명이 들어갑니다. 아마 일반적으로는 html을 사용할 듯 합니다.
+- **(0.2.0 추가) height 420px로 고정 및 스크롤 생성**
+  - 스크롤바 스타일링은 익스플로러처럼 지원안되는 브라우저도 존재합니다.
+- **(0.2.0 추가) copy 기능 다양한 브라우저에 지원되도록 개선**
 
-highlighting theme(각 언어별 색 표현)은 가장 널리 쓰이는 prismjs를 사용했습니다.  
-만약 theme을 바꾸려면 /src/components/mdxComponents/codeBlockTheme.js에서 theme이름을 바꿔주면 됩니다.
-
-outLinkName=[]에 2개 **이상**의 링크 이름과, outLinkSrc=[]에 **같은 숫자**의 링크를 입력면 아레에 outlink가 뜹니다.
-
-```html outLinkName=[Outlink1,Outlink2] outLinkSrc=[http://naver.com,http://figma.com]
-<!-- 위에 언어 명을 쓰면 그에 맞게 문법과 색을 매칭 -->
+```html
+<!-- 위에 html 말고도 css, js, python 등등 여러 언어 가능 -->
 <ul>
   <li className="Title 1">Content Section</li>
   <li className="Title 1">Content Section</li>
   <li className="Title 1">Content Section</li>
 </ul>
+<ul>
+  <li className="Title 1">Content Section</li>
+  <li className="Title 1">Content Section</li>
+  <li className="Title 1">Content Section</li>
+</ul>
+<!-- height 420px입니다 -->
+<!-- 내부 padding 32px입니다 -->
 ```
 
 <br2/>
 
-outlink를 적지 않으면 아래처럼 나오지 않습니다.
+```html
+<!-- 위에 html 말고도 css, js, python 등등 여러 언어 가능 -->
+<ul>
+  <li className="Title 1">Content Section</li>
+  <li className="Title 1">Content Section</li>
+  <li className="Title 1">Content Section</li>
+</ul>
+<ul>
+  <li className="Title 1">Content Section</li>
+  <li className="Title 1">Content Section</li>
+  <li className="Title 1">Content Section</li>
+</ul>
+<ul>
+  <li className="Title 1">Content Section</li>
+  <li className="Title 1">Content Section</li>
+  <li className="Title 1">Content Section</li>
+</ul>
+<ul>
+  <li className="Title 1">Content Section</li>
+  <li className="Title 1">Content Section</li>
+  <li className="Title 1">Content Section</li>
+</ul>
+<ul>
+  <li className="Title 1">Content Section</li>
+  <li className="Title 1">Content Section</li>
+  <li className="Title 1">Content Section</li>
+</ul>
+<!-- 420px 넘을 때 스크롤 생깁니다  -->
+```
 
-```css
-/* 위에 css, js, python 등등 여러 언어 가능 */
+<br2/>
+
+- outLinkName=[]에 보여질 이름과, outLinkSrc=[]에 **같은 숫자**의 링크를 입력하면 아래에 outlink가 뜹니다.
+
+```css outLinkName=[Outlink1] outLinkSrc=[http://naver.com]
+/* 위에 언어 명을 쓰면 그에 맞게 문법과 색을 매칭 */
 .hightlight {
   display: none;
 }
+
+.codeCopyButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.codeCopyButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+.codeCopyButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+.codeCopyButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+```
+
+- 인자에 띄어쓰기가 들어가면 안됩니다.
+
+```javascript outLinkName=[Outlink1,Test2,Test3] outLinkSrc=[http://naver.com,http://naver.com,http://naver.com]
+/* 위에 언어 명을 쓰면 그에 맞게 문법과 색을 매칭 */
+const testFunction = () => {
+  return false;
+};
 ```
 
 <br1/>
 
 ### 코드 only + Tab
 
-Tab의 경우는 n개로 하기엔 호출 코드가 너무 복잡하여, 우선 2개로 만들었습니다.
-아래처럼 언어 옆에 `tab` 혹은 `tab=true`를 넣고, `tabName=[aa,bb]`를 넣어줍니다.  
-이때 tabName에 띄어쓰기가 들어가면 안됩니다.
+- **(0.2.0) 디자인 변경으로 height 인자 삭제**
+- Tab은 2개만 가능합니다.
+- 아래처럼 언어 옆에 `tab` 혹은 `tab=true`를 넣고, `tabName=[aa,bb]`를 넣어줍니다.
 
-두번째 탭에 보여질 코드는 `---`로 구분됩니다.  
-이러한 tab 양식은 한 페이지에 여러개 사용될 경우에 대비하여 **id가 필요**합니다. 서로 다른값이기만 하면 됩니다.
-tab 양식의 경우 height가 자동으로 인식이 안되므로 따로 설정이 필요합니다. `height` 뒤에 숫자로 적용가능하게 하였습니다.
+  - 이때 tabName에 띄어쓰기가 들어가면 안됩니다.
 
-```html tab tabName=[Android,iOS] id=1 height=180
+- 두번째 탭에 보여질 코드는 `---`로 구분됩니다.
+- 이러한 tab 양식은 한 페이지에 여러개 사용될 경우에는 꼭 **id가 필요**합니다. 서로 다른값이기만 하면 됩니다.
+
+<br2/>
+
+```html tab tabName=[aa,bb] id=0
+<ul>
+  <li className="Title 1">Content Section</li>
+  <li className="Title 1">Content Section</li>
+  <li className="Title 1">Content Section</li>
+</ul>
+<ul>
+  <li className="Title 3">Content Section</li>
+  <li className="Title 3">Content Section</li>
+  <li className="Title 3">Content Section</li>
+</ul>
+<ul>
+  <li className="Title 3">Content Section</li>
+  <li className="Title 3">Content Section</li>
+  <li className="Title 3">Content Section</li>
+</ul>
+<ul>
+  <li className="Title 3">Content Section</li>
+  <li className="Title 3">Content Section</li>
+  <li className="Title 3">Content Section</li>
+</ul>
+<ul>
+  <li className="Title 3">Content Section</li>
+  <li className="Title 3">Content Section</li>
+  <li className="Title 3">Content Section</li>
+</ul>
+---
+<ul>
+  <li className="Title 2">Content Section2</li>
+  <li className="Title 2">Content Section2</li>
+  <li className="Title 2">Content Section2</li>
+</ul>
+```
+
+<br2/>
+
+```html tab tabName=[Android,iOS] id=1
 <!-- 위에 tab=true로 -->
 <ul>
   <li className="Title 1">Content Section</li>
@@ -364,8 +473,13 @@ tab 양식의 경우 height가 자동으로 인식이 안되므로 따로 설정
 
 인자들의 순서는 상관이 없습니다. 탭 + outlink 예시입니다.
 
-```html tab=true tabName=[Test1,Test2] outLinkName=[Outlink1,Outlink2] outLinkSrc=[http://naver.com,http://figma.com] id=a height=160
+```html tab=true tabName=[Test1,Test2] outLinkName=[Outlink1,Outlink2] outLinkSrc=[http://naver.com,http://figma.com] id=a
 <!-- 위에 tab=true로 -->
+<ul>
+  <li className="Title 3">Content Section</li>
+  <li className="Title 3">Content Section</li>
+  <li className="Title 3">Content Section</li>
+</ul>
 <ul>
   <li className="Title 3">Content Section</li>
   <li className="Title 3">Content Section</li>
@@ -431,9 +545,18 @@ export default showExamples;
 
 <br2/>
 
-사운드는 아래의 명령어로 호출합니다.
+- 사운드는 아래의 명령어로 호출합니다.
 
 <sound link='https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3' />
+
+<br2/>
+
+- **(0.2.0 추가)** 만약 sound가 여러개 필요할 경우 id를 추가해주셔야합니다. 윗처럼 입력안하면 default id는 0입니다.
+
+<sound
+  id='1'
+  link='https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3'
+/>
 
 <br2/>
 
@@ -444,6 +567,9 @@ export default showExamples;
 - `logo`에는 sketch, figma, zeplin, font, PSD, illust, PDF, lottie가 들어갈 수 있습니다.
 - Desktop에서는 각 다운로드 간 간격이 24px이고, Tablet에서는 18px입니다. width가 변할수록 비율을 유지한 상태로 줄어듭니다.
 - Mobile에서는 한줄로 바뀝니다.
+- **(0.2.0 추가)** 현재 desktop기준 372px x 80 px이고 border를 제외하면 370px x 78px입니다.
+  - 600px까진 테블릿인데 372 x 2 = 744px에 간격 24px를 더하면, 즉 width 600~768까진 반응형으로 줄어들어야합니다.
+  - 로고 48px + 좌우 여백 각 15씩(border제외) 30px로 78px로 놓으면 전체 78/370 비율, 우측 아이콘은 24px + 좌우 여백 각 23씩 46px로 총 70px로 70/370 비율, 나머지 222/370 비율을 유지하도록 설정했습니다. 즉 로고 21% (에서 센터정렬), 텍스트 쪽 60%, 우측 아이콘 19%(에서 센터정렬)입니다.
 
 <downA
  logo1='figma' title1='Figma Design Kit' text1="피그마" link1='https://github.com/git-for-windows/git/releases/download/v2.32.0.windows.1/Git-2.32.0-64-bit.exe'
@@ -459,11 +585,12 @@ export default showExamples;
 - 마찬가지로 변수로는 logo, title, text, link 4개씩 필요합니다.
 - Desktop에서는 각 다운로드 간 간격이 24px이고, Tablet에서는 18px, Mobile에서는 5px(figma에 없어서 임의)입니다. width가 변할수록 비율을 유지한 상태로 줄어듭니다.
 - Desktop에서는 한줄에 3개씩, Mobile에서는 한줄에 2개씩으로 바뀝니다.
+- **(0.2.0 추가)** Figma에 맞게 border를 반영하여 세부 수정
 
 <downB
- logo1='figma' title1='Figma Design Kit' text1="피그마" link1='https://github.com/git-for-windows/git/releases/download/v2.32.0.windows.1/Git-2.32.0-64-bit.exe'
- logo2='sketch' title2='Sketch Design Kit' text2="스케치" link2='https://github.com/git-for-windows/git/releases/download/v2.32.0.windows.1/Git-2.32.0-64-bit.exe' 
- logo3='PSD' title3='PSD Design Kit' text3="PSD" link3='https://github.com/git-for-windows/git/releases/download/v2.32.0.windows.1/Git-2.32.0-64-bit.exe' 
+ logo1='figma' title1='Figma Design Kit' text1="Download" link1='https://github.com/git-for-windows/git/releases/download/v2.32.0.windows.1/Git-2.32.0-64-bit.exe'
+ logo2='sketch' title2='Sketch Design Kit' text2="Download" link2='https://github.com/git-for-windows/git/releases/download/v2.32.0.windows.1/Git-2.32.0-64-bit.exe' 
+ logo3='PSD' title3='PSD Design Kit' text3="Download" link3='https://github.com/git-for-windows/git/releases/download/v2.32.0.windows.1/Git-2.32.0-64-bit.exe' 
 />
 
 <br1/>
@@ -482,11 +609,22 @@ export default showExamples;
 
 <br2/>
 
-커스텀 링크 2번은 다음과 같습니다. 아래 6개의 인자를 필요로 합니다. 각 width는 (maxWidth/2)-24 입니다.
+커스텀 링크 2번은 다음과 같습니다. **수정됨 v. 0.2.0**
 
-<link2 
-  link1='http://www.naver.com' text11='Naver Design' text12='Related link' 
-  link2='http://www.figma.com' text21='Naver Test' text22='Related link'
+<link2
+  link1='http://www.naver.com' title1='Naver Design' text1='Related link' 
+  link2='http://www.figma.com' title2='Naver Test' text2='Related link'
+/>
+
+- 변수 3개 `link`, `title`, `text`가 모두 필요합니다. `''`이런 식으로 비워져있어도 됩니다.
+- 각 요소 간 간격은 24px고 태블릿에서는 18px입니다.
+- 모바일에서는 1줄로 바뀝니다.
+- **0.2.0** 아래처럼 n개가 가능하도록 수정되었습니다.
+
+<link2
+  link1='http://www.naver.com' title1='Naver Design' text1='Related link' 
+  link2='http://www.figma.com' title2='Naver Test' text2='Related link'
+  link3='http://www.naver.com' title3='Naver 3' text3='Related link' 
 />
 
 <br1/>
@@ -496,19 +634,48 @@ export default showExamples;
 <br2/>
 
 커스텀 아웃링크는 다음과 같습니다.
+**0.2.0 호출 방법 변경됨**
 
-<outlink text='Test1' link='http://naver.com' />
+<outlink text1='Test1' link1='http://naver.com' />
 
 <br2/>
 
 n개가 들어갈 때에는, text에 comma가 들어갈 수도 있으니 `;`로 구분자를 넣었습니다.  
 text와 link의 수가 같아야하며, 인자에 띄어쓰기가 들어가면 안됩니다.
 
-<outlink text='Test1;Test2' link='http://naver.com;http://figma.com' />
+n개가 들어갈 때에는, 다른 component처럼 호출합니다.
 
 <br2/>
 
-<outlink text='Test1;Test2;Test3;Test4' link='http://naver.com;http://figma.com;http://naver.com;http://figma.com' />
+<outlink 
+  text1='각 component 사이 간격은 7px' link1='http://naver.com' 
+  text2='Test2' link2='http://figma.com'
+/>
+
+<br2/>
+
+<outlink 
+  text1='Test1' link1='http://naver.com' 
+  text2='Test2' link2='http://figma.com'
+  text3='Test3' link3='http://naver.com' 
+  text4='Test4' link4='http://figma.com'
+/>
+
+<br2/>
+
+<outlink 
+  text1='만약 10개가 넘으면 변수 뒤에 1자리 문자를 넣어도 됩니다.' link1='http://naver.com' 
+  text2='Test2' link2='http://figma.com'
+  text3='Test3' link3='http://naver.com' 
+  text4='Test4' link4='http://figma.com'
+  text5='Test5' link5='http://naver.com' 
+  text6='Test6' link6='http://figma.com'
+  text7='Test7' link7='http://naver.com' 
+  text8='Test8' link8='http://figma.com'
+  text9='Test9' link9='http://naver.com' 
+  texta='Test10' linka='http://figma.com'
+  textb='Test11' linkb='http://naver.com' 
+/>
 
 <br1/>
 
@@ -528,6 +695,7 @@ Mail Link는 다음과 같이 호출합니다.
 - 각 요소 간 간격은 24px고 태블릿에서는 18px입니다.
 - 모바일에서는 1줄로 바뀝니다.
 - 이때 아래 margin은 16px입니다 (figma에 없어서 임의)
+- (**0.2.0 추가**) height는 80px인데 border가 1px씩 있어서 내부는 78px입니다. 현재 아이콘은 좌측 78 x 78 박스에서 센터 정렬되어있습니다.
 
 <br2/>
 

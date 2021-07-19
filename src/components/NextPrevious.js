@@ -50,17 +50,30 @@ const NextPrevious = ({ mdx, nav }) => {
   return (
     <StyledNextPrevious>
       {previousInfo.url && currentIndex >= 0 ? (
-        <Link to={nav[currentIndex - 1].url} className={'previousBtn'}>
-          <div className={'leftArrow'}>
-            <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6.98817 13L1 7.01183L6.91619 1" stroke="#131313" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-          <div className={'preRightWrapper'}>
-            <div className={'smallContent'}>
-              <span>Previous</span>
+        <Link to={nav[currentIndex - 1].url} className="previousBtn">
+          <div className="preRightWrapper">
+            <div className="leftArrow">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.98817 14L2 8.01183L7.91619 2"
+                  stroke="#131313"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </div>
+
             <div className={'nextPreviousTitle'}>
+              <div className="smallContent">
+                <span>Previous</span>
+              </div>
               <span>{nav[currentIndex - 1].title}</span>
             </div>
           </div>
@@ -68,18 +81,31 @@ const NextPrevious = ({ mdx, nav }) => {
       ) : null}
       {nextInfo.url && currentIndex >= 0 ? (
         <Link to={nav[currentIndex + 1].url} className={'nextBtn'}>
-          <div className={'nextRightWrapper'}>
-            <div className={'smallContent'}>
-              <span>Next</span>
-            </div>
+          <div className="nextRightWrapper">
             <div className={'nextPreviousTitle'}>
+              <div className={'smallContent'}>
+                <span>Next</span>
+              </div>
               <span>{nav[currentIndex + 1] && nav[currentIndex + 1].title}</span>
             </div>
-          </div>
-          <div className={'rightArrow'}>
-            <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1.01281 12.936L7.00098 6.94787L1.08479 0.936035" stroke="#212121" strokeWidth="2"/>
-            </svg>
+
+            <div className="rightArrow">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.00011 14L13.9883 8.01183L8.07209 2"
+                  stroke="#131313"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
           </div>
         </Link>
       ) : null}

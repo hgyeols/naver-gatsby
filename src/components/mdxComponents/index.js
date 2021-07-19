@@ -20,7 +20,23 @@ import TabMainResource from './TabMainResource';
 import TitleDownload from './TitleDownload';
 
 const StyledPre = styled('div')`
-  background-color: #131313;
+  /* background-color: #131313;
+  padding: ${(props) => (props.outLink ? '0' : '32px')};
+  margin-top: ${(props) => (props.outLink ? '0' : '16px')};
+  overflow-y: ${(props) => (props.outLink ? 'hidden' : 'scroll')};
+  overflow-x: hidden;
+  position: relative;
+  height: ${(props) => (props.outLink ? '57px' : '420px')};
+
+  &::-webkit-scrollbar {
+    width: 18px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #636363;
+    border-radius: 9999px;
+    border: solid #131313 7px;
+  } */
 `;
 
 const StyledHr = styled('div')`
