@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-
+import styled from '@emotion/styled';
 import Link from '../link';
-import LNB from '../lnb';
 import Loadable from 'react-loadable';
 import config from '../../../config';
 import LoadingProvider from '../mdxComponents/loading';
@@ -38,14 +37,55 @@ if (isSearchEnabled && config.gnb.search.indexName) {
 //     }
 //   }
 // }
+const GNBUL = styled.ul`
+  display: flex;
+  align-items: center;
 
-const gnbClick = () => {
-  if (typeof document !== 'undefined') {
-    var x = document.querySelectorAll('.GNBUL li a');
-    for (var i = 0; i < x.length; i++) {
-      x[i].setAttribute('style', 'color: #919191');
-    }
+  li {
+    list-style-type: none;
   }
+
+  &:hover li a div {
+    color: #919191;
+  }
+
+  li a div:hover {
+    color: #fff;
+  }
+`;
+
+const GNBdiv = styled.div`
+  cursor: pointer;
+  color: ${(props) =>
+    props.first === -1 ? '#f3f3f3' : props.isActive ? '#f3f3f3 !important' : '#919191'};
+  font-family: 'SF Pro Text';
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 100%;
+  margin: 0 16px;
+  letter-spacing: -0.022em;
+
+  &:hover {
+    color: #f3f3f3;
+  }
+`;
+
+const ClickItemComponent = ({
+  title = '',
+  onItemClicked = () => console.error('You passed no action to the component'),
+  isActive = false,
+  active = -1,
+}) => {
+  return (
+    <GNBdiv
+      first={active}
+      onClick={onItemClicked}
+      isActive={isActive}
+      className="sidebarLink displayInline"
+    >
+      {title}
+    </GNBdiv>
+  );
 };
 
 const GNB = ({ location }) => {
@@ -71,10 +111,12 @@ const GNB = ({ location }) => {
     },
   } = data;
 
+  const [active, setActive] = useState(-1);
+
   const finalLogoLink = titleLink !== '' ? titleLink : 'https://www.naver.com';
   return (
     <GNBStylesWrapper>
-      <nav className={'GNBDefault'} id="navbarDefault">
+      <nav className="GNBDefault" id="navbarDefault">
         <div className={'GNBHeader hiddenTablet hiddenMobile'}>
           {/* GNB Title */}
           <Link to={finalLogoLink}>
@@ -85,26 +127,25 @@ const GNB = ({ location }) => {
           </Link>
           {/* GNB Menu */}
           <div className={'GNBNavWrapper'}>
-            <ul className={'GNBUL'} id="GNBid">
+            <GNBUL id="GNBid">
               {gnbMenu.map((menu, key) => {
                 if (menu.text !== '' && menu.folderName !== '') {
                   return (
                     <li key={key}>
-                      <Link
-                        to={`/${menu.folderName}/index`}
-                        activeClassName="active"
-                        onClick={gnbClick}
-                      >
-                        <div
-                          className={'sidebarLink displayInline'}
-                          dangerouslySetInnerHTML={{ __html: menu.text }}
+                      <Link to={`/${menu.folderName}/index`}>
+                        <ClickItemComponent
+                          key={key}
+                          title={menu.text}
+                          onItemClicked={() => setActive(key)}
+                          isActive={active === key}
+                          active={active}
                         />
                       </Link>
                     </li>
                   );
                 }
               })}
-            </ul>
+            </GNBUL>
           </div>
           <div className={'GNBSearchIcon'}>
             <svg

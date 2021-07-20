@@ -71,6 +71,10 @@
 
 - end page QA 반영
 
+**21.07.19** 0.2.1
+
+- GNB 클릭 이벤트 수정 및 스크롤 이벤트 추가
+
 ## Configure - Markdown
 
 모든 markdown 파일은 `content` 폴더 아래에 있어야합니다.

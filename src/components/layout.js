@@ -13,6 +13,16 @@ const Wrapper = styled('div')`
   display: flex;
   justify-content: space-between;
   // background: ${({ theme }) => theme.colors.background};
+  padding-top: 72px;
+
+  @media (min-width: ${config.responsive.tabletMin}px) and (max-width: ${config.responsive
+      .tabletMax}px) {
+    padding-top: 64px;
+  }
+
+  @media (max-width: ${config.responsive.mobileMax}px) {
+    padding-top: 64px;
+  }
 
   @media only screen and (max-width: ${config.responsive.mobileMax}px) {
     display: block;

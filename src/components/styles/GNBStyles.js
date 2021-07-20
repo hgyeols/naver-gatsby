@@ -8,7 +8,7 @@ export const GNBStylesWrapper = styled.div`
     margin-bottom: 0;
     border: 0;
     z-index: 89;
-    position: relative;
+    position: fixed;
     height: 72px;
     display: flex;
     align-items: center;
@@ -34,44 +34,8 @@ export const GNBStylesWrapper = styled.div`
     transform: translate(-50%, -50%);
   }
 
-  .GNBUL {
-    -webkit-overflow-scrolling: touch;
-    display: flex;
-    align-items: center;
-  }
-
-  .GNBUL:hover li a {
+  .GNBUL:hover li a div {
     color: #919191 !important;
-  }
-
-  .GNBUL li {
-    list-style-type: none;
-  }
-
-  .GNBUL li a {
-    color: #fff;
-    font-family: 'SF Pro Text';
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 100%;
-    margin: 0 16px;
-    letter-spacing: -0.022em;
-  }
-
-  .GNBUL li a.active {
-    color: #fff !important;
-  }
-
-  .GNBUL:hover li a.active {
-    color: #fff !important;
-  }
-
-  .GNBUL li a:hover {
-    color: #fff !important;
-  }
-
-  .GNBUL li a.active:hover {
-    color: #fff !important;
   }
 
   .GNBSearchIcon {
